@@ -1,0 +1,366 @@
+HTTrack3.49-2+htsswf+htsjava launched on Fri, 30 Aug 2024 19:04:03 at https://eduport.webestica.com/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://eduport.webestica.com/ -O1 "C:\My Web Sites\demo" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+19:07:55	Error: 	"Not Found" (404) at link https://eduport.webestica.com/docs/assets/vendor/overlay-scrollbar/css/overlayscrollbars.min.css (from https://eduport.webestica.com/docs/snippets.html)
+19:07:55	Error: 	"Not Found" (404) at link https://eduport.webestica.com/video/ (from https://eduport.webestica.com/assets/vendor/glightbox/js/glightbox.js)
+19:07:55	Error: 	"Not Found" (404) at link https://eduport.webestica.com/dist/ (from https://eduport.webestica.com/assets/vendor/aos/aos.js)
+19:07:55	Error: 	"Not Found" (404) at link https://eduport.webestica.com/string (from https://eduport.webestica.com/assets/vendor/plyr/plyr.js)
+19:07:56	Error: 	"Not Found" (404) at link https://eduport.webestica.com/blots/ (from https://eduport.webestica.com/assets/vendor/quill/js/quill.min.js)
+19:07:56	Error: 	"Not Found" (404) at link https://eduport.webestica.com/formats/ (from https://eduport.webestica.com/assets/vendor/quill/js/quill.min.js)
+19:07:56	Error: 	"Not Found" (404) at link https://eduport.webestica.com/Trident/ (from https://eduport.webestica.com/assets/vendor/overlay-scrollbar/js/overlayscrollbars.min.js)
+19:07:56	Error: 	"Not Found" (404) at link https://eduport.webestica.com/Edge/ (from https://eduport.webestica.com/assets/vendor/overlay-scrollbar/js/overlayscrollbars.min.js)
+19:08:40	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/animate-css/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+19:09:19	Error: 	"Not Found" (404) at link https://eduport.webestica.com/rtl/docs/assets/vendor/overlay-scrollbar/css/overlayscrollbars.min.css (from https://eduport.webestica.com/rtl/docs/snippets.html)
+19:09:19	Error: 	"Not Found" (404) at link https://eduport.webestica.com/rtl/video/ (from https://eduport.webestica.com/rtl/assets/vendor/glightbox/js/glightbox.js)
+19:09:31	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/signup_check/username?suggest_usernames=true
+19:13:07	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/security/overall-count (from https://github.com/animate-css/animate.css)
+19:27:31	Warning: 	Link https://github.com/animate-css/animate.css/tree/a8d92e585b1b302f7749809c3308d5e381f9cb17 not scanned (follow robots meta tag)
+19:27:38	Warning: 	Link https://github.com/animate-css/animate.css/releases/tag/v4.1.1 not scanned (follow robots meta tag)
+19:27:55	Error: 	"Not Found" (404) at link https://eduport.webestica.com/docs/docs/alerts.html (from https://eduport.webestica.com/docs/snippet-hero-3.html)
+19:27:55	Error: 	"Not Found" (404) at link https://eduport.webestica.com/docs/university-admission-form.html (from https://eduport.webestica.com/docs/snippet-hero-5.html)
+19:27:55	Error: 	"Not Found" (404) at link https://eduport.webestica.com/docs/contact-us.html (from https://eduport.webestica.com/docs/snippet-hero-7.html)
+19:27:55	Error: 	"Not Found" (404) at link https://eduport.webestica.com/docs/video/ (from https://eduport.webestica.com/docs/assets/vendor/glightbox/js/glightbox.js)
+19:27:55	Error: 	"Not Found" (404) at link https://eduport.webestica.com/rtl/dist/ (from https://eduport.webestica.com/rtl/assets/vendor/aos/aos.js)
+19:27:55	Error: 	"Not Found" (404) at link https://eduport.webestica.com/rtl/string (from https://eduport.webestica.com/rtl/assets/vendor/plyr/plyr.js)
+19:27:56	Error: 	"Not Found" (404) at link https://eduport.webestica.com/rtl/blots/ (from https://eduport.webestica.com/rtl/assets/vendor/quill/js/quill.min.js)
+19:27:56	Error: 	"Not Found" (404) at link https://eduport.webestica.com/rtl/formats/ (from https://eduport.webestica.com/rtl/assets/vendor/quill/js/quill.min.js)
+19:27:56	Error: 	"Not Found" (404) at link https://eduport.webestica.com/rtl/Trident/ (from https://eduport.webestica.com/rtl/assets/vendor/overlay-scrollbar/js/overlayscrollbars.min.js)
+19:27:56	Error: 	"Not Found" (404) at link https://eduport.webestica.com/rtl/Edge/ (from https://eduport.webestica.com/rtl/assets/vendor/overlay-scrollbar/js/overlayscrollbars.min.js)
+19:28:11	Error: 	"Not Found" (404) at link https://github.com/email_validity_checks (from https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=animate-css%2Fanimate.css)
+19:28:11	Error: 	"Not Found" (404) at link https://github.com/password_validity_checks (from https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=animate-css%2Fanimate.css)
+19:31:45	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/triptych/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+19:32:04	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/OCEANOFANYTHINGOFFICIAL/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+19:32:25	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/uchoamaster/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+19:32:27	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/uchoamaster/animate.css/used_by_list
+19:32:45	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/steveseguin/animate.mit.css/hovercards/citation/sidebar_partial?tree_name=MIT
+19:33:06	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/hymhub/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+19:33:27	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/modulardata/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+19:33:47	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/sinoobie/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+19:34:07	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/AugustoDiaz-Dev/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+19:34:27	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/UjjalKar/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+19:34:48	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/hyokosdeveloper/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+19:35:08	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/nribeka/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+19:35:10	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/nribeka/animate.css/used_by_list
+19:35:29	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/informaticacba/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+19:35:32	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/informaticacba/animate.css/used_by_list
+19:35:54	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/makitoda/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+19:36:15	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/LOIC-only-one/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+19:36:35	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/fahad-011/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+19:36:55	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/MY-BNH/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+19:37:10	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/brlamco/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+19:37:31	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/xuui/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+19:37:51	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/Gzbox/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+19:38:12	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/kpmdevgr/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+19:38:33	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/nicdnb/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+19:38:35	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/nicdnb/animate.css/used_by_list
+19:38:53	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/neongKH/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+19:39:14	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/NBdeHuangLin/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+19:39:34	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/nightmare301986/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+19:39:54	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/nobodyiam95/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+19:41:14	Warning: 	Link https://github.com/animate-css/animate.css/tree/dependabot/npm_and_yarn/husky-9.1.4 not scanned (follow robots meta tag)
+19:41:14	Warning: 	Link https://github.com/animate-css/animate.css/tree/dependabot/npm_and_yarn/eslint-9.8.0 not scanned (follow robots meta tag)
+19:41:14	Warning: 	Link https://github.com/animate-css/animate.css/tree/dependabot/npm_and_yarn/postcss-8.4.40 not scanned (follow robots meta tag)
+19:41:14	Warning: 	Link https://github.com/animate-css/animate.css/tree/dependabot/npm_and_yarn/prettier-3.3.3 not scanned (follow robots meta tag)
+19:41:14	Warning: 	Link https://github.com/animate-css/animate.css/tree/dependabot/npm_and_yarn/postcss-preset-env-9.6.0 not scanned (follow robots meta tag)
+19:41:17	Warning: 	Link https://github.com/animate-css/animate.css/commit/4aa415199dd4ed7d877d10343e745e8bbb4b7a0c not scanned (follow robots meta tag)
+19:41:17	Warning: 	Link https://github.com/animate-css/animate.css/releases/tag/v4.1.0 not scanned (follow robots meta tag)
+19:41:18	Warning: 	Link https://github.com/animate-css/animate.css/commit/92f2e1accedf35249e5590bb866cb857f225ff9a not scanned (follow robots meta tag)
+19:41:18	Warning: 	Link https://github.com/animate-css/animate.css/releases/tag/v4.0.0 not scanned (follow robots meta tag)
+19:41:18	Warning: 	Link https://github.com/animate-css/animate.css/commit/b29bc450f446f0e9705ce72a932ff01ab274eb4c not scanned (follow robots meta tag)
+19:41:19	Warning: 	Link https://github.com/animate-css/animate.css/releases/tag/3.7.2 not scanned (follow robots meta tag)
+19:41:19	Warning: 	Link https://github.com/animate-css/animate.css/commit/ab5fe9dae4fdb936eee698ce1850a263008f0a99 not scanned (follow robots meta tag)
+19:41:19	Warning: 	Link https://github.com/animate-css/animate.css/releases/tag/v3.7.1 not scanned (follow robots meta tag)
+19:41:20	Warning: 	Link https://github.com/animate-css/animate.css/commit/28b0fd5a2344e41e6c366c6d8f16d1fba074e296 not scanned (follow robots meta tag)
+19:41:20	Warning: 	Link https://github.com/animate-css/animate.css/releases/tag/3.7.0 not scanned (follow robots meta tag)
+19:41:21	Warning: 	Link https://github.com/animate-css/animate.css/pull/832 not scanned (follow robots meta tag)
+19:41:22	Warning: 	Link https://github.com/animate-css/animate.css/commit/940e4aef81edc26d3458480adcd475e51bd38df5 not scanned (follow robots meta tag)
+19:41:22	Warning: 	Link https://github.com/animate-css/animate.css/releases/tag/v3.6.2 not scanned (follow robots meta tag)
+19:41:23	Warning: 	Link https://github.com/animate-css/animate.css/commit/de6b531570c4b0f25d1465edc0ae631f6c33b34c not scanned (follow robots meta tag)
+19:41:23	Warning: 	Link https://github.com/animate-css/animate.css/releases/tag/3.5.2 not scanned (follow robots meta tag)
+19:41:23	Warning: 	Link https://github.com/animate-css/animate.css/pull/550 not scanned (follow robots meta tag)
+19:41:24	Warning: 	Link https://github.com/animate-css/animate.css/commit/dac3dab7b59cb6072b5d0fe23eae3805e370a58c not scanned (follow robots meta tag)
+19:41:24	Warning: 	Link https://github.com/animate-css/animate.css/releases/tag/3.5.1 not scanned (follow robots meta tag)
+19:41:25	Warning: 	Link https://github.com/animate-css/animate.css/commit/010e06e11175840ae84ad9363f7269f03775d963 not scanned (follow robots meta tag)
+19:41:25	Warning: 	Link https://github.com/animate-css/animate.css/releases/tag/3.5.0 not scanned (follow robots meta tag)
+19:41:26	Warning: 	Link https://github.com/animate-css/animate.css/commit/0a6a8abf551c9abff96de1b97232bf0fd9a48ba2 not scanned (follow robots meta tag)
+19:44:00	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc (from https://github.com/animate-css/animate.css/issues)
+19:44:00	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions--1-desc (from https://github.com/animate-css/animate.css/issues)
+19:44:00	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-smile-desc (from https://github.com/animate-css/animate.css/issues)
+19:44:00	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-tada-desc (from https://github.com/animate-css/animate.css/issues)
+19:44:00	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-thinking_face-desc (from https://github.com/animate-css/animate.css/issues)
+19:44:00	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-heart-desc (from https://github.com/animate-css/animate.css/issues)
+19:44:00	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-rocket-desc (from https://github.com/animate-css/animate.css/issues)
+19:44:00	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-eyes-desc (from https://github.com/animate-css/animate.css/issues)
+19:44:01	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3ABhakti246 (from https://github.com/animate-css/animate.css/issues)
+19:44:02	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+label%3Abug (from https://github.com/animate-css/animate.css/issues)
+19:44:02	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3Arectalogic (from https://github.com/animate-css/animate.css/issues)
+19:44:02	Warning: 	Link https://github.com/animate-css/animate.css/pull/1802 not scanned (follow robots meta tag)
+19:44:05	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3Apeme969 (from https://github.com/animate-css/animate.css/issues)
+19:44:06	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3Ahandcoding (from https://github.com/animate-css/animate.css/issues)
+19:44:09	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+label%3A%22feature+request%22 (from https://github.com/animate-css/animate.css/issues)
+19:44:09	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+label%3AWIP (from https://github.com/animate-css/animate.css/issues)
+19:44:09	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3Aguiyuanyuanbao (from https://github.com/animate-css/animate.css/issues)
+19:44:11	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+label%3A%22under+consideration%22 (from https://github.com/animate-css/animate.css/issues)
+19:44:11	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3Adavidjeba (from https://github.com/animate-css/animate.css/issues)
+19:44:16	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+label%3Av5 (from https://github.com/animate-css/animate.css/issues)
+19:44:16	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3AartisticLogicMK (from https://github.com/animate-css/animate.css/issues)
+19:44:20	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+label%3A%22to+be+verified%22 (from https://github.com/animate-css/animate.css/issues)
+19:44:20	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3Ajack-fdrv (from https://github.com/animate-css/animate.css/issues)
+19:44:20	Warning: 	Link https://github.com/animate-css/animate.css/pull/1780 not scanned (follow robots meta tag)
+19:44:22	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22 (from https://github.com/animate-css/animate.css/issues)
+19:44:22	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+label%3Aimprovement (from https://github.com/animate-css/animate.css/issues)
+19:44:22	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3Aeltonmesquita (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=assignee%3Aeltonmesquita+is%3Aopen (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1531 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1528 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3Apradt (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1516 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3AConnerAiken (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1507 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3Ascrobbleme (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1400 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3AKodingKhurram (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1371 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3Abrc-dd (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1331 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1314 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3AsjInside (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1269 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3Achumager (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1267 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3ASamMousa (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1221 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Warning: 	Link https://github.com/animate-css/animate.css/pull/1273 not scanned (follow robots meta tag)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1204 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=assignee%3Awarengonzaga+is%3Aopen (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1195 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3Aivalsaraj (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1118 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+label%3Atodo (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues/1009 (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+author%3Achriscconte (from https://github.com/animate-css/animate.css/issues)
+19:44:24	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Aissue+is%3Aopen+-label%3Abug (from https://github.com/animate-css/animate.css/issues)
+19:44:31	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Aopen+is%3Apr (from https://github.com/animate-css/animate.css/pulls)
+19:44:31	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aclosed (from https://github.com/animate-css/animate.css/pulls)
+19:44:42	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+review%3Anone (from https://github.com/animate-css/animate.css/pulls)
+19:44:42	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+review%3Arequired (from https://github.com/animate-css/animate.css/pulls)
+19:44:42	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+review%3Aapproved (from https://github.com/animate-css/animate.css/pulls)
+19:44:42	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+review%3Achanges-requested (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+no%3Aassignee (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+sort%3Acreated-asc (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+sort%3Acomments-desc (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+sort%3Acomments-asc (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-asc (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+sort%3Arelevance-desc (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+sort%3Areactions-%2B1-desc (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+sort%3Areactions--1-desc (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+sort%3Areactions-smile-desc (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+sort%3Areactions-tada-desc (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+sort%3Areactions-thinking_face-desc (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+sort%3Areactions-heart-desc (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+sort%3Areactions-rocket-desc (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+sort%3Areactions-eyes-desc (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Warning: 	Link https://github.com/animate-css/animate.css/pull/1815 not scanned (follow robots meta tag)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/pulls?q=is%3Apr+is%3Aopen+label%3Adependencies (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Apr+is%3Aopen+author%3Aapp%2Fdependabot (from https://github.com/animate-css/animate.css/pulls)
+19:44:43	Warning: 	Link https://github.com/animate-css/animate.css/pull/1814 not scanned (follow robots meta tag)
+19:44:51	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Apr+is%3Aopen+author%3AAbdurahmansherefa (from https://github.com/animate-css/animate.css/pulls)
+19:44:51	Warning: 	Link https://github.com/animate-css/animate.css/pull/1810 not scanned (follow robots meta tag)
+19:44:51	Warning: 	Link https://github.com/animate-css/animate.css/pull/1806 not scanned (follow robots meta tag)
+19:44:57	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Apr+is%3Aopen+author%3Aac-mmi (from https://github.com/animate-css/animate.css/pulls)
+19:44:57	Warning: 	Link https://github.com/animate-css/animate.css/pull/1804 not scanned (follow robots meta tag)
+19:45:00	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Apr+is%3Aopen+author%3Aaayla-secura (from https://github.com/animate-css/animate.css/pulls)
+19:45:00	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Apr+is%3Aopen+author%3AiamAyushChamoli (from https://github.com/animate-css/animate.css/pulls)
+19:45:00	Warning: 	Link https://github.com/animate-css/animate.css/pull/1795 not scanned (follow robots meta tag)
+19:45:01	Warning: 	Link https://github.com/animate-css/animate.css/pull/1792 not scanned (follow robots meta tag)
+19:45:02	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Apr+is%3Aopen+author%3Aallanemerson (from https://github.com/animate-css/animate.css/pulls)
+19:45:21	Warning: 	Link https://github.com/animate-css/animate.css/pull/1772 not scanned (follow robots meta tag)
+19:45:52	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Apr+is%3Aopen+author%3Ahymhub (from https://github.com/animate-css/animate.css/pulls)
+19:45:52	Warning: 	Link https://github.com/animate-css/animate.css/pull/1583 not scanned (follow robots meta tag)
+19:45:52	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Apr+is%3Aopen+author%3Awarengonzaga (from https://github.com/animate-css/animate.css/pulls)
+19:45:52	Error: 	"Too Many Requests" (429) at link https://github.com/animate-css/animate.css/issues?q=is%3Apr+is%3Aopen+updated%3A%3C2024-07-30 (from https://github.com/animate-css/animate.css/pulls)
+19:46:50	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/discussions/labels/search_menu?discussions_q=is%3Aopen&experimental=1 (from https://github.com/animate-css/animate.css/discussions)
+19:48:17	Warning: 	Link https://github.com/animate-css/animate.css/blob/3f8ab233dbbd9d2fe577528d2296382954be3d1a/CODE_OF_CONDUCT.md not scanned (follow robots meta tag)
+19:49:48	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/actions/caches (from https://github.com/animate-css/animate.css/actions)
+19:49:48	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/deployments (from https://github.com/animate-css/animate.css/actions)
+19:49:49	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/actions/navigation_partial?query=&selected_section=all_workflows (from https://github.com/animate-css/animate.css/actions)
+19:50:47	Warning: 	Link https://github.com/animate-css/animate.css/pull/1813 not scanned (follow robots meta tag)
+19:50:47	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/tree/dependabot/npm_and_yarn/husky-9.1.3 (from https://github.com/animate-css/animate.css/actions)
+19:50:55	Warning: 	Link https://github.com/animate-css/animate.css/pull/1811 not scanned (follow robots meta tag)
+19:50:55	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/tree/dependabot/npm_and_yarn/husky-9.1.2 (from https://github.com/animate-css/animate.css/actions)
+21:53:54	Warning: 	Link https://github.com/animate-css/animate.css/commit/3f8ab233dbbd9d2fe577528d2296382954be3d1a not scanned (follow robots meta tag)
+21:53:54	Warning: 	Link https://github.com/animate-css/animate.css/pull/1681 not scanned (follow robots meta tag)
+21:53:54	Warning: 	Link https://github.com/animate-css/animate.css/tree/3f8ab233dbbd9d2fe577528d2296382954be3d1a not scanned (follow robots meta tag)
+21:53:56	Warning: 	Link https://github.com/animate-css/animate.css/commit/eab05177f7aacb490a3516e3e7ead11e0503db8e not scanned (follow robots meta tag)
+21:53:56	Warning: 	Link https://github.com/animate-css/animate.css/pull/1699 not scanned (follow robots meta tag)
+21:53:56	Warning: 	Link https://github.com/animate-css/animate.css/tree/eab05177f7aacb490a3516e3e7ead11e0503db8e not scanned (follow robots meta tag)
+21:53:57	Warning: 	Link https://github.com/animate-css/animate.css/commit/3235f27325ebc721fc4f8435d3c2d436642278bc not scanned (follow robots meta tag)
+21:53:57	Warning: 	Link https://github.com/animate-css/animate.css/pull/1538 not scanned (follow robots meta tag)
+21:54:21	Warning: 	Link https://github.com/animate-css/animate.css/tree/3235f27325ebc721fc4f8435d3c2d436642278bc not scanned (follow robots meta tag)
+21:54:22	Warning: 	Link https://github.com/animate-css/animate.css/commit/944de5982519358385f1956470e86d94a99f83cd not scanned (follow robots meta tag)
+21:54:22	Warning: 	Link https://github.com/animate-css/animate.css/pull/1529 not scanned (follow robots meta tag)
+21:54:23	Warning: 	Link https://github.com/animate-css/animate.css/tree/944de5982519358385f1956470e86d94a99f83cd not scanned (follow robots meta tag)
+21:54:24	Warning: 	Link https://github.com/animate-css/animate.css/commit/6185a2e1424e2aabb151cdc2a24509589db2dd98 not scanned (follow robots meta tag)
+21:54:24	Warning: 	Link https://github.com/animate-css/animate.css/pull/1558 not scanned (follow robots meta tag)
+21:54:24	Warning: 	Link https://github.com/animate-css/animate.css/tree/6185a2e1424e2aabb151cdc2a24509589db2dd98 not scanned (follow robots meta tag)
+21:54:25	Warning: 	Link https://github.com/animate-css/animate.css/commit/1ea2388636a1bde3a06aef86ac1cd6fccc0d6802 not scanned (follow robots meta tag)
+21:54:26	Warning: 	Link https://github.com/animate-css/animate.css/pull/1573 not scanned (follow robots meta tag)
+21:54:26	Warning: 	Link https://github.com/animate-css/animate.css/tree/1ea2388636a1bde3a06aef86ac1cd6fccc0d6802 not scanned (follow robots meta tag)
+21:54:27	Warning: 	Link https://github.com/animate-css/animate.css/commit/2af50f5896e775d0febda0570ab16994a9e2a78b not scanned (follow robots meta tag)
+21:54:27	Warning: 	Link https://github.com/animate-css/animate.css/pull/1562 not scanned (follow robots meta tag)
+21:54:27	Warning: 	Link https://github.com/animate-css/animate.css/tree/2af50f5896e775d0febda0570ab16994a9e2a78b not scanned (follow robots meta tag)
+21:54:29	Warning: 	Link https://github.com/animate-css/animate.css/commit/61d13bad4b0bd42b2f3b3d6951872135df896e72 not scanned (follow robots meta tag)
+21:54:29	Warning: 	Link https://github.com/animate-css/animate.css/pull/1509 not scanned (follow robots meta tag)
+21:55:01	Warning: 	Link https://github.com/animate-css/animate.css/tree/61d13bad4b0bd42b2f3b3d6951872135df896e72 not scanned (follow robots meta tag)
+21:55:03	Warning: 	Link https://github.com/animate-css/animate.css/commit/fadbab95866e9a43e42d8b2d7af00aa938ad0702 not scanned (follow robots meta tag)
+21:55:03	Warning: 	Link https://github.com/animate-css/animate.css/pull/1485 not scanned (follow robots meta tag)
+21:55:03	Warning: 	Link https://github.com/animate-css/animate.css/tree/fadbab95866e9a43e42d8b2d7af00aa938ad0702 not scanned (follow robots meta tag)
+21:55:04	Warning: 	Link https://github.com/animate-css/animate.css/commit/40b913927904e133194277e51f481a6e1980087f not scanned (follow robots meta tag)
+21:55:04	Warning: 	Link https://github.com/animate-css/animate.css/pull/1486 not scanned (follow robots meta tag)
+21:55:04	Warning: 	Link https://github.com/animate-css/animate.css/tree/40b913927904e133194277e51f481a6e1980087f not scanned (follow robots meta tag)
+21:55:06	Warning: 	Link https://github.com/animate-css/animate.css/commit/ed1e0fd448dd96c237823657dc52b3c1a668974b not scanned (follow robots meta tag)
+21:55:06	Warning: 	Link https://github.com/animate-css/animate.css/pull/1471 not scanned (follow robots meta tag)
+21:55:06	Warning: 	Link https://github.com/animate-css/animate.css/tree/ed1e0fd448dd96c237823657dc52b3c1a668974b not scanned (follow robots meta tag)
+21:55:08	Warning: 	Link https://github.com/animate-css/animate.css/commit/b07baf2a0785c2a3c649e39ae962de65a2012951 not scanned (follow robots meta tag)
+21:55:08	Warning: 	Link https://github.com/animate-css/animate.css/pull/1463 not scanned (follow robots meta tag)
+21:55:08	Warning: 	Link https://github.com/animate-css/animate.css/tree/b07baf2a0785c2a3c649e39ae962de65a2012951 not scanned (follow robots meta tag)
+21:55:10	Warning: 	Link https://github.com/animate-css/animate.css/commit/d6170a328fdd5252a37cae25d2928aa4653df3fb not scanned (follow robots meta tag)
+21:55:10	Warning: 	Link https://github.com/animate-css/animate.css/pull/1451 not scanned (follow robots meta tag)
+21:56:23	Warning: 	Link https://github.com/animate-css/animate.css/tree/d6170a328fdd5252a37cae25d2928aa4653df3fb not scanned (follow robots meta tag)
+21:56:24	Warning: 	Link https://github.com/animate-css/animate.css/commit/f120bb5a95cd18af04f7a0f8ac5a2db431d7c4c7 not scanned (follow robots meta tag)
+21:56:24	Warning: 	Link https://github.com/animate-css/animate.css/pull/1446 not scanned (follow robots meta tag)
+21:56:24	Warning: 	Link https://github.com/animate-css/animate.css/tree/f120bb5a95cd18af04f7a0f8ac5a2db431d7c4c7 not scanned (follow robots meta tag)
+21:56:26	Warning: 	Link https://github.com/animate-css/animate.css/commit/f52f6994cf21263eb0b2eb22884ee887fa513536 not scanned (follow robots meta tag)
+21:56:26	Warning: 	Link https://github.com/animate-css/animate.css/pull/1449 not scanned (follow robots meta tag)
+21:56:26	Warning: 	Link https://github.com/animate-css/animate.css/tree/f52f6994cf21263eb0b2eb22884ee887fa513536 not scanned (follow robots meta tag)
+21:56:28	Warning: 	Link https://github.com/animate-css/animate.css/commit/fd6af172c109bcb30fa8de3903ac4ae81ec5f4d0 not scanned (follow robots meta tag)
+21:56:28	Warning: 	Link https://github.com/animate-css/animate.css/pull/1450 not scanned (follow robots meta tag)
+21:56:28	Warning: 	Link https://github.com/animate-css/animate.css/tree/fd6af172c109bcb30fa8de3903ac4ae81ec5f4d0 not scanned (follow robots meta tag)
+21:56:30	Warning: 	Link https://github.com/animate-css/animate.css/commit/31c76a9e24dec4fe6029f69ec77ca5b47b0056cd not scanned (follow robots meta tag)
+21:56:30	Warning: 	Link https://github.com/animate-css/animate.css/pull/1436 not scanned (follow robots meta tag)
+21:56:30	Warning: 	Link https://github.com/animate-css/animate.css/tree/31c76a9e24dec4fe6029f69ec77ca5b47b0056cd not scanned (follow robots meta tag)
+21:56:32	Warning: 	Link https://github.com/animate-css/animate.css/commit/27dab25192a1a5a8f19594cb79caca827be55892 not scanned (follow robots meta tag)
+21:56:32	Warning: 	Link https://github.com/animate-css/animate.css/pull/1434 not scanned (follow robots meta tag)
+21:56:32	Warning: 	Link https://github.com/animate-css/animate.css/tree/27dab25192a1a5a8f19594cb79caca827be55892 not scanned (follow robots meta tag)
+21:56:33	Warning: 	Link https://github.com/animate-css/animate.css/commit/deecbfad89333371a74bf047589378363dd3893a not scanned (follow robots meta tag)
+21:56:33	Warning: 	Link https://github.com/animate-css/animate.css/pull/1423 not scanned (follow robots meta tag)
+21:56:33	Warning: 	Link https://github.com/animate-css/animate.css/tree/deecbfad89333371a74bf047589378363dd3893a not scanned (follow robots meta tag)
+21:56:35	Warning: 	Link https://github.com/animate-css/animate.css/commit/75b1dbd830865ea4efa64e98492e14624ac4283c not scanned (follow robots meta tag)
+21:56:35	Warning: 	Link https://github.com/animate-css/animate.css/pull/1431 not scanned (follow robots meta tag)
+21:56:35	Warning: 	Link https://github.com/animate-css/animate.css/tree/75b1dbd830865ea4efa64e98492e14624ac4283c not scanned (follow robots meta tag)
+21:56:36	Warning: 	Link https://github.com/animate-css/animate.css/commit/775535abc3e77e3596dc5670a6cc80c64be8685e not scanned (follow robots meta tag)
+21:56:36	Warning: 	Link https://github.com/animate-css/animate.css/pull/1428 not scanned (follow robots meta tag)
+21:56:37	Warning: 	Link https://github.com/animate-css/animate.css/tree/775535abc3e77e3596dc5670a6cc80c64be8685e not scanned (follow robots meta tag)
+21:56:38	Warning: 	Link https://github.com/animate-css/animate.css/commit/6905968f4d2c0f912972549a8b571e345314f3dc not scanned (follow robots meta tag)
+21:56:38	Warning: 	Link https://github.com/animate-css/animate.css/pull/1420 not scanned (follow robots meta tag)
+21:56:38	Warning: 	Link https://github.com/animate-css/animate.css/tree/6905968f4d2c0f912972549a8b571e345314f3dc not scanned (follow robots meta tag)
+21:56:40	Warning: 	Link https://github.com/animate-css/animate.css/commit/05800922512fd906d2881ca4073bd38a2d562b90 not scanned (follow robots meta tag)
+21:56:40	Warning: 	Link https://github.com/animate-css/animate.css/pull/1416 not scanned (follow robots meta tag)
+21:56:40	Warning: 	Link https://github.com/animate-css/animate.css/tree/05800922512fd906d2881ca4073bd38a2d562b90 not scanned (follow robots meta tag)
+21:56:41	Warning: 	Link https://github.com/animate-css/animate.css/commit/41684f18185c9ecaac0c87e5ae12b4f71533ca62 not scanned (follow robots meta tag)
+21:56:41	Warning: 	Link https://github.com/animate-css/animate.css/pull/1392 not scanned (follow robots meta tag)
+21:56:41	Warning: 	Link https://github.com/animate-css/animate.css/tree/41684f18185c9ecaac0c87e5ae12b4f71533ca62 not scanned (follow robots meta tag)
+21:56:43	Warning: 	Link https://github.com/animate-css/animate.css/commit/f8784044beca628e2afa1264414026e7020b4654 not scanned (follow robots meta tag)
+21:56:43	Warning: 	Link https://github.com/animate-css/animate.css/pull/1391 not scanned (follow robots meta tag)
+21:56:43	Warning: 	Link https://github.com/animate-css/animate.css/tree/f8784044beca628e2afa1264414026e7020b4654 not scanned (follow robots meta tag)
+21:56:46	Warning: 	Link https://github.com/animate-css/animate.css/commit/34fe22c786e3a410d7706eacc8f2f4bac3661fdd not scanned (follow robots meta tag)
+21:56:46	Warning: 	Link https://github.com/animate-css/animate.css/pull/1397 not scanned (follow robots meta tag)
+21:56:46	Warning: 	Link https://github.com/animate-css/animate.css/tree/34fe22c786e3a410d7706eacc8f2f4bac3661fdd not scanned (follow robots meta tag)
+21:56:48	Warning: 	Link https://github.com/animate-css/animate.css/commit/af9dc1416a57abda4a1e571912d94c8ef1dac295 not scanned (follow robots meta tag)
+21:56:48	Warning: 	Link https://github.com/animate-css/animate.css/pull/1396 not scanned (follow robots meta tag)
+21:56:48	Warning: 	Link https://github.com/animate-css/animate.css/tree/af9dc1416a57abda4a1e571912d94c8ef1dac295 not scanned (follow robots meta tag)
+21:56:49	Warning: 	Link https://github.com/animate-css/animate.css/commit/f3741920c817653ddaafb96eb3b96f7fb4985213 not scanned (follow robots meta tag)
+21:56:50	Warning: 	Link https://github.com/animate-css/animate.css/pull/1401 not scanned (follow robots meta tag)
+21:56:50	Warning: 	Link https://github.com/animate-css/animate.css/tree/f3741920c817653ddaafb96eb3b96f7fb4985213 not scanned (follow robots meta tag)
+21:56:51	Warning: 	Link https://github.com/animate-css/animate.css/commit/942a61623bd2a19d7821fde1d230df4311fa51fb not scanned (follow robots meta tag)
+21:56:51	Warning: 	Link https://github.com/animate-css/animate.css/pull/1389 not scanned (follow robots meta tag)
+21:56:51	Warning: 	Link https://github.com/animate-css/animate.css/tree/942a61623bd2a19d7821fde1d230df4311fa51fb not scanned (follow robots meta tag)
+21:56:53	Warning: 	Link https://github.com/animate-css/animate.css/commit/906b8b902405e9829e6e6377061fc79852061215 not scanned (follow robots meta tag)
+21:56:53	Warning: 	Link https://github.com/animate-css/animate.css/pull/1386 not scanned (follow robots meta tag)
+21:56:53	Warning: 	Link https://github.com/animate-css/animate.css/tree/906b8b902405e9829e6e6377061fc79852061215 not scanned (follow robots meta tag)
+21:56:54	Warning: 	Link https://github.com/animate-css/animate.css/commit/eff4cf28b3f6592dadeb202696975715705612ab not scanned (follow robots meta tag)
+21:56:54	Warning: 	Link https://github.com/animate-css/animate.css/pull/1381 not scanned (follow robots meta tag)
+21:56:54	Warning: 	Link https://github.com/animate-css/animate.css/tree/eff4cf28b3f6592dadeb202696975715705612ab not scanned (follow robots meta tag)
+21:56:56	Warning: 	Link https://github.com/animate-css/animate.css/commit/455dab69403f682f26484e271110c15610af4b02 not scanned (follow robots meta tag)
+21:56:56	Warning: 	Link https://github.com/animate-css/animate.css/pull/1372 not scanned (follow robots meta tag)
+21:56:56	Warning: 	Link https://github.com/animate-css/animate.css/tree/455dab69403f682f26484e271110c15610af4b02 not scanned (follow robots meta tag)
+21:56:58	Warning: 	Link https://github.com/animate-css/animate.css/commit/dcbfc77b106289ce8ee2444d30f184ce606f2c0a not scanned (follow robots meta tag)
+21:56:58	Warning: 	Link https://github.com/animate-css/animate.css/pull/1380 not scanned (follow robots meta tag)
+21:56:58	Warning: 	Link https://github.com/animate-css/animate.css/tree/dcbfc77b106289ce8ee2444d30f184ce606f2c0a not scanned (follow robots meta tag)
+21:56:59	Warning: 	Link https://github.com/animate-css/animate.css/commit/847fdd268a6d36b7662ee43febe2a1bab30547b0 not scanned (follow robots meta tag)
+21:57:00	Warning: 	Link https://github.com/animate-css/animate.css/pull/1374 not scanned (follow robots meta tag)
+21:57:00	Warning: 	Link https://github.com/animate-css/animate.css/tree/847fdd268a6d36b7662ee43febe2a1bab30547b0 not scanned (follow robots meta tag)
+21:57:02	Warning: 	Link https://github.com/animate-css/animate.css/commit/177d732383ade2a92a59dd8084c154d5cb7a3171 not scanned (follow robots meta tag)
+21:57:02	Warning: 	Link https://github.com/animate-css/animate.css/pull/1361 not scanned (follow robots meta tag)
+21:57:02	Warning: 	Link https://github.com/animate-css/animate.css/tree/177d732383ade2a92a59dd8084c154d5cb7a3171 not scanned (follow robots meta tag)
+22:08:34	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/blob/main/node_modules/ (from https://github.com/animate-css/animate.css/blob/main/.gitignore)
+22:08:34	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/blob/main/test/ (from https://github.com/animate-css/animate.css/blob/main/.gitignore)
+22:12:41	Warning: 	Link https://github.com/animate-css/animate.css/tree/v4.1.1 not scanned (follow robots meta tag)
+22:12:41	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/compare/{{ urlEncodedRefName }}...v4.1.1 (from https://github.com/animate-css/animate.css/releases)
+22:12:47	Warning: 	Link https://github.com/animate-css/animate.css/tree/v4.1.0 not scanned (follow robots meta tag)
+22:12:47	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/compare/{{ urlEncodedRefName }}...v4.1.0 (from https://github.com/animate-css/animate.css/releases)
+22:12:47	Warning: 	Link https://github.com/animate-css/animate.css/tree/v4.0.0 not scanned (follow robots meta tag)
+22:12:47	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/compare/{{ urlEncodedRefName }}...v4.0.0 (from https://github.com/animate-css/animate.css/releases)
+22:12:47	Warning: 	Link https://github.com/animate-css/animate.css/tree/3.7.2 not scanned (follow robots meta tag)
+22:12:48	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/compare/{{ urlEncodedRefName }}...3.7.2 (from https://github.com/animate-css/animate.css/releases)
+22:12:48	Warning: 	Link https://github.com/animate-css/animate.css/tree/v3.7.1 not scanned (follow robots meta tag)
+22:12:48	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/compare/{{ urlEncodedRefName }}...v3.7.1 (from https://github.com/animate-css/animate.css/releases)
+22:14:00	Warning: 	Link https://github.com/animate-css/animate.css/tree/3.7.0 not scanned (follow robots meta tag)
+22:14:00	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/compare/{{ urlEncodedRefName }}...3.7.0 (from https://github.com/animate-css/animate.css/releases)
+22:14:00	Warning: 	Link https://github.com/animate-css/animate.css/tree/v3.6.2 not scanned (follow robots meta tag)
+22:14:00	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/compare/{{ urlEncodedRefName }}...v3.6.2 (from https://github.com/animate-css/animate.css/releases)
+22:14:00	Warning: 	Link https://github.com/animate-css/animate.css/tree/3.5.2 not scanned (follow robots meta tag)
+22:14:00	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/compare/{{ urlEncodedRefName }}...3.5.2 (from https://github.com/animate-css/animate.css/releases)
+22:14:00	Warning: 	Link https://github.com/animate-css/animate.css/tree/3.5.1 not scanned (follow robots meta tag)
+22:14:00	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/compare/{{ urlEncodedRefName }}...3.5.1 (from https://github.com/animate-css/animate.css/releases)
+22:14:01	Warning: 	Link https://github.com/animate-css/animate.css/tree/3.5.0 not scanned (follow robots meta tag)
+22:14:01	Error: 	"Not Found" (404) at link https://github.com/animate-css/animate.css/compare/{{ urlEncodedRefName }}...3.5.0 (from https://github.com/animate-css/animate.css/releases)
+22:15:08	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/17twenty/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:15:48	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/1rosehip/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+22:16:17	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/872409/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:16:49	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/A973C/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+22:17:09	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/abachuk/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:17:50	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/Aberen/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+22:18:16	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/abmahmoodi/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:18:43	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/abneralvarado/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:19:12	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/abordin/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:19:38	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/aborjinos/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:20:15	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/abyssperl/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:20:46	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/achanda101/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:20:52	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/acjbizar/animate.css/sponsor_button
+22:21:30	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/acjbizar/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:21:52	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/acnithin/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:22:31	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/acusti/animate.css/hovercards/citation/sidebar_partial?tree_name=main
+22:22:53	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/adamburmister/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:34:02	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/adamflorin/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:34:40	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/adang705/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:35:33	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/adiwijayahadinoto/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:36:04	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/adkatrit/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:36:51	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/adxmm/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:38:26	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/aeldar/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:39:29	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/afterclassroom/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:40:22	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/ahmadawais/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:43:23	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/ahmadf/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:46:22	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/AhmedFawzy/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:48:16	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/ajbetteridge/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:49:52	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/akauffm/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:51:03	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/akirob/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:51:47	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/alainlompo/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:52:37	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/alesitalugo/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:53:12	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/AlexChien/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:54:13	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/AlienX/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+22:55:31	Warning: 	file not stored in cache due to bogus state (incomplete type with Not Acceptable (200), size 0): https://github.com/alimuls/animate.css/hovercards/citation/sidebar_partial?tree_name=master
+23:05:22	Error: 	Exit requested by shell or user
+23:05:27	Error: 	Exit requested by shell or user
+* * MIRROR ABORTED! * *
+The current temporary cache is required for any update operation and only contains data downloaded during the present aborted session.
+The former cache might contain more complete information; if you do not want to lose that information, you have to restore it and delete the current cache.
+This can easily be done here by erasing the hts-cache/new.* files]

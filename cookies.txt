@@ -1,0 +1,12 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+github.com	TRUE	/	FALSE	1999999999	_gh_sess	gi%2F3ALafbGosNFnc4Mlu93tAtgQUfwPjJyNO6hbwdtCZ0FzS2Du%2FSlNR33LnUt0xRptIOmk2hkUEpNydFCM12eYrNIS1NIcr4CSVDnuXfdo%2BhGFi4ohZsSCsboxOjzLcvmt9YYlp9y%2FKYJzr%2FmZ5chpNhiidXL4h0Pmvz7Zaets%2BiExg4fm2DR2F5j9OXrqpp68ZiR1zUL7Pn83%2F8T%2F9C89r7jSLkHSZ62e9Oh6HgGk%2BMZey0aG6lafHOwIyyQAaj2X0PcXw8CYkMXzIs%2B5Kcw%3D%3D--lA1KAPyZX7WSNDtN--CnI4F%2FQzxAmjNpuhUYLGwA%3D%3D
+github.com	TRUE	/	FALSE	1999999999	_octo	GH1.1.972266633.1725024987
+github.com	TRUE	/	FALSE	1999999999	logged_in	no
+github.com	TRUE	/	FALSE	1999999999	SameSite	Lax
+.npmjs.com	TRUE	/	FALSE	1999999999	__cf_bm	3pq5Se.9yxuwv6BwQAER_O.UKTT0s2hx4SFupf6Jme8-1725026752-1.0.1.1-XuUl7lwE14IpHX9WlxFBhvPyqZkJ.hqCZXlNktsSsf1Uj3mU37IqbCw9ysKW2ZBLJ5oo3h9W2peMDgj4taOflw
+.npmjs.com	TRUE	/	FALSE	1999999999	__cfruid	0200702ee8640071d942b50773bb8441e5917e8b-1725026752
+www.npmjs.com	TRUE	/	FALSE	1999999999	SameSite	None
+travis-ci.com	TRUE	/	FALSE	1999999999	UTMSession	utm_campaign%3D%26utm_content%3D%26utm_medium%3Dreferral%26utm_source%3Dgithub.com%26utm_term%3D
+www.travis-ci.com	TRUE	/	FALSE	1999999999	PHPSESSID	n8clt0m77d8dg5l6rvip61gu7d
+
