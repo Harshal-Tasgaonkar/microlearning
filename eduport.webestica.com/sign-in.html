@@ -140,68 +140,40 @@
 
 							<!-- Form START -->
 							<form>
-								<!-- Email -->
+								<!-- Mobile Number -->
 								<div class="mb-4">
-									<label for="exampleInputEmail1" class="form-label">Email address *</label>
+									<label for="exampleInputEmail1" class="form-label">Mobile *</label>
 									<div class="input-group input-group-lg">
-										<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-										<input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
+										<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
+											<i class="bi bi-envelope-fill"></i>
+										</span>
+										<input type="number" class="form-control border-0 bg-light rounded-end ps-1" placeholder="Enter Mobile Number" id="exampleInputEmail1">
 									</div>
 								</div>
-								<!-- Password -->
-								<div class="mb-4">
-									<label for="inputPassword5" class="form-label">Password *</label>
+							
+								<!-- OTP Field (Initially Hidden) -->
+								<div class="mb-4" id="otpField" style="display:none;">
+									<label for="inputPassword5" class="form-label">Verify OTP *</label>
 									<div class="input-group input-group-lg">
-										<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
-										<input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5">
-									</div>
-									<div id="passwordHelpBlock" class="form-text">
-										Your password must be 8 characters at least 
-									</div>
-								</div>
-								<!-- Check box -->
-								<div class="mb-4 d-flex justify-content-between">
-									<div class="form-check">
-										<input type="checkbox" class="form-check-input" id="exampleCheck1">
-										<label class="form-check-label" for="exampleCheck1">Remember me</label>
-									</div>
-									<div class="text-primary-hover">
-										<a href="forgot-password.html" class="text-secondary">
-											<u>Forgot password?</u>
-										</a>
+										<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
+											<i class="fas fa-lock"></i>
+										</span>
+										<input type="number" class="form-control border-0 bg-light rounded-end ps-1" placeholder="Enter OTP" id="inputPassword5">
 									</div>
 								</div>
+							
 								<!-- Button -->
-								<div class="align-items-center mt-0">
-									<div class="d-grid">
-										<button class="btn btn-primary mb-0" type="button">Login</button>
-									</div>
+								<div class="align-items-center mt-0"></div>
+								<div class="d-grid">
+									<button class="btn btn-primary mb-0" type="button" id="loginButton">Login</button>
 								</div>
 							</form>
-							<!-- Form END -->
+							
+							
 
-							<!-- Social buttons and divider -->
-							<div class="row">
-								<!-- Divider with text -->
-								<div class="position-relative my-4">
-									<hr>
-									<p class="small position-absolute top-50 start-50 translate-middle bg-body px-5">Or</p>
-								</div>
+							
 
-								<!-- Social btn -->
-								<div class="col-xxl-6 d-grid">
-									<a href="#" class="btn bg-google mb-2 mb-xxl-0"><i class="fab fa-fw fa-google text-white me-2"></i>Login with Google</a>
-								</div>
-								<!-- Social btn -->
-								<div class="col-xxl-6 d-grid">
-									<a href="#" class="btn bg-facebook mb-0"><i class="fab fa-fw fa-facebook-f me-2"></i>Login with Facebook</a>
-								</div>
-							</div>
-
-							<!-- Sign up link -->
-							<div class="mt-4 text-center">
-								<span>Don't have an account? <a href="sign-up.html">Signup here</a></span>
-							</div>
+							
 						</div>
 					</div> <!-- Row END -->
 				</div>
@@ -221,6 +193,35 @@
 <script src="assets/js/functions.js"></script>
 
 </body>
+
+<script>
+    // Handle the Login button click
+    document.getElementById('loginButton').addEventListener('click', function() {
+        // Get the mobile number and OTP values
+        const mobileNumber = document.getElementById('exampleInputEmail1').value;
+        const otpValue = document.getElementById('inputPassword5').value;
+
+        // Check if the mobile number is valid (at least 10 digits)
+        if (!mobileNumber || mobileNumber.length < 10) {
+            alert('Please enter a valid 10-digit mobile number.');
+            return;
+        }
+
+        // If OTP field is visible, check the OTP
+        if (document.getElementById('otpField').style.display === 'block') {
+            if (!otpValue || otpValue.length < 4) {
+                alert('Please enter a valid OTP.');
+                return;
+            }
+            // If OTP is valid, redirect to home page (index.html)
+            window.location.href = 'index.html';  // Redirect to home page
+        } else {
+            // If OTP field is not visible, show the OTP field
+            document.getElementById('otpField').style.display = 'block';
+        }
+    });
+</script>
+
 
 <!-- Mirrored from eduport.webestica.com/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 13:35:33 GMT -->
 </html>
