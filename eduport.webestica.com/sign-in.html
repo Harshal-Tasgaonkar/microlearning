@@ -71,6 +71,7 @@
 		
 	</script>
 
+
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="assets/images/favicon.ico">
 
@@ -168,8 +169,7 @@
 									<button class="btn btn-primary mb-0" type="button" id="loginButton">Login</button>
 								</div>
 							</form>
-							
-							
+
 
 							
 
@@ -186,41 +186,73 @@
 <!-- Back to top -->
 <div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
 
+
+
 <!-- Bootstrap JS -->
 <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Template Functions -->
 <script src="assets/js/functions.js"></script>
 
-</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-analytics.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-database.js";
 
-<script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBhTI6LTiWNJ3SAt7W500hmLUoGsaXOB-4",
+        authDomain: "microlearning-d24d9.firebaseapp.com",
+        projectId: "microlearning-d24d9",
+        storageBucket: "microlearning-d24d9.appspot.com",
+        messagingSenderId: "1080627372231",
+        appId: "1:1080627372231:web:7880688384fd91549f9ee2",
+        measurementId: "G-MCSBXTZ9QT"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+
     // Handle the Login button click
     document.getElementById('loginButton').addEventListener('click', function() {
-        // Get the mobile number and OTP values
         const mobileNumber = document.getElementById('exampleInputEmail1').value;
         const otpValue = document.getElementById('inputPassword5').value;
 
-        // Check if the mobile number is valid (at least 10 digits)
         if (!mobileNumber || mobileNumber.length < 10) {
             alert('Please enter a valid 10-digit mobile number.');
             return;
         }
 
-        // If OTP field is visible, check the OTP
         if (document.getElementById('otpField').style.display === 'block') {
             if (!otpValue || otpValue.length < 4) {
                 alert('Please enter a valid OTP.');
                 return;
             }
-            // If OTP is valid, redirect to home page (index.html)
-            window.location.href = 'index.html';  // Redirect to home page
+            // Send mobile number and OTP to Firebase
+            set(ref(database, 'users/' + mobileNumber), {
+                mobileNumber: mobileNumber,
+                otp: otpValue,
+                timestamp: Date.now()
+            }).then(() => {
+                console.log("Data saved successfully");
+                window.location.href = 'index.html';  // Redirect to home page
+            }).catch((error) => {
+                console.error("Error saving data: ", error);
+                alert('An error occurred. Please try again.');
+            });
         } else {
-            // If OTP field is not visible, show the OTP field
             document.getElementById('otpField').style.display = 'block';
         }
     });
 </script>
+
+</body>
+
+
+
 
 
 <!-- Mirrored from eduport.webestica.com/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 13:35:33 GMT -->
