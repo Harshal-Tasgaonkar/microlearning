@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from eduport.webestica.com/admin-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 13:35:36 GMT -->
+<!-- Mirrored from eduport.webestica.com/admin-course-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 13:36:25 GMT -->
 <head>
 	<title>Eduport- LMS, Education and Course Theme</title>
 
@@ -82,7 +82,7 @@
 	<!-- Plugins CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
 	<!-- <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css"> -->
-	<link rel="stylesheet" type="text/css" href="assets/vendor/apexcharts/css/apexcharts.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/choices/css/choices.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/vendor/overlay-scrollbar/css/overlayscrollbars.min.css">
 
 	<!-- Theme CSS -->
@@ -113,19 +113,20 @@
 			<!-- Sidebar menu START -->
 			<ul class="navbar-nav flex-column" id="navbar-sidebar">
 				
-
-                <!-- Menu item 1 -->
-				<li class="nav-item"><a href="index.html" class="nav-link active"><i class="fas fa-home fa-fw me-2"></i>Home</a></li>
+				<!-- Menu item 1 -->
+				<li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home fa-fw me-2"></i>Home</a></li>
 				
-                <!-- Menu item 2 -->
-				<li class="nav-item"><a href="admin-course-list.html" class="nav-link"><i class="fas fa-shopping-basket fa-fw me-2"></i>Manage Course</a></li>
+				 <!-- Menu item 2 -->
+                 <li class="nav-item"><a href="admin-course-list.html" class="nav-link"><i class="fas fa-shopping-basket fa-fw me-2"></i>Manage Course</a></li>
 				 
-				<!-- Menu item 3 -->
-				<li class="nav-item"><a href="teacher-list.html" class="nav-link"><i class="fas fa-user-tie fa-fw me-2"></i>Teacher</a></li>
-				 
-				<!-- Menu item 4 -->
-				<li class="nav-item"><a href="student-list.html" class="nav-link"><i class="fas fa-user-graduate fa-fw me-2"></i>Student</a></li>
-				 
+
+				 <!-- Menu item 3 -->
+				 <li class="nav-item"><a href="teacher-list.html" class="nav-link"><i class="fas fa-user-tie fa-fw me-2"></i>Teacher</a></li>
+				  
+				 <!-- Menu item 4 -->
+				 <li class="nav-item"><a href="student-list.html" class="nav-link"><i class="fas fa-user-graduate fa-fw me-2"></i>Student</a></li>
+				
+				
 				
 			</ul>
 			<!-- Sidebar menu end -->
@@ -138,7 +139,7 @@
 
 <!-- Page content START -->
 <div class="page-content">
-
+	
 	<!-- Top bar START -->
 	<nav class="navbar top-bar navbar-light border-bottom py-0 py-xl-3">
 		<div class="container-fluid p-0">
@@ -210,12 +211,13 @@
 										</div>
 									</div>
 								</li>
-                                <li> <hr class="dropdown-divider"></li>
+                <li> <hr class="dropdown-divider"></li>
 								<!-- Links -->
 								<li><a class="dropdown-item" href="#"><i class="fas fa-th-large fa-fw me-2"></i>Dashboard</a></li> 
 					            <li><a class="dropdown-item" href="#"><i class="far fa-user fa-fw me-2"></i>Edit Profile</a></li>
 					
 					            <li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="fas fa-power-off fa-fw me-2"></i>Sign Out</a></li>
+								
 								<li> <hr class="dropdown-divider"></li>
 
 								<!-- Dark mode options START -->
@@ -256,46 +258,131 @@
 	</nav>
 	<!-- Top bar END -->
 
+	<!-- Page main content START -->
 	<div class="page-content-wrapper border">
 
-		
-
-		
-			
-
-			
-
-			
-		
-
-		
-			
-						
-
-						
-
-						
-					
-		
-
-		
-						
-							
-						
-						
-
-						
-					
-			
-							
-						
-
-			
-
+		<!-- Title -->
+		<div class="row mb-3">
+			<div class="col-12 d-sm-flex justify-content-between align-items-center">
+				<h1 class="h3 mb-2 mb-sm-0">Teachers</h1>
+				<a href="create-teacher.html" class="btn btn-sm btn-primary mb-0">Create Teacher</a>
+			</div>
 		</div>
-		<!-- Top listed Cards END -->
 
+		<!-- Course boxes START -->
+		<div class="row g-4 mb-4">
+			<!-- Course item -->
+			<div class="col-sm-6 col-lg-4">
+				<div class="text-center p-4 bg-primary bg-opacity-10 border border-primary rounded-3">
+					<h6>Total Courses</h6>
+					<h2 class="mb-0 fs-1 text-primary">1200</h2>
+				</div>
+			</div>
+
+			<!-- Course item -->
+			<div class="col-sm-6 col-lg-4">
+				<div class="text-center p-4 bg-success bg-opacity-10 border border-success rounded-3">
+					<h6>Activated Courses</h6>
+					<h2 class="mb-0 fs-1 text-success">996</h2>
+				</div>
+			</div>
+
+			<!-- Course item -->
+			<div class="col-sm-6 col-lg-4">
+				<div class="text-center p-4  bg-warning bg-opacity-15 border border-warning rounded-3">
+					<h6>Pending Courses</h6>
+					<h2 class="mb-0 fs-1 text-warning">200</h2>
+				</div>
+			</div>
+		</div>
+		<!-- Course boxes END -->
+
+		<!-- Card START -->
+		<div class="card bg-transparent border">
+
+			<!-- Card header START -->
+			<div class="card-header bg-light border-bottom">
+				<!-- Search and select START -->
+				<div class="row g-3 align-items-center justify-content-between">
+					<!-- Search bar -->
+					<div class="col-md-8">
+						<form class="rounded position-relative">
+							<input class="form-control bg-body" type="search" placeholder="Search" aria-label="Search">
+							<button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
+								<i class="fas fa-search fs-6 "></i>
+							</button>
+						</form>
+					</div>
+
+					<!-- Select option -->
+					<div class="col-md-3">
+						<!-- Short by filter -->
+						<form>
+							<select class="form-select js-choice border-0 z-index-9" aria-label=".form-select-sm">
+								<option value="">Sort by</option>
+								<option>Newest</option>
+								<option>Oldest</option>
+								<option>Accepted</option>
+								<option>Rejected</option>
+							</select>
+						</form>
+					</div>
+				</div>
+				<!-- Search and select END -->
+			</div>
+			<!-- Card header END -->
+
+			<!-- Card body START -->
+			<div class="card-body">
+				<!-- Course table START -->
+				<div class="table-responsive border-0 rounded-3">
+					<!-- Table START -->
+					<table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+						<!-- Table head -->
+						<thead>
+							<tr>
+								
+								<th scope="col" class="border-0">Name</th>
+								<th scope="col" class="border-0">Mobile</th>
+								<th scope="col" class="border-0">Email</th>
+								<th scope="col" class="border-0 ">Technology</th>
+								<th scope="col" class="border-0 rounded-end">Action</th>
+								
+								
+							</tr>
+						</thead>
+						<tbody>
+                         <tr>
+
+							
+							
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>
+								<a href="edit-teacher.html" class="btn btn-sm btn-success me-1 mb-1 mb-md-0"><i class="fas fa-edit"></i></a>
+								<button class="btn btn-sm btn-danger mb-0"><i class="fas fa-trash-alt"></i></button>
+							</td>
+						 </tr>
+
+						</tbody>
+						
+					</table>
+					<!-- Table END -->
+				</div>
+				<!-- Course table END -->
+			</div>
+			<!-- Card body END -->
+
+			
+		</div>
+		<!-- Card END -->
 	</div>
+	<!-- Page main content END -->
+
+</div>
+<!-- Page content END -->
 
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
@@ -307,15 +394,13 @@
 <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Vendors -->
-<script src="assets/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
-<script src="assets/vendor/apexcharts/js/apexcharts.min.js"></script>
+<script src="assets/vendor/choices/js/choices.min.js"></script>
 <script src="assets/vendor/overlay-scrollbar/js/overlayscrollbars.min.js"></script>
 
 <!-- Template Functions -->
 <script src="assets/js/functions.js"></script>
 
-
 </body>
 
-<!-- Mirrored from eduport.webestica.com/admin-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 13:35:39 GMT -->
+<!-- Mirrored from eduport.webestica.com/admin-course-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 13:36:25 GMT -->
 </html>

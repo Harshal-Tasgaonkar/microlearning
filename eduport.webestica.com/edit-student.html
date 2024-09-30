@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from eduport.webestica.com/admin-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 13:35:36 GMT -->
+<!-- Mirrored from eduport.webestica.com/instructor-create-course.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 13:35:35 GMT -->
 <head>
-	<title>Eduport- LMS, Education and Course Theme</title>
+	<title>Eduport - LMS, Education and Course Theme</title>
 
 	<!-- Meta Tags -->
 	<meta charset="utf-8">
@@ -81,9 +81,12 @@
 
 	<!-- Plugins CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
-	<!-- <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css"> -->
-	<link rel="stylesheet" type="text/css" href="assets/vendor/apexcharts/css/apexcharts.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/overlay-scrollbar/css/overlayscrollbars.min.css">
+	
+	<link rel="stylesheet" type="text/css" href="assets/vendor/choices/css/choices.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/aos/aos.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/glightbox/css/glightbox.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/quill/css/quill.snow.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/stepper/css/bs-stepper.min.css">
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -93,10 +96,10 @@
 <body>
 
 
+
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
-	
-<!-- Sidebar START -->
+	<!-- Sidebar START -->
 <nav class="navbar sidebar navbar-expand-xl navbar-dark bg-dark">
 
 	<!-- Navbar brand for xl START -->
@@ -113,24 +116,22 @@
 			<!-- Sidebar menu START -->
 			<ul class="navbar-nav flex-column" id="navbar-sidebar">
 				
-
-                <!-- Menu item 1 -->
-				<li class="nav-item"><a href="index.html" class="nav-link active"><i class="fas fa-home fa-fw me-2"></i>Home</a></li>
+				<!-- Menu item 1 -->
+				<li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home fa-fw me-2"></i>Home</a></li>
 				
-                <!-- Menu item 2 -->
-				<li class="nav-item"><a href="admin-course-list.html" class="nav-link"><i class="fas fa-shopping-basket fa-fw me-2"></i>Manage Course</a></li>
+				 <!-- Menu item 2 -->
+                 <li class="nav-item"><a href="admin-course-list.html" class="nav-link"><i class="fas fa-shopping-basket fa-fw me-2"></i>Manage Course</a></li>
 				 
-				<!-- Menu item 3 -->
-				<li class="nav-item"><a href="teacher-list.html" class="nav-link"><i class="fas fa-user-tie fa-fw me-2"></i>Teacher</a></li>
-				 
-				<!-- Menu item 4 -->
-				<li class="nav-item"><a href="student-list.html" class="nav-link"><i class="fas fa-user-graduate fa-fw me-2"></i>Student</a></li>
-				 
+
+				 <!-- Menu item 3 -->
+				 <li class="nav-item"><a href="teacher-list.html" class="nav-link"><i class="fas fa-user-tie fa-fw me-2"></i>Teacher</a></li>
+				  
+				 <!-- Menu item 4 -->
+				 <li class="nav-item"><a href="student-list.html" class="nav-link"><i class="fas fa-user-graduate fa-fw me-2"></i>Student</a></li>
+				
+				
 				
 			</ul>
-			<!-- Sidebar menu end -->
-
-			
 		</div>
 	</div>
 </nav>
@@ -138,7 +139,7 @@
 
 <!-- Page content START -->
 <div class="page-content">
-
+	
 	<!-- Top bar START -->
 	<nav class="navbar top-bar navbar-light border-bottom py-0 py-xl-3">
 		<div class="container-fluid p-0">
@@ -187,7 +188,6 @@
 					<ul class="navbar-nav flex-row align-items-center">
 
 						
-
 						<!-- Profile dropdown START -->
 						<li class="nav-item ms-2 ms-md-3 dropdown">
 							<!-- Avatar -->
@@ -210,7 +210,7 @@
 										</div>
 									</div>
 								</li>
-                                <li> <hr class="dropdown-divider"></li>
+                <li> <hr class="dropdown-divider"></li>
 								<!-- Links -->
 								<li><a class="dropdown-item" href="#"><i class="fas fa-th-large fa-fw me-2"></i>Dashboard</a></li> 
 					            <li><a class="dropdown-item" href="#"><i class="far fa-user fa-fw me-2"></i>Edit Profile</a></li>
@@ -256,49 +256,186 @@
 	</nav>
 	<!-- Top bar END -->
 
+	<!-- Page main content START -->
 	<div class="page-content-wrapper border">
 
-		
+      
+        <div>
+		<a href="student-list.html" class="btn  btn-dark ">Back</a>	
+		<h4 class="text-center">Edit Student</h4>
+    
+	    </div> 
 
-		
+		<form class="mt-3 ">
+			<div class="row">
+			 
+			  
+		  
+			  <div class="col-md-3 mb-3">
+				<label class="form-label">Name</label>
+				<input type="text" class="form-control" placeholder="Enter Student Name">
+			  </div>
+		  
+			  <div class="col-md-3 mb-3">
+				<label class="form-label">Mobile</label>
+				<input class="form-control" type="number" placeholder="Enter Mobile"/>
+			  </div>
+			
+		      <div class="col-md-3 mb-3">
+				<label class="form-label">Email</label>
+				<input type="email" class="form-control" placeholder="Enter Email">
+			  </div>
+		  
+			  <div class="col-md-3 mb-3">
+				<label class="form-label">Passout Year</label>
+				<input type="number" class="form-control" placeholder="Enter Passout Year">
+			  </div>
+			
+			</div>
+
+            <div class="row">
+             
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Latest Qualification</label>
+                    <input type="text" class="form-control" placeholder="Enter Latest Qualification">
+                  </div>
+                  
+                  <div class="col-md-3 mb-3">
+                    <label class="form-label">City</label>
+                    <input type="text" class="form-control" placeholder="Enter City">
+                  </div>  
+
+
+            </div>
+            
 			
 
+			  <div class="col-md-3 mt-3 d-flex justify-content-end float-end">
+				<button type="submit" class="btn btn-primary w-75">Submit</button>
+			  </div>
 			
-
-			
-		
-
-		
-			
-						
-
-						
-
-						
-					
-		
-
-		
-						
-							
-						
-						
-
-						
-					
-			
-							
-						
-
-			
-
-		</div>
-		<!-- Top listed Cards END -->
+		  </form>
+		  
+	
 
 	</div>
+	<!-- Page main content END -->
+
+</div>
+<!-- Page content END -->
+
+
+
+<!-- =======================
+Steps END -->
 
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
+
+
+<!-- Popup modal for add lecture START -->
+<div class="modal fade" id="addLecture" tabindex="-1" aria-labelledby="addLectureLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title text-white" id="addLectureLabel">Add Lecture</h5>
+        <button type="button" class="btn btn-sm btn-light mb-0 ms-auto" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="modal-body">
+        <form class="row text-start g-3">
+					<!-- Course name -->
+					<div class="col-12">
+						<label class="form-label">Course name <span class="text-danger">*</span></label>
+						<input type="text" class="form-control" placeholder="Enter course name">
+					</div>
+				</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger-soft my-0" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success my-0">Save Lecture</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Popup modal for add lecture END -->
+
+<!-- Popup modal for add topic START -->
+<div class="modal fade" id="addTopic" tabindex="-1" aria-labelledby="addTopicLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title text-white" id="addTopicLabel">Add topic</h5>
+        <button type="button" class="btn btn-sm btn-light mb-0 ms-auto" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="modal-body">
+        <form class="row text-start g-3">
+					<!-- Topic name -->
+					<div class="col-md-6">
+						<label class="form-label">Topic name</label>
+						<input class="form-control" type="text" placeholder="Enter topic name">
+					</div>
+					<!-- Video link -->
+					<div class="col-md-6">
+						<label class="form-label">Video link</label>
+						<input class="form-control" type="text" placeholder="Enter Video link">
+					</div>
+					<!-- Description -->
+					<div class="col-12 mt-3">
+						<label class="form-label">Course description</label>
+						<textarea class="form-control" rows="4" placeholder="" spellcheck="false"></textarea>
+					</div>
+					<!-- Buttons -->
+					<div class="col-6 mt-3">
+						<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+							<!-- Free button -->
+							<input type="radio" class="btn-check" name="options" id="option1" checked="">
+							<label class="btn btn-sm btn-light btn-primary-soft-check border-0 m-0" for="option1">Free</label>
+							<!-- Premium button -->
+							<input type="radio" class="btn-check" name="options" id="option2">
+							<label class="btn btn-sm btn-light btn-primary-soft-check border-0 m-0" for="option2">Premium</label>
+						</div>
+					</div>
+				</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger-soft my-0" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success my-0">Save topic</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Popup modal for add topic END -->
+
+<!-- Popup modal for add faq START -->
+<div class="modal fade" id="addQuestion" tabindex="-1" aria-labelledby="addQuestionLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title text-white" id="addQuestionLabel">Add FAQ</h5>
+        <button type="button" class="btn btn-sm btn-light mb-0 ms-auto" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="modal-body">
+        <form class="row text-start g-3">
+					<!-- Question -->
+					<div class="col-12">
+						<label class="form-label">Question</label>
+						<input class="form-control" type="text" placeholder="Write a question">
+					</div>
+					<!-- Answer -->
+					<div class="col-12 mt-3">
+						<label class="form-label">Answer</label>
+						<textarea class="form-control" rows="4" placeholder="Write a answer" spellcheck="false"></textarea>
+					</div>
+				</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger-soft my-0" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success my-0">Save topic</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Popup modal for add faq END -->
 
 <!-- Back to top -->
 <div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
@@ -307,15 +444,16 @@
 <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Vendors -->
-<script src="assets/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
-<script src="assets/vendor/apexcharts/js/apexcharts.min.js"></script>
-<script src="assets/vendor/overlay-scrollbar/js/overlayscrollbars.min.js"></script>
+<script src="assets/vendor/choices/js/choices.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.js"></script>
+<script src="assets/vendor/quill/js/quill.min.js"></script>
+<script src="assets/vendor/stepper/js/bs-stepper.min.js"></script>
 
 <!-- Template Functions -->
 <script src="assets/js/functions.js"></script>
 
-
 </body>
 
-<!-- Mirrored from eduport.webestica.com/admin-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 13:35:39 GMT -->
+<!-- Mirrored from eduport.webestica.com/instructor-create-course.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 13:35:36 GMT -->
 </html>
