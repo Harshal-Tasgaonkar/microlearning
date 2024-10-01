@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from eduport.webestica.com/admin-course-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 13:36:25 GMT -->
+<!-- Mirrored from eduport.webestica.com/admin-instructor-detail.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 13:36:26 GMT -->
 <head>
 	<title>Eduport- LMS, Education and Course Theme</title>
 
@@ -81,8 +81,9 @@
 
 	<!-- Plugins CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
-	<!-- <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css"> -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
 	<link rel="stylesheet" type="text/css" href="assets/vendor/choices/css/choices.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/apexcharts/css/apexcharts.css">
 	<link rel="stylesheet" type="text/css" href="assets/vendor/overlay-scrollbar/css/overlayscrollbars.min.css">
 
 	<!-- Theme CSS -->
@@ -130,7 +131,7 @@
 				
 			</ul>
 			<!-- Sidebar menu end -->
-
+			
 			
 		</div>
 	</div>
@@ -207,17 +208,16 @@
 										</div>
 										<div>
 											<a class="h6 mt-2 mt-sm-0" href="#">Lori Ferguson</a>
-											<p class="small m-0">9015253545</p>
+											<p class="small m-0">example@gmail.com</p>
 										</div>
 									</div>
 								</li>
                 <li> <hr class="dropdown-divider"></li>
 								<!-- Links -->
-								<li><a class="dropdown-item" href="#"><i class="fas fa-th-large fa-fw me-2"></i>Dashboard</a></li> 
-					            <li><a class="dropdown-item" href="#"><i class="far fa-user fa-fw me-2"></i>Edit Profile</a></li>
-					
-					            <li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="fas fa-power-off fa-fw me-2"></i>Sign Out</a></li>
-								
+								<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
+								<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
+								<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
+								<li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
 								<li> <hr class="dropdown-divider"></li>
 
 								<!-- Dark mode options START -->
@@ -262,184 +262,98 @@
 	<div class="page-content-wrapper border">
 
 		<!-- Title -->
-		<div class="row mb-3">
-			<div class="col-12 d-sm-flex justify-content-between align-items-center">
-				<h1 class="h3 mb-2 mb-sm-0">Teachers</h1>
-				<a href="create-teacher.html" class="btn btn-sm btn-primary mb-0">Create Teacher</a>
+		<div class="row">
+			<div class="col-12 mb-3">
+				<h1 class="h3 mb-2 mb-sm-0">Instructor detail</h1>
 			</div>
 		</div>
+				
+		<div class="row g-4">
 
-		<!-- Course boxes START -->
-		<div class="row g-4 mb-4">
-			<!-- Course item -->
-			<div class="col-sm-6 col-lg-4">
-				<div class="text-center p-4 bg-primary bg-opacity-10 border border-primary rounded-3">
-					<h6>Total Courses</h6>
-					<h2 class="mb-0 fs-1 text-primary">1200</h2>
-				</div>
-			</div>
+			<!-- Personal information START -->
+			<div class="col-xxl-12">
+				<div class="card bg-transparent border rounded-3 h-100">
 
-			<!-- Course item -->
-			<div class="col-sm-6 col-lg-4">
-				<div class="text-center p-4 bg-success bg-opacity-10 border border-success rounded-3">
-					<h6>Activated Courses</h6>
-					<h2 class="mb-0 fs-1 text-success">996</h2>
-				</div>
-			</div>
-
-			<!-- Course item -->
-			<div class="col-sm-6 col-lg-4">
-				<div class="text-center p-4  bg-warning bg-opacity-15 border border-warning rounded-3">
-					<h6>Pending Courses</h6>
-					<h2 class="mb-0 fs-1 text-warning">200</h2>
-				</div>
-			</div>
-		</div>
-		<!-- Course boxes END -->
-
-		<!-- Card START -->
-		<div class="card bg-transparent border">
-
-			<!-- Card header START -->
-			<div class="card-header bg-light border-bottom">
-				<!-- Search and select START -->
-				<div class="row g-3 align-items-center justify-content-between">
-					<!-- Search bar -->
-					<div class="col-md-8">
-						<form class="rounded position-relative">
-							<input class="form-control bg-body" type="search" placeholder="Search" aria-label="Search">
-							<button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
-								<i class="fas fa-search fs-6 "></i>
-							</button>
-						</form>
+					<!-- Card header -->
+					<div class="card-header bg-light border-bottom">
+						<h5 class="card-header-title mb-0">Personal Information</h5>
 					</div>
 
-					<!-- Select option -->
-					<div class="col-md-3">
-						<!-- Short by filter -->
-						<form>
-							<select class="form-select js-choice border-0 z-index-9" aria-label=".form-select-sm">
-								<option value="">Sort by</option>
-								<option>Newest</option>
-								<option>Oldest</option>
-								<option>Accepted</option>
-								<option>Rejected</option>
-							</select>
-						</form>
+					<!-- Card body START -->
+					<div class="card-body">
+						<!-- Profile picture -->
+						<div class="avatar avatar-xl mb-3">
+							<img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/07.jpg" alt="">
+						</div>
+
+						<!-- Information START -->
+						<div class="row">
+
+							<!-- Information item -->
+							<div class="col-md-6">
+								<ul class="list-group list-group-borderless">
+									
+
+									<li class="list-group-item">
+										<span>Full Name:</span>
+										<span class="h6 mb-0">Akash Patil</span>
+									</li>
+
+
+									<li class="list-group-item">
+										<span>Mobile Number:</span>
+										<span class="h6 mb-0">90751234</span>
+									</li>
+                                   
+                                    <li class="list-group-item"></li>
+										<span>Email ID:</span>
+										<span class="h6 mb-0"> akash123@gmail.com</span>
+									</li>
+                                    
+								</ul>
+							</div>
+
+							<!-- Information item -->
+							<div class="col-md-6">
+								<ul class="list-group list-group-borderless">
+
+                                    <li class="list-group-item"></li>
+										<span>Location:</span>
+										<span class="h6 mb-0"> Pune</span>
+									</li>
+
+									
+
+									<li class="list-group-item">
+										<span>Passout Year:</span>
+										<span class="h6 mb-0">2020</span>
+									</li>
+                                  
+                                    <li class="list-group-item">
+										<span>Qualification:</span>
+										<span class="h6 mb-0">BE-Computer</span>
+									</li>
+
+									
+								</ul>
+							</div>
+
+
+							
+						</div>
+						<!-- Information END -->
 					</div>
+					<!-- Card body END -->
 				</div>
-				<!-- Search and select END -->
 			</div>
-			<!-- Card header END -->
-
-			<!-- Card body START -->
-			<div class="card-body">
-				<!-- Course table START -->
-				<div class="table-responsive border-0 rounded-3">
-					<!-- Table START -->
-					<table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
-						<!-- Table head -->
-						<thead>
-							<tr>
-								
-								<th scope="col" class="border-0">Name</th>
-								<th scope="col" class="border-0">Mobile</th>
-								<th scope="col" class="border-0">Email</th>
-								<th scope="col" class="border-0 ">Technology</th>
-								<th scope="col" class="border-0 rounded-end">Action</th>
-								
-								
-							</tr>
-						</thead>
-						<tbody>
-                         <tr>
-
-							
-							
-							<td>Kedar</td>
-							<td>9014253678</td>
-							<td>kedar123@gmail.com</td>
-							<td>Php</td>
-							<td>
-								<a href="edit-teacher.html" class="btn btn-sm btn-success me-1 mb-1 mb-md-0"><i class="fas fa-edit"></i></a>
-								<button class="btn btn-sm btn-danger mb-0"><i class="fas fa-trash-alt"></i></button>
-								<a href="admin-instructor-detail.html" class="btn btn-sm btn-warning me-1 mb-1 mb-md-0"><i class="fas fa-eye"></i></a>
-							</td>
-						 </tr>
-
-						 <tr>
-
-							
-							
-							<td>Santosh</td>
-							<td>9014253679</td>
-							<td>santosh123@gmail.com</td>
-							<td>Java</td>
-							<td>
-								<a href="edit-teacher.html" class="btn btn-sm btn-success me-1 mb-1 mb-md-0"><i class="fas fa-edit"></i></a>
-								<button class="btn btn-sm btn-danger mb-0"><i class="fas fa-trash-alt"></i></button>
-								<a href="admin-instructor-detail.html" class="btn btn-sm btn-warning me-1 mb-1 mb-md-0"><i class="fas fa-eye"></i></a>
-							</td>
-						 </tr>
-
-						 <tr>
-
-							
-							
-							<td>Rohan</td>
-							<td>9014253680</td>
-							<td>rohan123@gmail.com</td>
-							<td>Python</td>
-							<td>
-								<a href="edit-teacher.html" class="btn btn-sm btn-success me-1 mb-1 mb-md-0"><i class="fas fa-edit"></i></a>
-								<button class="btn btn-sm btn-danger mb-0"><i class="fas fa-trash-alt"></i></button>
-								<a href="admin-instructor-detail.html" class="btn btn-sm btn-warning me-1 mb-1 mb-md-0"><i class="fas fa-eye"></i></a>
-							</td>
-						 </tr>
-
-						 <tr>
-
-							
-							
-							<td>Rahul</td>
-							<td>9014253681</td>
-							<td>rahul123@gmail.com</td>
-							<td>Reactjs</td>
-							<td>
-								<a href="edit-teacher.html" class="btn btn-sm btn-success me-1 mb-1 mb-md-0"><i class="fas fa-edit"></i></a>
-								<button class="btn btn-sm btn-danger mb-0"><i class="fas fa-trash-alt"></i></button>
-								<a href="admin-instructor-detail.html" class="btn btn-sm btn-warning me-1 mb-1 mb-md-0"><i class="fas fa-eye"></i></a>
-							</td>
-						 </tr>
-
-						 <tr>
-
-							
-							
-							<td>Rajesh</td>
-							<td>9014253682</td>
-							<td>rajesh123@gmail.com</td>
-							<td>Nodejs</td>
-							<td>
-								<a href="edit-teacher.html" class="btn btn-sm btn-success me-1 mb-1 mb-md-0"><i class="fas fa-edit"></i></a>
-								<button class="btn btn-sm btn-danger mb-0"><i class="fas fa-trash-alt"></i></button>
-								<a href="admin-instructor-detail.html" class="btn btn-sm btn-warning me-1 mb-1 mb-md-0"><i class="fas fa-eye"></i></a>
-							</td>
-						 </tr>
-
-
-						</tbody>
-						
-					</table>
-					<!-- Table END -->
-				</div>
-				<!-- Course table END -->
-			</div>
-			<!-- Card body END -->
+			<!-- Personal information END -->
 
 			
-		</div>
-		<!-- Card END -->
+			
+
+			
+
+		</div> <!-- Row END -->
 	</div>
 	<!-- Page main content END -->
 
@@ -449,6 +363,51 @@
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
 
+<!-- Popup modal for reviwe START -->
+<div class="modal fade" id="viewReview" tabindex="-1" aria-labelledby="viewReviewLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<!-- Modal header -->
+			<div class="modal-header bg-dark">
+				<h5 class="modal-title text-white" id="viewReviewLabel">Review</h5>
+				<button type="button" class="btn btn-sm btn-light mb-0 ms-auto" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+			</div>
+			<!-- Modal body -->
+			<div class="modal-body">
+				<div class="d-md-flex">
+					<!-- Avatar -->
+					<div class="avatar avatar-md me-4 flex-shrink-0">
+						<img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
+					</div>
+					<!-- Text -->
+					<div>
+						<div class="d-sm-flex mt-1 mt-md-0 align-items-center">
+							<h5 class="me-3 mb-0">Lori Stevens</h5>
+							<!-- Review star -->
+							<ul class="list-inline mb-0">
+								<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item me-0"><i class="far fa-star text-warning"></i></li>
+							</ul>
+						</div>
+						<!-- Info -->
+						<p class="small mb-2">2 days ago</p>
+						<p class="mb-2">Handsome met debating sir dwelling age material. As style lived he worse dried. Offered related so visitors we private removed. Moderate do subjects to distance. </p>
+						<p class="mb-2">As style lived he worse dried. Offered related so visitors we private removed. Moderate do subjects to distance. </p>
+					</div>	
+				</div>
+			</div>
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger-soft my-0" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Popup modal for reviwe END --> 
+
 <!-- Back to top -->
 <div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
 
@@ -457,6 +416,7 @@
 
 <!-- Vendors -->
 <script src="assets/vendor/choices/js/choices.min.js"></script>
+<script src="assets/vendor/apexcharts/js/apexcharts.min.js"></script>
 <script src="assets/vendor/overlay-scrollbar/js/overlayscrollbars.min.js"></script>
 
 <!-- Template Functions -->
@@ -464,5 +424,5 @@
 
 </body>
 
-<!-- Mirrored from eduport.webestica.com/admin-course-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 13:36:25 GMT -->
+<!-- Mirrored from eduport.webestica.com/admin-instructor-detail.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 13:36:26 GMT -->
 </html>
