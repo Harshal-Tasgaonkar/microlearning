@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/microlearning/static/css/main.9d228991.css",
-    "main.js": "/microlearning/static/js/main.1e136651.js",
+    "main.js": "/microlearning/static/js/main.fe0b1c33.js",
     "static/js/453.7dd23826.chunk.js": "/microlearning/static/js/453.7dd23826.chunk.js",
     "static/media/fa-solid-900.svg": "/microlearning/static/media/fa-solid-900.45690f4345fd0e303e35.svg",
     "static/media/fa-brands-400.svg": "/microlearning/static/media/fa-brands-400.675f6734fc707ee98601.svg",
@@ -24,11 +24,11 @@
     "static/media/logo-light.svg": "/microlearning/static/media/logo-light.8585ce0f94bef6f2e641cc4977ea382c.svg",
     "index.html": "/microlearning/index.html",
     "main.9d228991.css.map": "/microlearning/static/css/main.9d228991.css.map",
-    "main.1e136651.js.map": "/microlearning/static/js/main.1e136651.js.map",
+    "main.fe0b1c33.js.map": "/microlearning/static/js/main.fe0b1c33.js.map",
     "453.7dd23826.chunk.js.map": "/microlearning/static/js/453.7dd23826.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9d228991.css",
-    "static/js/main.1e136651.js"
+    "static/js/main.fe0b1c33.js"
   ]
 }
