@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/microlearning/static/css/main.9d228991.css",
+    "main.js": "/microlearning/static/js/main.1e136651.js",
+    "static/js/453.7dd23826.chunk.js": "/microlearning/static/js/453.7dd23826.chunk.js",
+    "static/media/fa-solid-900.svg": "/microlearning/static/media/fa-solid-900.45690f4345fd0e303e35.svg",
+    "static/media/fa-brands-400.svg": "/microlearning/static/media/fa-brands-400.675f6734fc707ee98601.svg",
+    "static/media/fa-solid-900.eot": "/microlearning/static/media/fa-solid-900.9bbb245e67a133f6e486.eot",
+    "static/media/fa-solid-900d41d.eot": "/microlearning/static/media/fa-solid-900d41d.9bbb245e67a133f6e486.eot",
+    "static/media/fa-solid-900.ttf": "/microlearning/static/media/fa-solid-900.be9ee23c0c6390141475.ttf",
+    "static/media/fa-regular-400.svg": "/microlearning/static/media/fa-regular-400.0772874aec68f8e76656.svg",
+    "static/media/fa-brands-400.eot": "/microlearning/static/media/fa-brands-400.23f19bb08961f37aaf69.eot",
+    "static/media/fa-brands-400d41d.eot": "/microlearning/static/media/fa-brands-400d41d.23f19bb08961f37aaf69.eot",
+    "static/media/fa-brands-400.ttf": "/microlearning/static/media/fa-brands-400.527940b104eb2ea366c8.ttf",
+    "static/media/fa-solid-900.woff": "/microlearning/static/media/fa-solid-900.eeccf4f66002c6f2ba24.woff",
+    "static/media/fa-brands-400.woff": "/microlearning/static/media/fa-brands-400.2285773e6b4b172f07d9.woff",
+    "static/media/fa-solid-900.woff2": "/microlearning/static/media/fa-solid-900.1551f4f60c37af51121f.woff2",
+    "static/media/fa-brands-400.woff2": "/microlearning/static/media/fa-brands-400.d878b0a6a1144760244f.woff2",
+    "static/media/fa-regular-400.eot": "/microlearning/static/media/fa-regular-400.77206a6bb316fa0aded5.eot",
+    "static/media/fa-regular-400d41d.eot": "/microlearning/static/media/fa-regular-400d41d.77206a6bb316fa0aded5.eot",
+    "static/media/fa-regular-400.ttf": "/microlearning/static/media/fa-regular-400.491974d108fe4002b2aa.ttf",
+    "static/media/fa-regular-400.woff": "/microlearning/static/media/fa-regular-400.bb58e57c48a3e911f15f.woff",
+    "static/media/fa-regular-400.woff2": "/microlearning/static/media/fa-regular-400.7a3337626410ca2f4071.woff2",
+    "static/media/logo-light.svg": "/microlearning/static/media/logo-light.8585ce0f94bef6f2e641cc4977ea382c.svg",
+    "index.html": "/microlearning/index.html",
+    "main.9d228991.css.map": "/microlearning/static/css/main.9d228991.css.map",
+    "main.1e136651.js.map": "/microlearning/static/js/main.1e136651.js.map",
+    "453.7dd23826.chunk.js.map": "/microlearning/static/js/453.7dd23826.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9d228991.css",
+    "static/js/main.1e136651.js"
+  ]
+}
