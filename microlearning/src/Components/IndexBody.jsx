@@ -2447,7 +2447,7 @@ Trending courses START */}
                               </a>
                             </p>
                           </div>
-                          {/* Price */}
+                          {/* *Price* */}
                           <div>
                             <h4 className="text-success mb-0 item-show">
                               $255
