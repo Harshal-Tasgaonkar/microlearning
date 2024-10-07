@@ -23,7 +23,8 @@
   "deploy": "gh-pages -d build"
   },
 
-  "homepage": "https://Harshal-Tasgaonkar.github.io/microlearning",
+  "homepage": "https://harshal-tasgaonkar.github.io/microlearning",
+
 
   "eslintConfig": {
     "extends": [

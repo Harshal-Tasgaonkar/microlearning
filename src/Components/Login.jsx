@@ -8,7 +8,7 @@ const Login = () => {
   const [showOtpField, setShowOtpField] = useState(false);
   const navigate = useNavigate();
 
-  // Handle the login button click for mobile number submission
+  // Handle the login button click for mobile number submission here
   const handleLoginClick = () => {
     if (mobileNumber.length === 10) {
       // Assuming mobile number validation succeeds
