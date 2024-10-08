@@ -1,4 +1,31 @@
 import React from 'react'
+import category1 from "../Assets/images/element/category-1.svg"
+import category2 from "../Assets/images/element/category-2.svg"
+import science from "../Assets/images/element/data-science.svg"
+import online from "../Assets/images/element/online.svg"
+import engineering from "../Assets/images/element/engineering.svg"
+import coding from "../Assets/images/element/coding.svg"
+import profit from "../Assets/images/element/profit.svg"
+import medical from "../Assets/images/element/medical.svg"
+import home from "../Assets/images/element/home.svg"
+import artist from "../Assets/images/element/artist.svg"
+import photography from "../Assets/images/element/photography.svg"
+import music from "../Assets/images/element/music.svg"
+import marketing from "../Assets/images/element/marketing.svg"
+import account from "../Assets/images/element/account.svg"
+import fr from "../Assets/images/flags/fr.svg"
+import gr from "../Assets/images/flags/gr.svg"
+import sp from "../Assets/images/flags/sp.svg"
+import uk from "../Assets/images/flags/uk.svg"
+import flagin from "../Assets/images/flags/in.svg"
+import it from "../Assets/images/flags/it.svg"
+import ar from "../Assets/images/flags/ar.svg"
+import svg08 from "../Assets/images/element/08.svg"
+import svg15 from "../Assets/images/element/15.svg"
+
+
+
+
 
 const CourseCategoriesBody = () => {
   return (
@@ -23,7 +50,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="col-6 col-md-3 text-center order-1">
                 <img
-                  src="images/element/category-1.svg"
+                  src={category1}
                   width={295}
                   height={335}
                   alt=""
@@ -103,7 +130,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="col-6 col-md-3 text-center order-3">
                 <img
-                  src="images/element/category-2.svg"
+                  src={category2}
                   width={264}
                   height={268}
                   alt=""
@@ -138,7 +165,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="icon-xl bg-body mx-auto rounded-circle mb-3">
                 <img
-                  src="images/element/data-science.svg"
+                  src={science}
                   width={55}
                   height={59}
                   loading="lazy"
@@ -160,7 +187,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="icon-xl bg-body mx-auto rounded-circle mb-3">
                 <img
-                  src="images/element/online.svg"
+                  src={online}
                   width={55}
                   height={59}
                   loading="lazy"
@@ -182,7 +209,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="icon-xl bg-body mx-auto rounded-circle mb-3">
                 <img
-                  src="images/element/engineering.svg"
+                  src={engineering}
                   width={55}
                   height={59}
                   loading="lazy"
@@ -204,7 +231,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="icon-xl bg-body mx-auto rounded-circle mb-3">
                 <img
-                  src="images/element/coding.svg"
+                  src={coding}
                   width={55}
                   height={59}
                   loading="lazy"
@@ -226,7 +253,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="icon-xl bg-body mx-auto rounded-circle mb-3">
                 <img
-                  src="images/element/profit.svg"
+                  src={profit}
                   width={55}
                   height={59}
                   loading="lazy"
@@ -248,7 +275,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="icon-xl bg-body mx-auto rounded-circle mb-3">
                 <img
-                  src="images/element/medical.svg"
+                  src={medical}
                   width={55}
                   height={59}
                   loading="lazy"
@@ -270,7 +297,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="icon-xl bg-body mx-auto rounded-circle mb-3">
                 <img
-                  src="images/element/home.svg"
+                  src={home}
                   width={55}
                   height={59}
                   loading="lazy"
@@ -292,7 +319,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="icon-xl bg-body mx-auto rounded-circle mb-3">
                 <img
-                  src="images/element/artist.svg"
+                  src={artist}
                   width={55}
                   height={59}
                   loading="lazy"
@@ -314,7 +341,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="icon-xl bg-body mx-auto rounded-circle mb-3">
                 <img
-                  src="images/element/photography.svg"
+                  src={photography}
                   width={55}
                   height={59}
                   loading="lazy"
@@ -336,7 +363,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="icon-xl bg-body mx-auto rounded-circle mb-3">
                 <img
-                  src="images/element/music.svg"
+                  src={music}
                   width={55}
                   height={59}
                   loading="lazy"
@@ -358,7 +385,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="icon-xl bg-body mx-auto rounded-circle mb-3">
                 <img
-                  src="images/element/marketing.svg"
+                  src={marketing}
                   width={55}
                   height={59}
                   loading="lazy"
@@ -380,7 +407,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="icon-xl bg-body mx-auto rounded-circle mb-3">
                 <img
-                  src="images/element/account.svg"
+                  src={account}
                   width={55}
                   height={59}
                   loading="lazy"
@@ -416,7 +443,7 @@ const CourseCategoriesBody = () => {
           <div className="col-sm-6 col-md-4 col-lg-3">
             <div className="bg-light rounded-2 p-3 d-flex align-items-center position-relative justify-content-center">
               <img
-                src="images/flags/fr.svg"
+                src={fr}
                 width={60}
                 height={40}
                 loading="lazy"
@@ -433,7 +460,7 @@ const CourseCategoriesBody = () => {
           <div className="col-sm-6 col-md-4 col-lg-3">
             <div className="bg-light rounded-2 p-3 d-flex align-items-center position-relative justify-content-center">
               <img
-                src="images/flags/gr.svg"
+                src={gr}
                 width={60}
                 height={40}
                 loading="lazy"
@@ -450,7 +477,7 @@ const CourseCategoriesBody = () => {
           <div className="col-sm-6 col-md-4 col-lg-3">
             <div className="bg-light rounded-2 p-3 d-flex align-items-center position-relative justify-content-center">
               <img
-                src="images/flags/sp.svg"
+                src={sp}
                 width={60}
                 height={40}
                 loading="lazy"
@@ -467,7 +494,7 @@ const CourseCategoriesBody = () => {
           <div className="col-sm-6 col-md-4 col-lg-3">
             <div className="bg-light rounded-2 p-3 d-flex align-items-center position-relative justify-content-center">
               <img
-                src="images/flags/uk.svg"
+                src={uk}
                 width={60}
                 height={40}
                 loading="lazy"
@@ -484,7 +511,7 @@ const CourseCategoriesBody = () => {
           <div className="col-sm-6 col-md-4 col-lg-3">
             <div className="bg-light rounded-2 p-3 d-flex align-items-center position-relative justify-content-center">
               <img
-                src="images/flags/in.svg"
+                src={flagin}
                 width={60}
                 height={40}
                 loading="lazy"
@@ -501,7 +528,7 @@ const CourseCategoriesBody = () => {
           <div className="col-sm-6 col-md-4 col-lg-3">
             <div className="bg-light rounded-2 p-3 d-flex align-items-center position-relative justify-content-center">
               <img
-                src="images/flags/it.svg"
+                src={it}
                 width={60}
                 height={40}
                 loading="lazy"
@@ -518,7 +545,7 @@ const CourseCategoriesBody = () => {
           <div className="col-sm-6 col-md-4 col-lg-3">
             <div className="bg-light rounded-2 p-3 d-flex align-items-center position-relative justify-content-center">
               <img
-                src="images/flags/ar.svg"
+                src={ar}
                 width={60}
                 height={40}
                 loading="lazy"
@@ -535,7 +562,7 @@ const CourseCategoriesBody = () => {
           <div className="col-sm-6 col-md-4 col-lg-3">
             <div className="bg-light rounded-2 p-3 d-flex align-items-center position-relative justify-content-center">
               <img
-                src="images/flags/uk.svg"
+                src={uk}
                 width={60}
                 height={40}
                 loading="lazy"
@@ -564,7 +591,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="position-absolute bottom-0 end-0 me-3">
                 <img
-                  src="images/element/08.svg"
+                  src={svg08}
                   width={314}
                   height={200}
                   loading="lazy"
@@ -592,7 +619,7 @@ const CourseCategoriesBody = () => {
               {/* Image */}
               <div className="position-absolute bottom-0 end-0 me-3">
                 <img
-                  src="images/element/15.svg"
+                  src={svg15}
                   width={235}
                   height={200}
                   loading="lazy"

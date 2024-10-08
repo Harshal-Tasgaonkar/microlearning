@@ -1,4 +1,16 @@
 import React from 'react'
+import course01 from "../Assets/images/courses/4by3/01.jpg"
+import course18 from "../Assets/images/courses/4by3/18.jpg"
+import course21 from "../Assets/images/courses/4by3/21.jpg"
+import course20 from "../Assets/images/courses/4by3/20.jpg"
+import course17 from "../Assets/images/courses/4by3/17.jpg"
+import jpg07 from "../Assets/images/avatar/07.jpg"
+import jpg02 from "../Assets/images/avatar/02.jpg"
+import jpg05 from "../Assets/images/avatar/05.jpg"
+import jpg09 from "../Assets/images/avatar/09.jpg"
+import jpg06 from "../Assets/images/avatar/06.jpg"
+import int01 from "../Assets/images/instructor/01.jpg"
+
 
 const CourseDetailBody = () => {
   return (
@@ -1238,7 +1250,7 @@ const CourseDetailBody = () => {
                         <div className="col-md-5">
                           {/* Image */}
                           <img
-                            src="images/instructor/01.jpg"
+                            src={int01}
                             className="img-fluid rounded-3"
                             alt="instructor-image"
                           />
@@ -1583,7 +1595,7 @@ const CourseDetailBody = () => {
                         <div className="avatar avatar-xl me-4 flex-shrink-0">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/09.jpg"
+                            src={jpg09}
                             alt="avatar"
                           />
                         </div>
@@ -1663,7 +1675,7 @@ const CourseDetailBody = () => {
                         <div className="avatar avatar-lg me-4 flex-shrink-0">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/02.jpg"
+                            src={jpg02}
                             alt="avatar"
                           />
                         </div>
@@ -1692,7 +1704,7 @@ const CourseDetailBody = () => {
                         <div className="avatar avatar-xl me-4 flex-shrink-0">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/07.jpg"
+                            src={jpg07}
                             alt="avatar"
                           />
                         </div>
@@ -2195,7 +2207,7 @@ const CourseDetailBody = () => {
                               {" "}
                               <img
                                 className="avatar-img rounded-circle"
-                                src="images/avatar/09.jpg"
+                                src={jpg09}
                                 alt=""
                               />{" "}
                             </a>
@@ -2226,7 +2238,7 @@ const CourseDetailBody = () => {
                                   <a href="#">
                                     <img
                                       className="avatar-img rounded-circle"
-                                      src="images/avatar/05.jpg"
+                                      src={jpg05}
                                       alt=""
                                     />
                                   </a>
@@ -2285,7 +2297,7 @@ const CourseDetailBody = () => {
                                       <a href="#">
                                         <img
                                           className="avatar-img rounded-circle"
-                                          src="images/avatar/06.jpg"
+                                          src={jpg06}
                                           alt=""
                                         />
                                       </a>
@@ -2352,7 +2364,7 @@ const CourseDetailBody = () => {
                                   <a href="#">
                                     <img
                                       className="avatar-img rounded-circle"
-                                      src="images/avatar/02.jpg"
+                                      src={jpg02}
                                       alt=""
                                     />
                                   </a>
@@ -2416,7 +2428,7 @@ const CourseDetailBody = () => {
                 <div className="card shadow p-2 mb-4 z-index-9">
                   <div className="overflow-hidden rounded-3">
                     <img
-                      src="images/courses/4by3/01.jpg"
+                      src={course01}
                       width={387}
                       height={290}
                       className="card-img"
@@ -2567,7 +2579,7 @@ const CourseDetailBody = () => {
                     <div className="col-4">
                       <img
                         className="rounded"
-                        src="images/courses/4by3/21.jpg"
+                        src={course21}
                         width={107}
                         height={80}
                         loading="lazy"
@@ -2597,7 +2609,7 @@ const CourseDetailBody = () => {
                     <div className="col-4">
                       <img
                         className="rounded"
-                        src="images/courses/4by3/18.jpg"
+                        src={course18}
                         width={107}
                         height={80}
                         loading="lazy"
@@ -2740,7 +2752,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/18.jpg"
+                              src={course18}
                               width={384}
                               height={288}
                               className="card-img-top"
@@ -2788,7 +2800,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/07.jpg"
+                                src={jpg07}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -2824,7 +2836,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/21.jpg"
+                              src={course21}
                               width={384}
                               height={288}
                               loading="lazy"
@@ -2870,7 +2882,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/05.jpg"
+                                src={jpg05}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -2908,7 +2920,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/20.jpg"
+                              src={course20}
                               width={384}
                               height={288}
                               loading="lazy"
@@ -2954,7 +2966,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/02.jpg"
+                                src={jpg02}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -2990,7 +3002,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/17.jpg"
+                              src={course17}
                               width={384}
                               height={288}
                               loading="lazy"
@@ -3038,7 +3050,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/09.jpg"
+                                src={jpg09}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -3077,7 +3089,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/18.jpg"
+                              src={course18}
                               width={384}
                               height={288}
                               className="card-img-top"
@@ -3125,7 +3137,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/07.jpg"
+                                src={jpg07}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -3161,7 +3173,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/21.jpg"
+                              src={course21}
                               width={384}
                               height={288}
                               loading="lazy"
@@ -3207,7 +3219,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/05.jpg"
+                                src={jpg05}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -3241,7 +3253,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/20.jpg"
+                              src={course20}
                               width={384}
                               height={288}
                               loading="lazy"
@@ -3287,7 +3299,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/02.jpg"
+                                src={jpg02}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -3323,7 +3335,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/17.jpg"
+                              src={course17}
                               width={384}
                               height={288}
                               loading="lazy"
@@ -3371,7 +3383,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/09.jpg"
+                                src={jpg09}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -3411,7 +3423,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/18.jpg"
+                              src={course18}
                               width={384}
                               height={288}
                               className="card-img-top"
@@ -3459,7 +3471,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/07.jpg"
+                                src={jpg07}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -3496,7 +3508,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="assets/images/courses/4by3/21.jpg"
+                              src={course21}
                               width={384}
                               height={288}
                               loading="lazy"
@@ -3542,7 +3554,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/05.jpg"
+                                src={jpg05}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -3581,7 +3593,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/20.jpg"
+                              src={course20}
                               width={384}
                               height={288}
                               loading="lazy"
@@ -3627,7 +3639,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/02.jpg"
+                                src={jpg02}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -3664,7 +3676,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/17.jpg"
+                              src={course17}
                               width={384}
                               height={288}
                               loading="lazy"
@@ -3712,7 +3724,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/09.jpg"
+                                src={jpg09}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -3751,7 +3763,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/18.jpg"
+                              src={course18}
                               width={384}
                               height={288}
                               className="card-img-top"
@@ -3799,7 +3811,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/07.jpg"
+                                src={jpg07}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -3835,7 +3847,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/21.jpg"
+                              src={course21}
                               width={384}
                               height={288}
                               loading="lazy"
@@ -3881,7 +3893,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/05.jpg"
+                                src={jpg05}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -3919,7 +3931,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/20.jpg"
+                              src={course20}
                               width={384}
                               height={288}
                               loading="lazy"
@@ -3965,7 +3977,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/02.jpg"
+                                src={jpg02}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -4001,7 +4013,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/17.jpg"
+                              src={course17}
                               width={384}
                               height={288}
                               loading="lazy"
@@ -4049,7 +4061,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/09.jpg"
+                                src={jpg09}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -4088,7 +4100,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/18.jpg"
+                              src={course18}
                               width={384}
                               height={288}
                               className="card-img-top"
@@ -4136,7 +4148,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/07.jpg"
+                                src={jpg07}
                                 loading="lazy"
                                 alt="avatar"
                               />
@@ -4172,7 +4184,7 @@ const CourseDetailBody = () => {
                         <div className="rounded-top overflow-hidden">
                           <div className="card-overlay-hover">
                             <img
-                              src="images/courses/4by3/21.jpg"
+                              src={course21}
                               width={384}
                               height={288}
                               loading="lazy"
@@ -4218,7 +4230,7 @@ const CourseDetailBody = () => {
                                 className="avatar-img rounded-circle"
                                 width={40}
                                 height={40}
-                                src="images/avatar/05.jpg"
+                                src={jpg05}
                                 loading="lazy"
                                 alt="avatar"
                               />

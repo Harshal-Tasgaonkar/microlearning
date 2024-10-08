@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import logo from "../Assets/images/logo.svg";
+import logolight from "../Assets/images/logo-light.svg"
 
 const InquiryHeader = () => {
   return (
@@ -11,12 +14,12 @@ const InquiryHeader = () => {
       <a className="navbar-brand me-0" href="index-2.html">
         <img
           className="light-mode-item navbar-brand-item"
-          src="images/logo.svg"
+          src={logo}
           alt="logo"
         />
         <img
           className="dark-mode-item navbar-brand-item"
-          src="images/logo-light.svg"
+          src={logolight}
           alt="logo"
         />
       </a>
@@ -42,45 +45,45 @@ const InquiryHeader = () => {
         {/* Nav Search END */}
         <ul className="navbar-nav navbar-nav-scroll mx-auto">
           {/* Nav item 1 Home */}
-          <a
+          <Link
             className="nav-link  "
-            href="index-2.html"
+            to="/"
             id="demoMenu"
             aria-haspopup="true"
             aria-expanded="false"
           >
             Home
-          </a>
+          </Link>
           {/* Nav item 2 Courses */}
-          <a
+          <Link
             className="nav-link "
-            href="course-categories.html"
+            to="/coursecategories"
             id="demoMenu"
             aria-haspopup="true"
             aria-expanded="false"
           >
             Courses
-          </a>
+          </Link>
           {/* Nav item 3 Batches */}
-          <a
+          <Link
             className="nav-link "
-            href="#"
+            to="#"
             id="accounntMenu"
             aria-haspopup="true"
             aria-expanded="false"
           >
             Batches
-          </a>
+          </Link>
           {/* Nav item 4 Inquiry*/}
-          <a
+          <Link
             className="nav-link active"
-            href="book-class.html"
+            to="/inquiry"
             id="advanceMenu"
             aria-haspopup="true"
             aria-expanded="false"
           >
             Inquiry
-          </a>
+          </Link>
         </ul>
       </div>
       {/* Main navbar END */}

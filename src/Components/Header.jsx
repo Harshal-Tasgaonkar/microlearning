@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import useThemeSwitcher from './useThemeSwitcher'
+import logo from "../Assets/images/logo.svg";
+import logolight from "../Assets/images/logo-light.svg"
+import jpg01 from "../Assets/images/avatar/01.jpg"
 
 const Header = () => {
 
@@ -16,12 +19,12 @@ const Header = () => {
         <a className="navbar-brand" href="index-2.html">
           <img
             className="light-mode-item navbar-brand-item"
-            src="images/logo.svg"
+            src={logo}
             alt="logo"
           />
           <img
             className="dark-mode-item navbar-brand-item"
-            src="images/logo-light.svg"
+            src={logolight}
             alt="logo"
           />
         </a>
@@ -186,7 +189,7 @@ const Header = () => {
           >
             <img
               className="avatar-img rounded-circle"
-              src="images/avatar/01.jpg"
+              src={jpg01}
               alt="avatar"
             />
           </a>
@@ -201,7 +204,7 @@ const Header = () => {
                 <div className="avatar me-3">
                   <img
                     className="avatar-img rounded-circle shadow"
-                    src="images/avatar/01.jpg"
+                    src={jpg01}
                     alt="avatar"
                   />
                 </div>

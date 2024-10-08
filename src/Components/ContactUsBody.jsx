@@ -1,4 +1,6 @@
 import React from 'react'
+import contact from "../Assets/images/element/contact.svg"
+import map from "../Assets/images/element/map.svg"
 
 const ContactUsBody = () => {
   return (
@@ -9,7 +11,7 @@ const ContactUsBody = () => {
     <section
       className="pt-5 pb-0"
       style={{
-        backgroundImage: "url(images/element/map.svg)",
+        backgroundImage: `url(${map})`,
         backgroundPosition: "center left",
         backgroundSize: "cover"
       }}
@@ -136,7 +138,7 @@ const ContactUsBody = () => {
           <div className="col-md-6 align-items-center text-center">
             {/* Image */}
             <img
-              src="images/element/contact.svg"
+              src={contact}
               width={374}
               height={400}
               loading="lazy"

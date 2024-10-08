@@ -1,4 +1,11 @@
 import React from 'react'
+import child from "../Assets/images/element/child.svg"
+import help from "../Assets/images/element/help.svg"
+import jpg01 from "../Assets/images/avatar/01.jpg"
+import jpg02 from "../Assets/images/avatar/02.jpg"
+import jpg03 from "../Assets/images/avatar/03.jpg"
+import jpg04 from "../Assets/images/avatar/04.jpg"
+import jpg05 from "../Assets/images/avatar/05.jpg"
 
 const InquiryBody = () => {
   return (
@@ -179,7 +186,7 @@ const InquiryBody = () => {
                   <div>
                     <div className="icon-xl bg-body shadow rounded-circle">
                       <img
-                        src="images/element/child.svg"
+                        src={child}
                         width={45}
                         height={40}
                         className="h-40px"
@@ -204,7 +211,7 @@ const InquiryBody = () => {
                   <div>
                     <div className="icon-xl bg-body shadow rounded-circle">
                       <img
-                        src="images/element/help.svg"
+                        src={help}
                         width={41}
                         height={40}
                         className="h-40px"
@@ -232,7 +239,7 @@ const InquiryBody = () => {
                   <li className="avatar avatar-sm">
                     <img
                       className="avatar-img rounded-circle"
-                      src="images/avatar/01.jpg"
+                      src={jpg01}
                       width={37}
                       height={37}
                       alt="avatar"
@@ -241,7 +248,7 @@ const InquiryBody = () => {
                   <li className="avatar avatar-sm">
                     <img
                       className="avatar-img rounded-circle"
-                      src="images/avatar/02.jpg"
+                      src={jpg02}
                       width={37}
                       height={37}
                       alt="avatar"
@@ -250,7 +257,7 @@ const InquiryBody = () => {
                   <li className="avatar avatar-sm">
                     <img
                       className="avatar-img rounded-circle"
-                      src="images/avatar/03.jpg"
+                      src={jpg03}
                       width={37}
                       height={37}
                       alt="avatar"
@@ -259,7 +266,7 @@ const InquiryBody = () => {
                   <li className="avatar avatar-sm">
                     <img
                       className="avatar-img rounded-circle"
-                      src="images/avatar/04.jpg"
+                      src={jpg04}
                       width={37}
                       height={37}
                       alt="avatar"
@@ -268,7 +275,7 @@ const InquiryBody = () => {
                   <li className="avatar avatar-sm">
                     <img
                       className="avatar-img rounded-circle"
-                      src="images/avatar/05.jpg"
+                      src={jpg05}
                       width={37}
                       height={37}
                       alt="avatar"

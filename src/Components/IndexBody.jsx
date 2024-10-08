@@ -1,4 +1,32 @@
 import React from 'react'
+import science from "../Assets/images/client/science.svg"
+import angular from "../Assets/images/client/angular.svg"
+import figma from "../Assets/images/client/figma.svg"
+import png01 from "../Assets/images/pattern/01.png"
+import jpg01 from "../Assets/images/avatar/01.jpg"
+import jpg02 from "../Assets/images/avatar/02.jpg"
+import jpg03 from "../Assets/images/avatar/03.jpg"
+import jpg04 from "../Assets/images/avatar/04.jpg"
+import jpg09 from "../Assets/images/avatar/09.jpg"
+import jpg10 from "../Assets/images/avatar/10.jpg"
+import png07 from "../Assets/images/element/07.png"
+import course02jpg from "../Assets/images/courses/4by3/02.jpg"
+import course03jpg from "../Assets/images/courses/4by3/03.jpg"
+import course04jpg from "../Assets/images/courses/4by3/04.jpg"
+import course05jpg from "../Assets/images/courses/4by3/05.jpg"
+import course06jpg from "../Assets/images/courses/4by3/06.jpg"
+import course07jpg from "../Assets/images/courses/4by3/07.jpg"
+import course08jpg from "../Assets/images/courses/4by3/08.jpg"
+import course09jpg from "../Assets/images/courses/4by3/09.jpg"
+import course10jpg from "../Assets/images/courses/4by3/10.jpg"
+import course11jpg from "../Assets/images/courses/4by3/11.jpg"
+import course12jpg from "../Assets/images/courses/4by3/12.jpg"
+import course01jpg from "../Assets/images/courses/4by3/01.jpg"
+import course13jpg from "../Assets/images/courses/4by3/13.jpg"
+import course14jpg from "../Assets/images/courses/4by3/14.jpg"
+import course15jpg from "../Assets/images/courses/4by3/15.jpg"
+import course16jpg from "../Assets/images/courses/4by3/16.jpg"
+import course17jpg from "../Assets/images/courses/4by3/17.jpg"
 
 const IndexBody = () => {
   return (
@@ -293,7 +321,7 @@ Main Banner START */}
           {/* Icon logos START */}
           <div className="p-2 bg-white shadow rounded-3 position-absolute top-50 start-0 translate-middle-y mt-n7 d-none d-sm-block">
             <img
-              src="images/client/science.svg"
+              src={science}
               width="48.1"
               height="48.3"
               alt="Icon"
@@ -301,7 +329,7 @@ Main Banner START */}
           </div>
           <div className="p-2 bg-white shadow rounded-3 position-absolute top-0 end-0 me-5">
             <img
-              src="images/client/angular.svg"
+              src={angular}
               width="33.9"
               height="35.3"
               alt="Icon"
@@ -309,7 +337,7 @@ Main Banner START */}
           </div>
           <div className="p-2 bg-white shadow rounded-3 position-absolute top-50 end-0 translate-middle-y mt-5 ms-5 d-none d-lg-block z-index-9">
             <img
-              src="images/client/figma.svg"
+              src={figma}
               width="21.9"
               height={34}
               alt="Icon"
@@ -352,7 +380,7 @@ Main Banner START */}
               <li className="avatar avatar-sm">
                 <img
                   className="avatar-img rounded-circle border-white"
-                  src="images/avatar/01.jpg"
+                  src={jpg01}
                   loading="lazy"
                   width={37}
                   height={37}
@@ -362,7 +390,7 @@ Main Banner START */}
               <li className="avatar avatar-sm">
                 <img
                   className="avatar-img rounded-circle border-white"
-                  src="images/avatar/02.jpg"
+                  src={jpg02}
                   loading="lazy"
                   width={37}
                   height={37}
@@ -372,7 +400,7 @@ Main Banner START */}
               <li className="avatar avatar-sm">
                 <img
                   className="avatar-img rounded-circle border-white"
-                  src="images/avatar/03.jpg"
+                  src={jpg03}
                   loading="lazy"
                   width={37}
                   height={37}
@@ -382,7 +410,7 @@ Main Banner START */}
               <li className="avatar avatar-sm">
                 <img
                   className="avatar-img rounded-circle border-white"
-                  src="images/avatar/04.jpg"
+                  src={jpg04}
                   loading="lazy"
                   width={37}
                   height={37}
@@ -401,7 +429,7 @@ Main Banner START */}
           {/* Image */}
           <div className="position-relative ms-sm-4">
             <img
-              src="images/element/07.png"
+              src={png07}
               width={482}
               height={601}
               alt=""
@@ -628,7 +656,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/08.jpg"
+                  src={course08jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -700,7 +728,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/02.jpg"
+                  src={course02jpg}
                   className="card-img-top"
                   loading="lazy"
                   width={298}
@@ -772,7 +800,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/03.jpg"
+                  src={course03jpg}
                   className="card-img-top"
                   loading="lazy"
                   width={298}
@@ -844,7 +872,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/07.jpg"
+                  src={course07jpg}
                   className="card-img-top"
                   loading="lazy"
                   width={298}
@@ -916,7 +944,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/11.jpg"
+                  src={course11jpg}
                   className="card-img-top"
                   loading="lazy"
                   width={298}
@@ -988,7 +1016,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/12.jpg"
+                  src={course12jpg}
                   className="card-img-top"
                   loading="lazy"
                   width={298}
@@ -1060,7 +1088,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/04.jpg"
+                  src={course04jpg}
                   className="card-img-top"
                   loading="lazy"
                   width={298}
@@ -1132,7 +1160,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/09.jpg"
+                  src={course09jpg}
                   className="card-img-top"
                   loading="lazy"
                   width={298}
@@ -1216,7 +1244,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/05.jpg"
+                  src={course05jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -1287,7 +1315,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/06.jpg"
+                  src={course06jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -1358,7 +1386,7 @@ Popular course START */}
               <div className="card shadow">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/07.jpg"
+                  src={course07jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -1430,7 +1458,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/09.jpg"
+                  src={course09jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -1502,7 +1530,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/10.jpg"
+                  src={course10jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -1574,7 +1602,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/13.jpg"
+                  src={course13jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -1657,7 +1685,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/08.jpg"
+                  src={course08jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -1728,7 +1756,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/04.jpg"
+                  src={course04jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -1800,7 +1828,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/02.jpg"
+                  src={course02jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -1871,7 +1899,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/03.jpg"
+                  src={course03jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -1953,7 +1981,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/01.jpg"
+                  src={course01jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -2024,7 +2052,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/08.jpg"
+                  src={course08jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -2106,7 +2134,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/04.jpg"
+                  src={course04jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -2178,7 +2206,7 @@ Popular course START */}
               <div className="card shadow h-100">
                 {/* Image */}
                 <img
-                  src="images/courses/4by3/09.jpg"
+                  src={course09jpg}
                   className="card-img-top"
                   width={298}
                   height={224}
@@ -2367,7 +2395,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/15.jpg"
+                        src={course15jpg}
                         className="card-img-top"
                         loading="lazy"
                         width={400}
@@ -2435,7 +2463,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/04.jpg"
+                                src={jpg04}
                                 width={40}
                                 height={40}
                                 alt="avatar"
@@ -2472,7 +2500,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/17.jpg"
+                        src={course17jpg}
                         className="card-img-top"
                         loading="lazy"
                         width={400}
@@ -2540,7 +2568,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/09.jpg"
+                                src={jpg09}
                                 width={40}
                                 height={40}
                                 loading="lazy"
@@ -2578,7 +2606,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/16.jpg"
+                        src={course16jpg}
                         className="card-img-top"
                         loading="lazy"
                         width={400}
@@ -2646,7 +2674,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/01.jpg"
+                                src={jpg01}
                                 width={40}
                                 height={40}
                                 loading="lazy"
@@ -2684,7 +2712,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/14.jpg"
+                        src={course14jpg}
                         className="card-img-top"
                         width={400}
                         height={300}
@@ -2757,7 +2785,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/10.jpg"
+                                src={jpg10}
                                 width={40}
                                 height={40}
                                 loading="lazy"
@@ -2795,7 +2823,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/15.jpg"
+                        src={course15jpg}
                         className="card-img-top"
                         loading="lazy"
                         width={400}
@@ -2863,7 +2891,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/04.jpg"
+                                src={jpg04}
                                 width={40}
                                 height={40}
                                 alt="avatar"
@@ -2900,7 +2928,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/17.jpg"
+                        src={course17jpg}
                         className="card-img-top"
                         loading="lazy"
                         width={400}
@@ -2968,7 +2996,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/09.jpg"
+                                src={jpg09}
                                 width={40}
                                 height={40}
                                 loading="lazy"
@@ -3006,7 +3034,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/16.jpg"
+                        src={course16jpg}
                         className="card-img-top"
                         loading="lazy"
                         width={400}
@@ -3074,7 +3102,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/01.jpg"
+                                src={jpg01}
                                 width={40}
                                 height={40}
                                 loading="lazy"
@@ -3114,7 +3142,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/14.jpg"
+                        src={course14jpg}
                         className="card-img-top"
                         width={400}
                         height={300}
@@ -3187,7 +3215,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/10.jpg"
+                                src={jpg10}
                                 width={40}
                                 height={40}
                                 loading="lazy"
@@ -3228,7 +3256,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/15.jpg"
+                        src={course15jpg}
                         className="card-img-top"
                         loading="lazy"
                         width={400}
@@ -3296,7 +3324,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/04.jpg"
+                                src={jpg04}
                                 width={40}
                                 height={40}
                                 alt="avatar"
@@ -3331,7 +3359,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/17.jpg"
+                        src={course17jpg}
                         className="card-img-top"
                         loading="lazy"
                         width={400}
@@ -3399,7 +3427,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/09.jpg"
+                                src={jpg09}
                                 width={40}
                                 height={40}
                                 loading="lazy"
@@ -3435,7 +3463,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/16.jpg"
+                        src={course16jpg}
                         className="card-img-top"
                         loading="lazy"
                         width={400}
@@ -3503,7 +3531,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/01.jpg"
+                                src={jpg01}
                                 width={40}
                                 height={40}
                                 loading="lazy"
@@ -3538,7 +3566,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/14.jpg"
+                        src={course14jpg}
                         className="card-img-top"
                         width={400}
                         height={300}
@@ -3611,7 +3639,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/10.jpg"
+                                src={jpg10}
                                 width={40}
                                 height={40}
                                 loading="lazy"
@@ -3645,7 +3673,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/15.jpg"
+                        src={course15jpg}
                         className="card-img-top"
                         loading="lazy"
                         width={400}
@@ -3713,7 +3741,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/04.jpg"
+                                src={jpg04}
                                 width={40}
                                 height={40}
                                 alt="avatar"
@@ -3746,7 +3774,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/17.jpg"
+                        src={course17jpg}
                         className="card-img-top"
                         loading="lazy"
                         width={400}
@@ -3814,7 +3842,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/09.jpg"
+                                src={jpg10}
                                 width={40}
                                 height={40}
                                 loading="lazy"
@@ -3852,7 +3880,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/16.jpg"
+                        src={course16jpg}
                         className="card-img-top"
                         loading="lazy"
                         width={400}
@@ -3920,7 +3948,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/01.jpg"
+                                src={jpg01}
                                 width={40}
                                 height={40}
                                 loading="lazy"
@@ -3958,7 +3986,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/14.jpg"
+                        src={course14jpg}
                         className="card-img-top"
                         width={400}
                         height={300}
@@ -4031,7 +4059,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/10.jpg"
+                                src={jpg10}
                                 width={40}
                                 height={40}
                                 loading="lazy"
@@ -4069,7 +4097,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/15.jpg"
+                        src={course15jpg}
                         className="card-img-top"
                         loading="lazy"
                         width={400}
@@ -4137,7 +4165,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/04.jpg"
+                                src={jpg04}
                                 width={40}
                                 height={40}
                                 alt="avatar"
@@ -4174,7 +4202,7 @@ Trending courses START */}
                     <div className="card action-trigger-hover border bg-transparent">
                       {/* Image */}
                       <img
-                        src="images/courses/4by3/17.jpg"
+                        src={course17jpg}
                         className="card-img-top"
                         loading="lazy"
                         width={400}
@@ -4242,7 +4270,7 @@ Trending courses START */}
                             <div className="avatar avatar-sm">
                               <img
                                 className="avatar-img rounded-1"
-                                src="images/avatar/09.jpg"
+                                src={jpg09}
                                 width={40}
                                 height={40}
                                 loading="lazy"
@@ -4325,7 +4353,7 @@ Reviews START */}
                 <div className="avatar avatar-xl mb-3">
                   <img
                     className="avatar-img rounded-circle"
-                    src="images/avatar/01.jpg"
+                    src={jpg01}
                     width={82}
                     height={82}
                     loading="lazy"
@@ -4383,7 +4411,7 @@ Reviews START */}
                   <div className="avatar avatar-sm">
                     <img
                       className="avatar-img rounded-1"
-                      src="images/avatar/09.jpg"
+                      src={jpg09}
                       width={40}
                       height={40}
                       loading="lazy"
@@ -4402,7 +4430,7 @@ Reviews START */}
                   <div className="avatar avatar-sm">
                     <img
                       className="avatar-img rounded-1"
-                      src="images/avatar/04.jpg"
+                      src={jpg04}
                       width={40}
                       height={40}
                       loading="lazy"
@@ -4421,7 +4449,7 @@ Reviews START */}
                   <div className="avatar avatar-sm">
                     <img
                       className="avatar-img rounded-1"
-                      src="images/avatar/02.jpg"
+                      src={jpg02}
                       width={40}
                       height={40}
                       loading="lazy"
@@ -4529,7 +4557,7 @@ Reviews START */}
                 <div className="avatar avatar-xl mb-3">
                   <img
                     className="avatar-img rounded-circle"
-                    src="images/avatar/03.jpg"
+                    src={jpg03}
                     width={82}
                     height={82}
                     loading="lazy"

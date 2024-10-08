@@ -1,4 +1,6 @@
 import React from 'react'
+import logo from "../Assets/images/logo.svg";
+import logolight from "../Assets/images/logo-light.svg"
 
 const InquiryFooter = () => {
   return (
@@ -13,12 +15,12 @@ const InquiryFooter = () => {
           <a className="me-0" href="index-2.html">
             <img
               className="light-mode-item h-40px"
-              src="images/logo.svg"
+              src={logo}
               alt="logo"
             />
             <img
               className="dark-mode-item h-40px"
-              src="images/logo-light.svg"
+              src={logolight}
               alt="logo"
             />
           </a>

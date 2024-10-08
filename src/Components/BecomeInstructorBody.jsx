@@ -1,4 +1,9 @@
 import React from 'react'
+import svg04 from "../Assets/images/element/04.svg"
+import account from "../Assets/images/element/create-account.svg"
+import add from "../Assets/images/element/add-course.svg"
+import earn from "../Assets/images/element/earn-money.svg"
+
 
 const BecomeInstructorBody = () => {
   return (
@@ -94,7 +99,7 @@ const BecomeInstructorBody = () => {
           <div className="col-md-6 text-center">
             {/* Image */}
             <img
-              src="images/element/04.svg"
+              src={svg04}
               width={516}
               height={400}
               className="h-300px h-xl-400px"
@@ -127,7 +132,7 @@ const BecomeInstructorBody = () => {
           {/* Item */}
           <div className="col-md-4 text-center">
             <img
-              src="images/element/create-account.svg"
+              src={account}
               width={153}
               height={200}
               loading="lazy"
@@ -144,7 +149,7 @@ const BecomeInstructorBody = () => {
           {/* Item */}
           <div className="col-md-4 text-center">
             <img
-              src="images/element/add-course.svg"
+              src={add}
               width={200}
               height={200}
               loading="lazy"
@@ -163,7 +168,7 @@ const BecomeInstructorBody = () => {
           {/* Item */}
           <div className="col-md-4 text-center">
             <img
-              src="images/element/earn-money.svg"
+              src={earn}
               width={200}
               height={200}
               loading="lazy"

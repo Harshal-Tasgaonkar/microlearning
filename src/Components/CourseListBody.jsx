@@ -1,4 +1,14 @@
 import React from 'react'
+import course01 from "../Assets/images/courses/4by3/01.jpg"
+import course02 from "../Assets/images/courses/4by3/02.jpg"
+import course03 from "../Assets/images/courses/4by3/03.jpg"
+import course05 from "../Assets/images/courses/4by3/05.jpg"
+import course06 from "../Assets/images/courses/4by3/06.jpg"
+import course07 from "../Assets/images/courses/4by3/07.jpg"
+import course09 from "../Assets/images/courses/4by3/09.jpg"
+import course11 from "../Assets/images/courses/4by3/11.jpg"
+import course12 from "../Assets/images/courses/4by3/12.jpg"
+import course13 from "../Assets/images/courses/4by3/13.jpg"
 
 const CourseListBody = () => {
   return (
@@ -387,7 +397,7 @@ const CourseListBody = () => {
                 {/* Image */}
                 <div className="col-md-4">
                   <img
-                    src="images/courses/4by3/01.jpg"
+                    src={course01}
                     width={207}
                     height={156}
                     alt="card image"
@@ -458,7 +468,7 @@ const CourseListBody = () => {
                 {/* Image */}
                 <div className="col-md-4">
                   <img
-                    src="images/courses/4by3/02.jpg"
+                    src={course02}
                     width={207}
                     height={156}
                     alt="card image"
@@ -527,7 +537,7 @@ const CourseListBody = () => {
                 {/* Image */}
                 <div className="col-md-4">
                   <img
-                    src="images/courses/4by3/03.jpg"
+                    src={course03}
                     width={207}
                     height={156}
                     alt="card image"
@@ -596,7 +606,7 @@ const CourseListBody = () => {
                 {/* Image */}
                 <div className="col-md-4">
                   <img
-                    src="images/courses/4by3/05.jpg"
+                    src={course05}
                     width={207}
                     height={156}
                     alt="card image"
@@ -665,7 +675,7 @@ const CourseListBody = () => {
                 {/* Image */}
                 <div className="col-md-4">
                   <img
-                    src="images/courses/4by3/06.jpg"
+                    src={course06}
                     loading="lazy"
                     width={207}
                     height={156}
@@ -735,7 +745,7 @@ const CourseListBody = () => {
                 {/* Image */}
                 <div className="col-md-4">
                   <img
-                    src="images/courses/4by3/07.jpg"
+                    src={course07}
                     loading="lazy"
                     width={207}
                     height={156}
@@ -805,7 +815,7 @@ const CourseListBody = () => {
                 {/* Image */}
                 <div className="col-md-4">
                   <img
-                    src="images/courses/4by3/09.jpg"
+                    src={course09}
                     loading="lazy"
                     width={207}
                     height={156}
@@ -875,7 +885,7 @@ const CourseListBody = () => {
                 {/* Image */}
                 <div className="col-md-4">
                   <img
-                    src="images/courses/4by3/11.jpg"
+                    src={course11}
                     loading="lazy"
                     width={207}
                     height={156}
@@ -945,7 +955,7 @@ const CourseListBody = () => {
                 {/* Image */}
                 <div className="col-md-4">
                   <img
-                    src="images/courses/4by3/12.jpg"
+                    src={course12}
                     loading="lazy"
                     width={207}
                     height={156}
@@ -1015,7 +1025,7 @@ const CourseListBody = () => {
                 {/* Image */}
                 <div className="col-md-4">
                   <img
-                    src="images/courses/4by3/13.jpg"
+                    src={course13}
                     loading="lazy"
                     width={207}
                     height={156}

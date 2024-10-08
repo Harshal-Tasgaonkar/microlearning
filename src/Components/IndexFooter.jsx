@@ -1,5 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logo from "../Assets/images/logo.svg";
+import logolight from "../Assets/images/logo-light.svg"
+import googleplay from "../Assets/images/client/google-play.svg"
+import appstore from "../Assets/images/client/app-store.svg"
+
 
 const IndexFooter = () => {
   return (
@@ -14,7 +19,7 @@ const IndexFooter = () => {
         <a className="me-0" href="index-2.html">
           <img
             className="light-mode-item h-40px"
-            src="images/logo.svg"
+            src={logo}
             width="189.05"
             height={40}
             loading="lazy"
@@ -22,7 +27,7 @@ const IndexFooter = () => {
           />
           <img
             className="dark-mode-item h-40px"
-            src="images/logo-light.svg"
+            src={logolight}
             loading="lazy"
             width="189.05"
             height={40}
@@ -108,7 +113,7 @@ const IndexFooter = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/studentdashboard">
+                <Link className="nav-link" to="">
                   Terms &amp; Conditions
                 </Link>
               </li>
@@ -134,7 +139,7 @@ const IndexFooter = () => {
             <a href="#">
               {" "}
               <img
-                src="images/client/google-play.svg"
+                src={googleplay}
                 width="125.15"
                 height="39.1"
                 alt=""
@@ -146,7 +151,7 @@ const IndexFooter = () => {
             <a href="#">
               {" "}
               <img
-                src="images/client/app-store.svg"
+                src={appstore}
                 width="125.15"
                 height="39.1"
                 alt="app-store"

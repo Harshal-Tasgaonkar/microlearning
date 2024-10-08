@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import logo from "../Assets/images/logo.svg";
+import logolight from "../Assets/images/logo-light.svg"
 
 const Navbar = () => {
   return (
@@ -12,14 +14,14 @@ const Navbar = () => {
       <a className="navbar-brand" href="#">
         <img
           className="light-mode-item navbar-brand-item"
-          src="images/logo.svg"
+          src={logo}
           width="142.43"
           height={36}
           alt="logo"
         />
         <img
           className="dark-mode-item navbar-brand-item"
-          src="images/logo-light.svg"
+          src={logolight}
           width="142.43"
           height={36}
           alt="logo"
@@ -110,45 +112,45 @@ const Navbar = () => {
         {/* Nav Main menu START */}
         <ul className="navbar-nav navbar-nav-scroll me-auto">
           {/* Nav item 1 Home */}
-          <NavLink
-            className="nav-link "  activeClassName="active"
+          <Link
+            className="nav-link active"  
            to="/"
             id="demoMenu"
             aria-haspopup="true"
             aria-expanded="false"
           >
             Home
-          </NavLink>
+          </Link>
           {/* Nav item 2 Courses */}
-          <NavLink
-            className="nav-link "  activeClassName="active"
+          <Link
+            className="nav-link " 
             to="/coursecategories"
             id="pagesMenu"
             aria-haspopup="true"
             aria-expanded="false"
           >
             Courses
-          </NavLink>
+          </Link>
           {/* Nav item 3 Batches */}
-          <NavLink
-            className="nav-link "  activeClassName="active"
-            to="/teacherdashboard"
+          <Link
+            className="nav-link "  
+            to=""
             id="accounntMenu"
             aria-haspopup="true"
             aria-expanded="false"
           >
             Batches
-          </NavLink>
+          </Link>
           {/* Nav item 4 Inquiry*/}
-          <NavLink
-            className="nav-link"  activeClassName="active"
+          <Link
+            className="nav-link"  
             to="/inquiry"
             id="advanceMenu"
             aria-haspopup="true"
             aria-expanded="false"
           >
             Inquiry
-          </NavLink>
+          </Link>
         </ul>
         {/* Nav Main menu END */}
         {/* Nav Search START */}

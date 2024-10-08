@@ -1,4 +1,24 @@
 import React from 'react'
+import about05 from "../Assets/images/about/05.jpg"
+import about03 from "../Assets/images/about/03.jpg"
+import about09 from "../Assets/images/about/09.jpg"
+import about10 from "../Assets/images/about/10.jpg"
+import about06 from "../Assets/images/about/06.jpg"
+import microsoft from "../Assets/images/client/microsoft.svg"
+import linkedin from "../Assets/images/client/linkedin.svg"
+import netflix from "../Assets/images/client/netflix.svg"
+import cocacola from "../Assets/images/client/coca-cola.svg"
+import envato from "../Assets/images/client/envato.svg"
+import android from "../Assets/images/client/android.svg"
+import shippable from "../Assets/images/client/shippable.svg"
+import algolia from "../Assets/images/client/algolia.svg"
+import importio from "../Assets/images/client/importio.svg"
+import yamaha from "../Assets/images/client/yamaha.svg"
+import jpg09 from "../Assets/images/avatar/09.jpg"
+import jpg04 from "../Assets/images/avatar/04.jpg"
+import jpg10 from "../Assets/images/avatar/10.jpg"
+import jpg01 from "../Assets/images/avatar/01.jpg"
+import jpg02 from "../Assets/images/avatar/02.jpg"
 
 const AboutUsBody = () => {
   return (
@@ -64,7 +84,7 @@ const AboutUsBody = () => {
               <div className="col-10 col-lg-6">
                 <img
                   className="rounded-4"
-                  src="images/about/05.jpg"
+                  src={about05}
                   width={190}
                   height={107}
                   alt=""
@@ -74,7 +94,7 @@ const AboutUsBody = () => {
               <div className="col-12">
                 <img
                   className="rounded-4"
-                  src="images/about/03.jpg"
+                  src={about03}
                   width={406}
                   height={229}
                   alt=""
@@ -96,7 +116,7 @@ const AboutUsBody = () => {
             {/* Image */}
             <img
               className="rounded-4"
-              src="images/about/09.jpg"
+              src={about09}
               width={406}
               height={477}
               alt=""
@@ -119,7 +139,7 @@ const AboutUsBody = () => {
               <div className="col-sm-6 col-md-12 col-lg-6">
                 <img
                   className="rounded-4"
-                  src="images/about/10.jpg"
+                  src={about10}
                   width={190}
                   height={107}
                   alt=""
@@ -402,7 +422,7 @@ const AboutUsBody = () => {
             </figure>
             {/* Image */}
             <img
-              src="images/about/06.jpg"
+              src={about06}
               className="rounded"
               width={445}
               height="522.39"
@@ -563,7 +583,7 @@ const AboutUsBody = () => {
           <div className="col-6 col-sm-4 col-lg-2">
             <div className="p-4 grayscale text-center">
               <img
-                src="images/client/microsoft.svg"
+                src={microsoft}
                 width={135}
                 height={29}
                 loading="lazy"
@@ -575,7 +595,7 @@ const AboutUsBody = () => {
           <div className="col-6 col-sm-4 col-lg-2">
             <div className="p-4 grayscale text-center">
               <img
-                src="images/client/linkedin.svg"
+                src={linkedin}
                 width={135}
                 height={36}
                 loading="lazy"
@@ -587,7 +607,7 @@ const AboutUsBody = () => {
           <div className="col-6 col-sm-4 col-lg-2">
             <div className="p-4 grayscale text-center">
               <img
-                src="images/client/netflix.svg"
+                src={netflix}
                 width={135}
                 height={37}
                 loading="lazy"
@@ -599,7 +619,7 @@ const AboutUsBody = () => {
           <div className="col-6 col-sm-4 col-lg-2">
             <div className="p-4 grayscale text-center">
               <img
-                src="images/client/coca-cola.svg"
+                src={cocacola}
                 width={135}
                 height={44}
                 loading="lazy"
@@ -611,7 +631,7 @@ const AboutUsBody = () => {
           <div className="col-6 col-sm-4 col-lg-2">
             <div className="p-4 grayscale text-center">
               <img
-                src="images/client/envato.svg"
+                src={envato}
                 width={135}
                 height={26}
                 loading="lazy"
@@ -623,7 +643,7 @@ const AboutUsBody = () => {
           <div className="col-6 col-sm-4 col-lg-2">
             <div className="p-4 grayscale text-center">
               <img
-                src="images/client/android.svg"
+                src={android}
                 width={135}
                 height={29}
                 loading="lazy"
@@ -635,7 +655,7 @@ const AboutUsBody = () => {
           <div className="col-6 col-sm-4 col-lg-2">
             <div className="p-4 grayscale text-center">
               <img
-                src="images/client/coca-cola.svg"
+                src={cocacola}
                 width={135}
                 height={44}
                 loading="lazy"
@@ -647,7 +667,7 @@ const AboutUsBody = () => {
           <div className="col-6 col-sm-4 col-lg-2">
             <div className="p-4 grayscale text-center">
               <img
-                src="images/client/shippable.svg"
+                src={shippable}
                 width={135}
                 height={31}
                 loading="lazy"
@@ -659,7 +679,7 @@ const AboutUsBody = () => {
           <div className="col-6 col-sm-4 col-lg-2">
             <div className="p-4 grayscale text-center">
               <img
-                src="images/client/algolia.svg"
+                src={algolia}
                 width={135}
                 height={34}
                 loading="lazy"
@@ -671,7 +691,7 @@ const AboutUsBody = () => {
           <div className="col-6 col-sm-4 col-lg-2">
             <div className="p-4 grayscale text-center">
               <img
-                src="images/client/importio.svg"
+                src={importio}
                 width={135}
                 height={40}
                 loading="lazy"
@@ -683,7 +703,7 @@ const AboutUsBody = () => {
           <div className="col-6 col-sm-4 col-lg-2">
             <div className="p-4 grayscale text-center">
               <img
-                src="images/client/yamaha.svg"
+                src={yamaha}
                 width={135}
                 height={31}
                 loading="lazy"
@@ -786,7 +806,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/09.jpg"
+                            src={jpg09}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -826,7 +846,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/04.jpg"
+                            src={jpg04}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -866,7 +886,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/10.jpg"
+                            src={jpg10}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -906,7 +926,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/01.jpg"
+                            src={jpg01}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -946,7 +966,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/02.jpg"
+                            src={jpg02}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -986,7 +1006,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/09.jpg"
+                            src={jpg09}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1026,7 +1046,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/04.jpg"
+                            src={jpg04}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1066,7 +1086,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/10.jpg"
+                            src={jpg10}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1108,7 +1128,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/01.jpg"
+                            src={jpg01}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1150,7 +1170,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/02.jpg"
+                            src={jpg02}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1192,7 +1212,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/09.jpg"
+                            src={jpg09}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1234,7 +1254,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/04.jpg"
+                            src={jpg04}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1274,7 +1294,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/10.jpg"
+                            src={jpg10}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1310,7 +1330,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/01.jpg"
+                            src={jpg01}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1346,7 +1366,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/02.jpg"
+                            src={jpg02}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1382,7 +1402,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/09.jpg"
+                            src={jpg09}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1422,7 +1442,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/04.jpg"
+                            src={jpg04}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1462,7 +1482,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/10.jpg"
+                            src={jpg10}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1502,7 +1522,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/01.jpg"
+                            src={jpg01}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1542,7 +1562,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/02.jpg"
+                            src={jpg02}
                             width={128}
                             height={128}
                             loading="lazy"
@@ -1582,7 +1602,7 @@ const AboutUsBody = () => {
                         <div className="avatar avatar-xxl mb-3">
                           <img
                             className="avatar-img rounded-circle"
-                            src="images/avatar/09.jpg"
+                            src={jpg09}
                             width={128}
                             height={128}
                             loading="lazy"

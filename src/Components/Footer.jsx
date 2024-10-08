@@ -1,5 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logo from "../Assets/images/logo.svg";
+import logolight from "../Assets/images/logo-light.svg"
+import googleplay from "../Assets/images/client/google-play.svg"
+import appstore from "../Assets/images/client/app-store.svg"
 
 const Footer = () => {
   return (
@@ -14,13 +18,13 @@ const Footer = () => {
         <a className="me-0" href="index-2.html">
           <img
             className="light-mode-item h-40px"
-            src="images/logo.svg"
+            src={logo}
             loading="lazy"
             alt="logo"
           />
           <img
             className="dark-mode-item h-40px"
-            src="images/logo-light.svg"
+            src={logolight}
             loading="lazy"
             alt="logo"
           />
@@ -129,7 +133,7 @@ const Footer = () => {
           <div className="col-6 col-sm-4 col-md-3 col-lg-6">
             <a href="#">
               {" "}
-              <img src="images/client/google-play.svg" alt="" />{" "}
+              <img src={googleplay} alt="" />{" "}
             </a>
           </div>
           {/* App store button */}
@@ -137,7 +141,7 @@ const Footer = () => {
             <a href="#">
               {" "}
               <img
-                src="images/client/app-store.svg"
+                src={appstore}
                 alt="app-store"
               />{" "}
             </a>
