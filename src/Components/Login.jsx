@@ -12,6 +12,7 @@ const Login = () => {
   const [otp, setOtp] = useState('');
   const [showOtpField, setShowOtpField] = useState(false);
   const [teachers, setTeachers] = useState([]);
+  const [students, setStudents] = useState([]);
   const navigate = useNavigate();
 
   // Fetch teacher data from Firebase on component mount
@@ -27,30 +28,45 @@ const Login = () => {
         setTeachers(formattedTeachers);
       }
     });
+
+    // Fetch student data from Firebase
+    const studentsRef = ref(database, 'students');
+    onValue(studentsRef, (snapshot) => {
+      const studentsData = snapshot.val();
+      if (studentsData) {
+        const formattedStudents = Object.keys(studentsData).map((key) => ({
+          studentID: key,
+          ...studentsData[key],
+        }));
+        setStudents(formattedStudents);
+      }
+    });
   }, []);
 
   // Handle the login button click for mobile number submission
   const handleLoginClick = () => {
-    // Check if the entered mobile number exists in the teacher data
-    const teacher = teachers.find((t) => t.mobile === mobileNumber);
-    if (teacher || mobileNumber === '1111111111' || mobileNumber === '3333333333') {
+    // Check if the entered mobile number exists in teacher or student data
+    const isTeacher = teachers.find((t) => t.mobile === mobileNumber);
+    const isStudent = students.find((s) => s.mobile === mobileNumber);
+
+    if (isTeacher || isStudent || mobileNumber === '1111111111') {
       // If a valid mobile number, show the OTP field
       setShowOtpField(true);
     } else {
-      alert('Please enter a valid teacher mobile number');
+      alert('Please enter a valid mobile number');
     }
   };
 
   // Handle the OTP submission and navigation
   const handleOtpSubmit = () => {
     if (otp === '1234') {
-      // Navigate to the dashboard based on the entered mobile number
+      // Navigate to the appropriate dashboard based on the entered mobile number
       if (mobileNumber === '1111111111') {
         navigate('/admindashboard'); // Admin Dashboard
-      } else if (mobileNumber === '3333333333') {
+      } else if (students.find((s) => s.mobile === mobileNumber)) {
         navigate('/studentdashboard'); // Student Dashboard
       } else {
-        navigate('/teacherdashboard'); // Teacher Dashboard (for teacher mobile numbers)
+        navigate('/teacherdashboard'); // Teacher Dashboard
       }
     } else {
       alert('Invalid OTP');

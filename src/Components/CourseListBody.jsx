@@ -9,6 +9,7 @@ import course09 from "../Assets/images/courses/4by3/09.jpg"
 import course11 from "../Assets/images/courses/4by3/11.jpg"
 import course12 from "../Assets/images/courses/4by3/12.jpg"
 import course13 from "../Assets/images/courses/4by3/13.jpg"
+import png04 from "../Assets/images/pattern/04.png"
 
 const CourseListBody = () => {
   return (
@@ -19,7 +20,9 @@ const CourseListBody = () => {
     <section
       className="bg-dark align-items-center d-flex"
       style={{
-        background: "url(images/pattern/04.png) no-repeat center center",
+        backgroundImage: `url(${png04})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center',
         backgroundSize: "cover"
       }}
     >
@@ -70,208 +73,28 @@ const CourseListBody = () => {
             </form>
           </div>
           {/* Select option */}
-          <div className="col-sm-6 col-xl-3 mt-3 mt-lg-0">
-  <form className="border rounded p-2 input-borderless">
-    <div
-      className="choices"
-      data-type="select-one"
-      tabIndex={0}
-      role="combobox"
-      aria-autocomplete="list"
-      aria-haspopup="true"
-      aria-expanded="false"
-    >
-      <div className="choices__inner">
-        <select
-          className="form-select form-select-sm js-choice choices__input"
-          aria-label=".form-select-sm"
-          hidden=""
-          tabIndex={-1}
-          data-choice="active"
-        >
-          <option value="" data-custom-properties="[object Object]">
-            Category
-          </option>
-        </select>
-        <div className="choices__list choices__list--single">
-          <div
-            className="choices__item choices__placeholder choices__item--selectable"
-            data-item=""
-            data-id={1}
-            data-value=""
-            data-custom-properties="[object Object]"
-            aria-selected="true"
-          >
-            Category
-          </div>
+          <div class="col-sm-6 col-xl-3 mt-3 mt-lg-0">
+    <form class="border rounded p-2 input-borderless">
+        <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
+            <div class="choices__inner">
+                <select class="form-select form-select-sm js-choice choices__input" aria-label="Category" tabindex="-1" data-choice="active">
+                    <option value="" data-custom-properties="[object Object]">Category</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="All">All</option>
+                    <option value="Design">Design</option>
+                    <option value="Development">Development</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Legal">Legal</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Translation">Translation</option>
+                    <option value="Writing">Writing</option>
+                </select>
+            </div>
         </div>
-      </div>
-      <div
-        className="choices__list choices__list--dropdown"
-        aria-expanded="false"
-      >
-        <input
-          type="search"
-          name="search_terms"
-          className="choices__input choices__input--cloned"
-          autoComplete="off"
-          autoCapitalize="off"
-          spellCheck="false"
-          role="textbox"
-          aria-autocomplete="list"
-          aria-label="Category"
-          placeholder=""
-          aria-activedescendant="choices--adf4-item-choice-9"
-        />
-        <div className="choices__list" role="listbox">
-          <div
-            id="choices--adf4-item-choice-3"
-            className="choices__item choices__item--choice is-selected choices__placeholder choices__item--selectable"
-            role="option"
-            data-choice=""
-            data-id={3}
-            data-value=""
-            data-select-text="Press to select"
-            data-choice-selectable=""
-            aria-selected="false"
-          >
-            Category
-          </div>
-          <div
-            id="choices--adf4-item-choice-1"
-            className="choices__item choices__item--choice choices__item--selectable"
-            role="option"
-            data-choice=""
-            data-id={1}
-            data-value="Accounting"
-            data-select-text="Press to select"
-            data-choice-selectable=""
-            aria-selected="false"
-          >
-            Accounting
-          </div>
-          <div
-            id="choices--adf4-item-choice-2"
-            className="choices__item choices__item--choice choices__item--selectable"
-            role="option"
-            data-choice=""
-            data-id={2}
-            data-value="All"
-            data-select-text="Press to select"
-            data-choice-selectable=""
-            aria-selected="false"
-          >
-            All
-          </div>
-          <div
-            id="choices--adf4-item-choice-4"
-            className="choices__item choices__item--choice choices__item--selectable"
-            role="option"
-            data-choice=""
-            data-id={4}
-            data-value="Design"
-            data-select-text="Press to select"
-            data-choice-selectable=""
-            aria-selected="false"
-          >
-            Design
-          </div>
-          <div
-            id="choices--adf4-item-choice-5"
-            className="choices__item choices__item--choice choices__item--selectable"
-            role="option"
-            data-choice=""
-            data-id={5}
-            data-value="Development"
-            data-select-text="Press to select"
-            data-choice-selectable=""
-            aria-selected="false"
-          >
-            Development
-          </div>
-          <div
-            id="choices--adf4-item-choice-6"
-            className="choices__item choices__item--choice choices__item--selectable"
-            role="option"
-            data-choice=""
-            data-id={6}
-            data-value="Finance"
-            data-select-text="Press to select"
-            data-choice-selectable=""
-            aria-selected="false"
-          >
-            Finance
-          </div>
-          <div
-            id="choices--adf4-item-choice-7"
-            className="choices__item choices__item--choice choices__item--selectable"
-            role="option"
-            data-choice=""
-            data-id={7}
-            data-value="Legal"
-            data-select-text="Press to select"
-            data-choice-selectable=""
-            aria-selected="false"
-          >
-            Legal
-          </div>
-          <div
-            id="choices--adf4-item-choice-8"
-            className="choices__item choices__item--choice choices__item--selectable"
-            role="option"
-            data-choice=""
-            data-id={8}
-            data-value="Marketing"
-            data-select-text="Press to select"
-            data-choice-selectable=""
-            aria-selected="false"
-          >
-            Marketing
-          </div>
-          <div
-            id="choices--adf4-item-choice-9"
-            className="choices__item choices__item--choice choices__item--selectable is-highlighted"
-            role="option"
-            data-choice=""
-            data-id={9}
-            data-value="Photography"
-            data-select-text="Press to select"
-            data-choice-selectable=""
-            aria-selected="true"
-          >
-            Photography
-          </div>
-          <div
-            id="choices--adf4-item-choice-10"
-            className="choices__item choices__item--choice choices__item--selectable"
-            role="option"
-            data-choice=""
-            data-id={10}
-            data-value="Translation"
-            data-select-text="Press to select"
-            data-choice-selectable=""
-            aria-selected="false"
-          >
-            Translation
-          </div>
-          <div
-            id="choices--adf4-item-choice-11"
-            className="choices__item choices__item--choice choices__item--selectable"
-            role="option"
-            data-choice=""
-            data-id={11}
-            data-value="Writing"
-            data-select-text="Press to select"
-            data-choice-selectable=""
-            aria-selected="false"
-          >
-            Writing
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
+    </form>
 </div>
+
 
 
           {/* Select option */}

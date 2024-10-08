@@ -369,8 +369,9 @@ Main Banner START */}
           <div
             className="p-3 bg-success d-inline-block rounded-4 shadow-lg position-absolute top-50 end-0 translate-middle-y mt-n7 z-index-1 d-none d-md-block"
             style={{
-              background:
-                "url(images/pattern/01.png) no-repeat center center",
+              backgroundImage: `url(${png01})`,
+               backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center center',
               backgroundSize: "cover"
             }}
           >
