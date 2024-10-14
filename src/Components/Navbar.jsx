@@ -1,194 +1,163 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from "../Assets/images/logo.svg";
-import logolight from "../Assets/images/logo-light.svg"
+import { database, ref, get } from '../firebase'; // Import Firebase
+import logo from '../Assets/images/logo.svg';
+import logolight from '../Assets/images/logo-light.svg';
 
 const Navbar = () => {
+  const [courses, setCourses] = useState([]); // State to store courses
+
+  useEffect(() => {
+    // Fetch courses from Firebase
+    const fetchCourses = async () => {
+      const coursesRef = ref(database, 'courses'); // Reference to 'courses' node
+      try {
+        const snapshot = await get(coursesRef);
+        if (snapshot.exists()) {
+          const coursesData = snapshot.val();
+          const coursesArray = Object.values(coursesData); // Convert object to array
+
+          // Limit to only 10 courses
+          const limitedCourses = coursesArray.slice(0, 10);
+          setCourses(limitedCourses); // Set the state with limited courses
+        } else {
+          console.log('No courses available');
+        }
+      } catch (error) {
+        console.error('Error fetching courses:', error);
+      }
+    };
+
+    fetchCourses(); // Call the function to fetch data
+  }, []);
+
   return (
-    
     <header className="navbar-light navbar-sticky header-static">
-  {/* Nav START */}
-  <nav className="navbar navbar-expand-xl">
-    <div className="container-fluid px-3 px-xl-5">
-      {/* Logo START */}
-      <a className="navbar-brand" href="#">
-        <img
-          className="light-mode-item navbar-brand-item"
-          src={logo}
-          width="142.43"
-          height={36}
-          alt="logo"
-        />
-        <img
-          className="dark-mode-item navbar-brand-item"
-          src={logolight}
-          width="142.43"
-          height={36}
-          alt="logo"
-        />
-      </a>
-      {/* Logo end */}
-      {/* Responsive navbar toggler */}
-      <button
-        className="navbar-toggler ms-auto"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarCollapse"
-        aria-controls="navbarCollapse"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-animation">
-          <span />
-          <span />
-          <span />
-        </span>
-      </button>
-      {/* Main navbar START */}
-      <div className="navbar-collapse w-100 collapse" id="navbarCollapse">
-        {/* Nav category menu START */}
-        <ul className="navbar-nav navbar-nav-scroll me-auto">
-          {/* Nav item 1 Demos */}
-          <li className="nav-item dropdown dropdown-menu-shadow-stacked">
-            <a
-              className="nav-link bg-primary bg-opacity-10 rounded-3 text-primary px-3 py-3 py-xl-0 dropdown-toggle"
-              href="#"
-              id="categoryMenu"
-              data-bs-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <span>Courses</span>
-            </a>
-            <ul className="dropdown-menu" aria-labelledby="categoryMenu">
-              {/* Dropdown submenu */}
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">web Development</Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Design </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Data Science </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Mobile Development </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Marketing </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">IT &amp; software </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Programing Language </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Software Testing </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Software Engineering </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Software Development Tools </Link>
-              </li>
-              <li>
-                {" "}
-                <hr className="dropdown-divider" />
-              </li>
-              <li>
-                
-                <Link
-                  className="dropdown-item bg-primary text-primary bg-opacity-10 rounded-2 mb-0"
-                 to="/courselist"
+      <nav className="navbar navbar-expand-xl">
+        <div className="container-fluid px-3 px-xl-5">
+          {/* Logo START */}
+          <a className="navbar-brand" href="#">
+            <img
+              className="light-mode-item navbar-brand-item"
+              src={logo}
+              width="142.43"
+              height={36}
+              alt="logo"
+            />
+            <img
+              className="dark-mode-item navbar-brand-item"
+              src={logolight}
+              width="142.43"
+              height={36}
+              alt="logo"
+            />
+          </a>
+          {/* Logo end */}
+          {/* Responsive navbar toggler */}
+          <button
+            className="navbar-toggler ms-auto"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-animation">
+              <span />
+              <span />
+              <span />
+            </span>
+          </button>
+          {/* Main navbar START */}
+          <div className="navbar-collapse w-100 collapse" id="navbarCollapse">
+            {/* Nav category menu START */}
+            <ul className="navbar-nav navbar-nav-scroll me-auto">
+              <li className="nav-item dropdown dropdown-menu-shadow-stacked">
+                <a
+                  className="nav-link bg-primary bg-opacity-10 rounded-3 text-primary px-3 py-3 py-xl-0 dropdown-toggle"
+                  href="#"
+                  id="categoryMenu"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
                 >
-                  View all courses
-                </Link>
+                  <span>Courses</span>
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="categoryMenu">
+                  {/* Loop through courses and display them */}
+                  {courses.map((course) => (
+                    <li key={course.courseid}>
+                      <Link to={`/coursedetail/${course.courseid}`} className="dropdown-item">
+                        {course.courseName}
+                      </Link>
+                    </li>
+                  ))}
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <Link
+                      className="dropdown-item bg-primary text-primary bg-opacity-10 rounded-2 mb-0"
+                      to="/courselist"
+                    >
+                      View all courses
+                    </Link>
+                  </li>
+                </ul>
               </li>
             </ul>
-          </li>
-        </ul>
-        {/* Nav category menu END */}
-        {/* Nav Main menu START */}
-        <ul className="navbar-nav navbar-nav-scroll me-auto">
-          {/* Nav item 1 Home */}
-          <Link
-            className="nav-link active"  
-           to="/"
-            id="demoMenu"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Home
-          </Link>
-          {/* Nav item 2 Courses */}
-          <Link
-            className="nav-link " 
-            to="/coursecategories"
-            id="pagesMenu"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Courses
-          </Link>
-          {/* Nav item 3 Batches */}
-          <Link
-            className="nav-link "  
-            to=""
-            id="accounntMenu"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Batches
-          </Link>
-          {/* Nav item 4 Inquiry*/}
-          <Link
-            className="nav-link"  
-            to="/inquiry"
-            id="advanceMenu"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Inquiry
-          </Link>
-        </ul>
-        {/* Nav Main menu END */}
-        {/* Nav Search START */}
-        <div className="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
-          <div className="nav-item w-100">
-            <form className="position-relative">
-              <input
-                className="form-control pe-5 bg-transparent"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button
-                className="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset"
-                type="submit"
-              >
-                <i className="fas fa-search fs-6 " />
-              </button>
-            </form>
+            {/* Nav category menu END */}
+            {/* Nav Main menu START */}
+            <ul className="navbar-nav navbar-nav-scroll me-auto">
+              <Link className="nav-link active" to="/" id="demoMenu">
+                Home
+              </Link>
+              <Link className="nav-link" to="/coursecategories" id="pagesMenu">
+                Courses
+              </Link>
+              <Link className="nav-link" to="" id="accountMenu">
+                Batches
+              </Link>
+              <Link className="nav-link" to="/inquiry" id="advanceMenu">
+                Inquiry
+              </Link>
+            </ul>
+            {/* Nav Main menu END */}
+            {/* Nav Search START */}
+            <div className="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
+              <div className="nav-item w-100">
+                <form className="position-relative">
+                  <input
+                    className="form-control pe-5 bg-transparent"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <button
+                    className="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset"
+                    type="submit"
+                  >
+                    <i className="fas fa-search fs-6 " />
+                  </button>
+                </form>
+              </div>
+            </div>
+            {/* Nav Search END */}
           </div>
+          {/* Main navbar END */}
+          {/* Login button START */}
+          <div className="navbar-nav">
+            <Link to="/login" className="btn btn-sm btn-dark mb-0">
+              <i className="fas fa-power-off me-1" />
+              Login
+            </Link>
+          </div>
+          {/* Login button END */}
         </div>
-        {/* Nav Search END */}
-      </div>
-      {/* Main navbar END */}
-      {/* Login button START */}
-      <div className="navbar-nav">
-        <Link to="/login" className="btn btn-sm btn-dark mb-0">
-          <i className="fas fa-power-off me-1" />
-          Login
-        </Link>
-      </div>
-      {/* Login button END */}
-    </div>
-  </nav>
-  {/* Nav END */}
-</header>
+      </nav>
+    </header>
+  );
+};
 
-  )
-}
-
-export default Navbar
+export default Navbar;

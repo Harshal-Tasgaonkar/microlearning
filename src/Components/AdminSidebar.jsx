@@ -242,35 +242,77 @@ const AdminSidebar = () => {
           <div className="offcanvas-body sidebar-content d-flex flex-column bg-dark">
             {/* Sidebar menu START */}
             <ul className="navbar-nav flex-column" id="navbar-sidebar">
-              {/* Menu item 1 */}
-              <li className="nav-item">
-                <NavLink to="/" className="nav-link" exact activeClassName="active">
-                  <i className="fas fa-home fa-fw me-2" />
-                  Home
-                </NavLink>
-              </li>
-              {/* Menu item 2 */}
-              <li className="nav-item">
-                <NavLink to="/admincourselist" className="nav-link" activeClassName="active">
-                  <i className="fas fa-shopping-basket fa-fw me-2" />
-                  Manage Course
-                </NavLink>
-              </li>
-              {/* Menu item 3 */}
-              <li className="nav-item">
-                <NavLink to="/adminteacherlist" className="nav-link" activeClassName="active">
-                  <i className="fas fa-user-tie fa-fw me-2" />
-                  Teacher
-                </NavLink>
-              </li>
-              {/* Menu item 4 */}
-              <li className="nav-item">
-                <NavLink to="/adminstudentlist" className="nav-link" activeClassName="active">
-                  <i className="fas fa-user-graduate fa-fw me-2" />
-                  Student
-                </NavLink>
-              </li>
-            </ul>
+      {/* Menu item 1 */}
+      <li className="nav-item">
+        <NavLink 
+          to="/admindashboard" 
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+        >
+          <i className="fas fa-home fa-fw me-2" />
+          Home
+        </NavLink>
+      </li>
+      {/* Menu item 2 */}
+      <li className="nav-item">
+        <NavLink 
+          to="/admincourselist" 
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+        >
+          <i className="fas fa-shopping-basket fa-fw me-2" />
+          Manage Course
+        </NavLink>
+      </li>
+      {/* Menu item 3 */}
+      <li className="nav-item">
+        <NavLink 
+          to="/adminteacherlist" 
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+        >
+          <i className="fas fa-user-tie fa-fw me-2" />
+          Teacher
+        </NavLink>
+      </li>
+      {/* Menu item 4 */}
+      <li className="nav-item">
+        <NavLink 
+          to="/adminstudentlist" 
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+        >
+          <i className="fas fa-user-graduate fa-fw me-2" />
+          Student
+        </NavLink>
+      </li>
+      {/* Menu item 5 */}
+      <li className="nav-item">
+        <NavLink 
+          to="/admincategorylist" 
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+        >
+          <i className="fas fa-tags fa-fw me-2" />
+          Category
+        </NavLink>
+      </li>
+      {/* Menu item 6 */}
+      <li className="nav-item">
+        <NavLink 
+          to="/adminskilllist" 
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+        >
+          <i className="fas fa-brain fa-fw me-2" />
+          Skill
+        </NavLink>
+      </li>
+      {/* Menu item 7 */}
+      <li className="nav-item">
+        <NavLink 
+          to="/admininquirylist" 
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+        >
+          <i className="fas fa-question-circle  fa-fw me-2" />
+          Inquiry
+        </NavLink>
+      </li>
+    </ul>
             {/* Sidebar menu end */}
           </div>
         </div>

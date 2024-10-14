@@ -1,6 +1,7 @@
 import React from 'react'
 import AdminSidebar from './AdminSidebar'
 import AdminTeacherView from './AdminTeacherView'
+import AdminFooter from './AdminFooter'
 
 const TeacherView = () => {
   return (
@@ -8,6 +9,7 @@ const TeacherView = () => {
    <>
    <AdminSidebar/>
    <AdminTeacherView/>
+   <AdminFooter/>
    </>
 
   )

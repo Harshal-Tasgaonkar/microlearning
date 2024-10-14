@@ -125,6 +125,15 @@ import TeacherView from './Components/TeacherView';
 import StudentView from './Components/StudentView';
 import TeacherDashboard from './Components/TeacherDashboard';
 import StudentDashboard from './Components/StudentDashboard';
+import AdminCategory from './Components/AdminCategory';
+import AdminCategoryList from './Components/AdminCategoryList';
+import AdminSkillList from './Components/AdminSkillList';
+import AdminSkill from './Components/AdminSkill';
+import EditCategory from './Components/EditCategory';
+import EditSkill from './Components/EditSkill';
+import SkillView from './Components/SkillView';
+import CategoryView from './Components/CategoryView';
+import AdminInquiryList from './Components/AdminInquiryList';
 
 function App() {
   return (
@@ -138,7 +147,7 @@ function App() {
         <Route path="/becomeinstructor" element={<BecomeInstructor />} />
         <Route path="/inquiry" element={<Inquiry />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/coursedetail" element={<CourseDetail />} />
+        <Route path="/coursedetail/:id" element={<CourseDetail />} />
         <Route path="/courselist" element={<CourseList />} />
         <Route path="/admindashboard" element={<AdminDashboard />} />
         <Route path="/admincourselist" element={<AdminCourseList />} />
@@ -155,6 +164,16 @@ function App() {
         <Route path="/studentview/:studentID" element={<StudentView />} />
         <Route path="/teacherdashboard" element={<TeacherDashboard />} />
         <Route path="/studentdashboard" element={<StudentDashboard />} />
+        <Route path="/admincategory" element={<AdminCategory />} />
+        <Route path="/admincategorylist" element={<AdminCategoryList />} />
+        <Route path="/adminskilllist" element={<AdminSkillList />} />
+        <Route path="/adminskill" element={<AdminSkill />} />
+        <Route path="/editcategory/:categoryId" element={<EditCategory />} />
+        <Route path="/editskill/:id" element={<EditSkill />} />
+        <Route path="/skillview/:id" element={<SkillView />} />
+        <Route path="/categoryview/:categoryId" element={<CategoryView />} />
+        <Route path="/admininquirylist" element={<AdminInquiryList/>} />
+
       </Routes>
     </HashRouter>
   );

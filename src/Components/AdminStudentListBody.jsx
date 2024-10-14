@@ -43,6 +43,40 @@ const AdminStudentListBody = () => {
   return (
     <div className="page-content">
       <div className="page-content-wrapper border">
+
+         {/* Course boxes START */}
+<div className="row g-4 mb-4">
+  {/* Course item */}
+  <div className="col-sm-6 col-lg-3">
+    <div className="text-center p-4 bg-primary bg-opacity-10 border border-primary rounded-3">
+      <h6>Total Courses</h6>
+      <h2 className="mb-0 fs-1 text-primary">1200</h2>
+    </div>
+  </div>
+  {/* Course item */}
+  <div className="col-sm-6 col-lg-3">
+    <div className="text-center p-4 bg-success bg-opacity-10 border border-success rounded-3">
+      <h6>Activated Courses</h6>
+      <h2 className="mb-0 fs-1 text-success">996</h2>
+    </div>
+  </div>
+  {/* Course item */}
+  <div className="col-sm-6 col-lg-3">
+    <div className="text-center p-4 bg-warning bg-opacity-15 border border-warning rounded-3">
+      <h6>Pending Courses</h6>
+      <h2 className="mb-0 fs-1 text-warning">200</h2>
+    </div>
+  </div>
+  {/* Course item */}
+  <div className="col-sm-6 col-lg-3">
+    <div className="text-center p-4 bg-warning bg-opacity-15 border border-warning rounded-3">
+      <h6>Pending Courses</h6>
+      <h2 className="mb-0 fs-1 text-warning">200</h2>
+    </div>
+  </div>
+</div>
+{/* Course boxes END */}
+
         {/* Title */}
         <div className="row mb-3">
           <div className="col-12 d-sm-flex justify-content-between align-items-center">
@@ -53,31 +87,7 @@ const AdminStudentListBody = () => {
           </div>
         </div>
 
-        {/* Course boxes START */}
-        <div className="row g-4 mb-4">
-          {/* Course item */}
-          <div className="col-sm-6 col-lg-4">
-            <div className="text-center p-4 bg-primary bg-opacity-10 border border-primary rounded-3">
-              <h6>Total Courses</h6>
-              <h2 className="mb-0 fs-1 text-primary">1200</h2>
-            </div>
-          </div>
-          {/* Course item */}
-          <div className="col-sm-6 col-lg-4">
-            <div className="text-center p-4 bg-success bg-opacity-10 border border-success rounded-3">
-              <h6>Activated Courses</h6>
-              <h2 className="mb-0 fs-1 text-success">996</h2>
-            </div>
-          </div>
-          {/* Course item */}
-          <div className="col-sm-6 col-lg-4">
-            <div className="text-center p-4 bg-warning bg-opacity-15 border border-warning rounded-3">
-              <h6>Pending Courses</h6>
-              <h2 className="mb-0 fs-1 text-warning">200</h2>
-            </div>
-          </div>
-        </div>
-        {/* Course boxes END */}
+       
 
         {/* Card START */}
         <div className="card bg-transparent border">
@@ -143,9 +153,15 @@ const AdminStudentListBody = () => {
                         <td>{student.qualification}</td>
                         <td>{student.city}</td>
                         <td>
+                        <Link
+                            to={`/studentview/${student.studentID}`} // Navigate to StudentView with studentID
+                            className="btn btn-sm btn-primary me-1 mb-1 mb-md-0"
+                          >
+                            <i className="fas fa-eye" />
+                          </Link>
                           <Link
                             to={`/editstudent/${student.studentID}`}
-                            className="btn btn-sm btn-success me-1 mb-1 mb-md-0"
+                            className="btn btn-sm btn-warning me-1 mb-1 mb-md-0"
                           >
                             <i className="fas fa-edit" />
                           </Link>
@@ -155,12 +171,7 @@ const AdminStudentListBody = () => {
                           >
                             <i className="fas fa-trash-alt" />
                           </button>
-                          <Link
-                            to={`/studentview/${student.studentID}`} // Navigate to StudentView with studentID
-                            className="btn btn-sm btn-warning me-1 mb-1 mb-md-0"
-                          >
-                            <i className="fas fa-eye" />
-                          </Link>
+                          
                         </td>
                       </tr>
                     ))

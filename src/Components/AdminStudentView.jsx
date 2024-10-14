@@ -37,13 +37,14 @@ const AdminStudentView = () => {
       {/* Title */}
       <div className="row mb-3">
         <div className="col-12 mb-3 d-sm-flex justify-content-between align-items-center">
-          <h1 className="h3 mb-2 mb-sm-0">Student detail</h1>
-          <Link
+        <Link
             to="/adminstudentlist"
             className="btn btn-sm btn-primary mb-0"
           >
             Back
           </Link>
+          <h1 className="h3 mb-2 mb-sm-0  mx-auto text-center">Student detail</h1>
+          
         </div>
       </div>
       <div className="row g-4">
@@ -64,32 +65,56 @@ const AdminStudentView = () => {
             <div className="col-md-6">
               <ul className="list-group list-group-borderless">
                 <li className="list-group-item">
-                  <span>Name:</span>
+                  <div className="d-flex flex-column">
                   <span className="h6 mb-0">{student.name}</span>
+                  <span>Name</span>
+                  </div>
+                 
+                 
                 </li>
                 <li className="list-group-item">
-                  <span>Mobile Number:</span>
-                  <span className="h6 mb-0">{student.mobile}</span>
+                <div className="d-flex flex-column">
+                <span className="h6 mb-0">{student.mobile}</span>
+                <span>Mobile Number</span>
+                    </div>
+                 
+                  
                 </li>
                 <li className="list-group-item">
-                  <span>Email ID:</span>
-                  <span className="h6 mb-0">{student.email}</span>
+                <div className="d-flex flex-column">
+                <span className="h6 mb-0">{student.email}</span>
+                <span>Email ID</span>
+                    </div>
+                  
+                  
                 </li>
               </ul>
             </div>
             <div className="col-md-6">
               <ul className="list-group list-group-borderless">
                 <li className="list-group-item">
-                  <span>Location:</span>
-                  <span className="h6 mb-0">{student.city}</span>
+                <div className="d-flex flex-column">
+                <span className="h6 mb-0">{student.city}</span>
+                <span>Location</span>
+                    </div>
+                  
+                  
                 </li>
                 <li className="list-group-item">
-                  <span>Passout Year:</span>
-                  <span className="h6 mb-0">{student.passoutYear}</span>
+                <div className="d-flex flex-column">
+                <span className="h6 mb-0">{student.passoutYear}</span>
+                <span>Passout Year</span>
+                    </div>
+                 
+                 
                 </li>
                 <li className="list-group-item">
-                  <span>Qualification:</span>
-                  <span className="h6 mb-0">{student.qualification}</span>
+                <div className="d-flex flex-column">
+                <span className="h6 mb-0">{student.qualification}</span>
+                <span>Qualification</span>
+                    </div>
+                 
+                 
                 </li>
               </ul>
             </div>

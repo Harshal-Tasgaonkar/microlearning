@@ -4,40 +4,47 @@ import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const AdminCreateTeacher = () => {
 
-  // State variables to store form input values
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
   const [technology, setTechnology] = useState("");
 
-  // Initialize navigate function
   const navigate = useNavigate();
 
-  // Handle form submission
+  // Function to convert strings to title case
+  const toTitleCase = (str) => {
+      return str
+          .toLowerCase()
+          .split(" ")
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" ");
+  };
+
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the form from refreshing the page
+    e.preventDefault(); 
 
-    // Generate a unique TeacherID by using the push function
-    const teacherRef = ref(database, "teachers"); // Reference to the teachers node in the database
-    const newTeacherRef = push(teacherRef); // Generate a new key for the teacher
-    const teacherID = newTeacherRef.key; // Get the unique TeacherID
+    // Convert name and technology to title case before sending to Firebase
+    const formattedName = toTitleCase(name);
+    const formattedTechnology = toTitleCase(technology);
 
-    // Prepare the teacher data with a createdAt timestamp
+    const teacherRef = ref(database, "teachers");
+    const newTeacherRef = push(teacherRef);
+    const teacherID = newTeacherRef.key;
+
     const teacherData = {
-      teacherID, // Add the generated TeacherID
-      name,
+      teacherID,
+      name: formattedName,           // Title-cased name
       mobile,
       email,
-      technology,
-      createdAt: new Date().toISOString() // Add current timestamp
+      technology: formattedTechnology, // Title-cased technology
+      createdAt: new Date().toISOString()
     };
 
-    // Save the teacher data to Firebase
     set(newTeacherRef, teacherData)
       .then(() => {
         alert("Teacher data submitted successfully!");
 
-        // Clear the form fields after successful submission
+        // Clear the form fields
         setName("");
         setMobile("");
         setEmail("");
@@ -53,13 +60,12 @@ const AdminCreateTeacher = () => {
 
   return (
     <div className="page-content">
-      {/* Page main content START */}
       <div className="page-content-wrapper border">
-        <div>
+        <div className="d-flex justify-content-between align-items-center">
           <Link to="/adminteacherlist" className="btn btn-dark">
             Back
           </Link>
-          <h4 className="text-center">Create Teacher</h4>
+          <h4 className="mx-auto">Create Teacher</h4>
         </div>
         <form className="mt-3" onSubmit={handleSubmit}>
           <div className="row">
@@ -70,7 +76,7 @@ const AdminCreateTeacher = () => {
                 className="form-control"
                 placeholder="Enter Teacher Name"
                 value={name}
-                onChange={(e) => setName(e.target.value)} // Update state on input change
+                onChange={(e) => setName(e.target.value)}
                 required
               />
             </div>
@@ -81,7 +87,7 @@ const AdminCreateTeacher = () => {
                 type="number"
                 placeholder="Enter Mobile"
                 value={mobile}
-                onChange={(e) => setMobile(e.target.value)} // Update state on input change
+                onChange={(e) => setMobile(e.target.value)}
                 required
               />
             </div>
@@ -92,7 +98,7 @@ const AdminCreateTeacher = () => {
                 className="form-control"
                 placeholder="Enter Email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)} // Update state on input change
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -103,7 +109,7 @@ const AdminCreateTeacher = () => {
                 className="form-control"
                 placeholder="Enter Technology"
                 value={technology}
-                onChange={(e) => setTechnology(e.target.value)} // Update state on input change
+                onChange={(e) => setTechnology(e.target.value)}
                 required
               />
             </div>
@@ -115,7 +121,6 @@ const AdminCreateTeacher = () => {
           </div>
         </form>
       </div>
-      {/* Page main content END */}
     </div>
   );
 };

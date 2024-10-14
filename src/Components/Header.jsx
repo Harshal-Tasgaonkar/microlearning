@@ -1,11 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { database, ref, get } from '../firebase'; // Import Firebase
 import useThemeSwitcher from './useThemeSwitcher'
 import logo from "../Assets/images/logo.svg";
 import logolight from "../Assets/images/logo-light.svg"
 import jpg01 from "../Assets/images/avatar/01.jpg"
 
 const Header = () => {
+
+  const [courses, setCourses] = useState([]); // State to store courses
+
+  useEffect(() => {
+    // Fetch courses from Firebase
+    const fetchCourses = async () => {
+      const coursesRef = ref(database, 'courses'); // Reference to 'courses' node
+      try {
+        const snapshot = await get(coursesRef);
+        if (snapshot.exists()) {
+          const coursesData = snapshot.val();
+          const coursesArray = Object.values(coursesData); // Convert object to array
+
+          // Limit to only 10 courses
+          const limitedCourses = coursesArray.slice(0, 10);
+          setCourses(limitedCourses); // Set the state with limited courses
+        } else {
+          console.log('No courses available');
+        }
+      } catch (error) {
+        console.error('Error fetching courses:', error);
+      }
+    };
+
+    fetchCourses(); // Call the function to fetch data
+  }, []);
+
 
   useThemeSwitcher();
 
@@ -49,65 +77,40 @@ const Header = () => {
         <div className="navbar-collapse w-100 collapse" id="navbarCollapse">
           {/* Nav category menu START */}
           <ul className="navbar-nav navbar-nav-scroll me-auto">
-            {/* Nav item 1 Demos */}
-            <li className="nav-item dropdown dropdown-menu-shadow-stacked">
-              <a
-                className="nav-link bg-primary bg-opacity-10 rounded-3 text-primary px-3 py-3 py-xl-0 dropdown-toggle"
-                href="#"
-                id="categoryMenu"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <span>Courses</span>
-              </a>
-              <ul className="dropdown-menu" aria-labelledby="categoryMenu">
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">web Development</Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Design </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Data Science </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Mobile Development </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Marketing </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">IT &amp; software </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Programing Language </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Software Testing </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Software Engineering </Link>
-              </li>
-              <li>
-              <Link to="/coursedetail" className="dropdown-item ">Software Development Tools </Link>
-              </li>
-              <li>
-                {" "}
-                <hr className="dropdown-divider" />
-              </li>
-              <li>
-                
-                <Link
-                  className="dropdown-item bg-primary text-primary bg-opacity-10 rounded-2 mb-0"
-                 to="/courselist"
+              <li className="nav-item dropdown dropdown-menu-shadow-stacked">
+                <a
+                  className="nav-link bg-primary bg-opacity-10 rounded-3 text-primary px-3 py-3 py-xl-0 dropdown-toggle"
+                  href="#"
+                  id="categoryMenu"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
                 >
-                  View all courses
-                </Link>
+                  <span>Courses</span>
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="categoryMenu">
+                  {/* Loop through courses and display them */}
+                  {courses.map((course) => (
+                    <li key={course.courseid}>
+                      <Link to={`/coursedetail/${course.courseid}`} className="dropdown-item">
+                        {course.courseName}
+                      </Link>
+                    </li>
+                  ))}
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <Link
+                      className="dropdown-item bg-primary text-primary bg-opacity-10 rounded-2 mb-0"
+                      to="/courselist"
+                    >
+                      View all courses
+                    </Link>
+                  </li>
+                </ul>
               </li>
-              </ul>
-            </li>
-          </ul>
+            </ul>
           {/* Nav category menu END */}
           {/* Nav Main menu START */}
           <ul className="navbar-nav navbar-nav-scroll me-auto">

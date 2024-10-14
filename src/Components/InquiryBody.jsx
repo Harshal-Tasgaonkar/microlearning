@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { database, ref, push } from "../firebase"; // Firebase imports
+
 import child from "../Assets/images/element/child.svg"
 import help from "../Assets/images/element/help.svg"
 import jpg01 from "../Assets/images/avatar/01.jpg"
@@ -8,6 +10,60 @@ import jpg04 from "../Assets/images/avatar/04.jpg"
 import jpg05 from "../Assets/images/avatar/05.jpg"
 
 const InquiryBody = () => {
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    mobileNumber: '',
+    selectedClass: ''
+  });
+
+  // Function to handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // Helper function to convert string to title case
+  const toTitleCase = (str) => {
+    return str.replace(/\w\S*/g, (txt) => {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  };
+
+  // Function to handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const inquiryRef = ref(database, 'inquiries');
+
+    // Prepare data to send
+    const inquiryData = {
+      inquiryId: `inquiry_${Date.now()}`, // Unique inquiry ID based on timestamp
+      name: toTitleCase(formData.name), // Convert name to title case
+      email: formData.email,
+      mobileNumber: formData.mobileNumber,
+      selectedClass: formData.selectedClass,
+      date: new Date().toISOString() // Store date of submission
+    };
+
+    // Push the inquiry data to Firebase
+    push(inquiryRef, inquiryData)
+      .then(() => {
+        alert('Your class has been successfully booked!');
+        setFormData({
+          name: '',
+          email: '',
+          mobileNumber: '',
+          selectedClass: ''
+        });
+      })
+      .catch((error) => {
+        console.error("Error booking class: ", error);
+      });
+  };
+
+
   return (
    
     <main>
@@ -378,181 +434,81 @@ const InquiryBody = () => {
                 />
               </svg>
             </figure>
+            
             <div className="bg-primary bg-opacity-10 rounded-3 p-4 p-sm-5">
-              {/* Title */}
-              <h2 className="mb-3">Book online class</h2>
-              {/* Form START */}
-              <form className="row g-4 g-sm-3 mt-2 mb-0">
-                {/* Name */}
-                <div className="col-12">
-                  <label className="form-label">Name *</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    aria-label="First name"
-                  />
-                </div>
-                {/* Email */}
-                <div className="col-12">
-                  <label className="form-label">Email *</label>
-                  <input type="email" className="form-control" />
-                </div>
-                {/* Name */}
-                <div className="col-12">
-                  <label className="form-label">Mobile number *</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    aria-label="Mobile number"
-                  />
-                </div>
-                
+      {/* Title */}
+      <h2 className="mb-3">Book online class</h2>
 
-                <div className="col-12">
-  <label className="form-label">Select class *</label>
-  <div
-    className="choices"
-    data-type="select-one"
-    tabIndex="0"
-    role="combobox"
-    aria-autocomplete="list"
-    aria-haspopup="true"
-    aria-expanded="false"
-  >
-    <div className="choices__inner">
-      <select
-        className="form-select js-choice choices__input"
-        aria-label="Select class"
-        hidden
-        tabIndex="-1"
-        data-choice="active"
-      >
-        <option value="" data-custom-properties="[object Object]">
-          Select class
-        </option>
-      </select>
-      <div className="choices__list choices__list--single">
-        <div
-          className="choices__item choices__placeholder choices__item--selectable"
-          data-item=""
-          data-id="1"
-          data-value=""
-          data-custom-properties="[object Object]"
-          aria-selected="true"
-        >
-          Select class
+      {/* Form START */}
+      <form className="row g-4 g-sm-3 mt-2 mb-0" onSubmit={handleSubmit}>
+        {/* Name */}
+        <div className="col-12">
+          <label className="form-label">Name *</label>
+          <input
+            type="text"
+            className="form-control"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+          />
         </div>
-      </div>
+        
+        {/* Email */}
+        <div className="col-12">
+          <label className="form-label">Email *</label>
+          <input
+            type="email"
+            className="form-control"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        
+        {/* Mobile number */}
+        <div className="col-12">
+          <label className="form-label">Mobile number *</label>
+          <input
+            type="text"
+            className="form-control"
+            name="mobileNumber"
+            value={formData.mobileNumber}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        
+        {/* Select class */}
+        <div className="col-12">
+          <label className="form-label">Select class *</label>
+          <select
+            className="form-select"
+            name="selectedClass"
+            value={formData.selectedClass}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="">Select class</option>
+            <option value="Business development">Business development</option>
+            <option value="Digital marketing">Digital marketing</option>
+            <option value="Maths">Maths</option>
+            <option value="Science">Science</option>
+            <option value="Spoken English">Spoken English</option>
+          </select>
+        </div>
+
+        {/* Button */}
+        <div className="col-12 d-grid">
+          <button type="submit" className="btn btn-lg btn-primary mb-0">
+            Book a class
+          </button>
+        </div>
+      </form>
+      {/* Form END */}
     </div>
-
-    <div className="choices__list choices__list--dropdown" aria-expanded="false">
-      <input
-        type="search"
-        name="search_terms"
-        className="choices__input choices__input--cloned"
-        autoComplete="off"
-        autoCapitalize="off"
-        spellCheck="false"
-        role="textbox"
-        aria-autocomplete="list"
-        aria-label="Select class"
-        placeholder=""
-      />
-      <div className="choices__list" role="listbox">
-        <div
-          id="choices--m02g-item-choice-5"
-          className="choices__item choices__item--choice is-selected choices__placeholder choices__item--selectable is-highlighted"
-          role="option"
-          data-choice=""
-          data-id="5"
-          data-value=""
-          data-select-text="Press to select"
-          data-choice-selectable=""
-          aria-selected="true"
-        >
-          Select class
-        </div>
-
-        <div
-          id="choices--m02g-item-choice-1"
-          className="choices__item choices__item--choice choices__item--selectable"
-          role="option"
-          data-choice=""
-          data-id="1"
-          data-value="Business development"
-          data-select-text="Press to select"
-          data-choice-selectable=""
-        >
-          Business development
-        </div>
-
-        <div
-          id="choices--m02g-item-choice-2"
-          className="choices__item choices__item--choice choices__item--selectable"
-          role="option"
-          data-choice=""
-          data-id="2"
-          data-value="Digital marketing"
-          data-select-text="Press to select"
-          data-choice-selectable=""
-        >
-          Digital marketing
-        </div>
-
-        <div
-          id="choices--m02g-item-choice-3"
-          className="choices__item choices__item--choice choices__item--selectable"
-          role="option"
-          data-choice=""
-          data-id="3"
-          data-value="Maths"
-          data-select-text="Press to select"
-          data-choice-selectable=""
-        >
-          Maths
-        </div>
-
-        <div
-          id="choices--m02g-item-choice-4"
-          className="choices__item choices__item--choice choices__item--selectable"
-          role="option"
-          data-choice=""
-          data-id="4"
-          data-value="Science"
-          data-select-text="Press to select"
-          data-choice-selectable=""
-        >
-          Science
-        </div>
-
-        <div
-          id="choices--m02g-item-choice-6"
-          className="choices__item choices__item--choice choices__item--selectable"
-          role="option"
-          data-choice=""
-          data-id="6"
-          data-value="Spoken english"
-          data-select-text="Press to select"
-          data-choice-selectable=""
-        >
-          Spoken English
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-                {/* Button */}
-                <div className="col-12 d-grid">
-                  <button type="submit" className="btn btn-lg btn-primary mb-0">
-                    Book a class
-                  </button>
-                </div>
-              </form>
-              {/* Form END */}
-            </div>
+             
           </div>
         </div>
       </div>

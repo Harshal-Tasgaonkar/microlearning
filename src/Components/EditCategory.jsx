@@ -1,18 +1,18 @@
 import React from 'react'
 import AdminSidebar from './AdminSidebar'
-import AdminStudentView from './AdminStudentView'
+import EditCategoryForm from './EditCategoryForm'
 import AdminFooter from './AdminFooter'
 
-const StudentView = () => {
+const EditCategory = () => {
   return (
-    
+   
   <>
   <AdminSidebar/>
-  <AdminStudentView/>
+  <EditCategoryForm/>
   <AdminFooter/>
   </>
 
   )
 }
 
-export default StudentView
+export default EditCategory

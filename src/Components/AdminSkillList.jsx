@@ -1,18 +1,19 @@
 import React from 'react'
 import AdminSidebar from './AdminSidebar'
-import AdminEditStudentForm from './AdminEditStudentForm'
+import AaminSkillListBody from "./AdminSkillListBody"
 import AdminFooter from './AdminFooter'
 
-const EditStudent = () => {
+const AdminSkillList = () => {
   return (
-   
+
    <>
    <AdminSidebar/>
-   <AdminEditStudentForm/>
+   <AaminSkillListBody/>
    <AdminFooter/>
    </>
+  
 
   )
 }
 
-export default EditStudent
+export default AdminSkillList

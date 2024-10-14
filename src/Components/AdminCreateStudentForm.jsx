@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { ref, push, database } from "../firebase"; 
+import { ref, push, database } from "../firebase";
 import { Link, useNavigate } from 'react-router-dom';
 
 const AdminCreateStudentForm = () => {
-  const navigate = useNavigate(); // Hook to navigate programmatically
+  const navigate = useNavigate(); 
 
   // State for student data
   const [studentData, setStudentData] = useState({
@@ -14,6 +14,15 @@ const AdminCreateStudentForm = () => {
     qualification: "",
     city: ""
   });
+
+  // Function to convert strings to title case
+  const toTitleCase = (str) => {
+    return str
+      .toLowerCase()
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
 
   // Handle form input changes
   const handleInputChange = (e) => {
@@ -26,19 +35,23 @@ const AdminCreateStudentForm = () => {
 
   // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent page refresh
+    e.preventDefault();
+
+    // Convert name and city to title case before sending to Firebase
+    const formattedName = toTitleCase(studentData.name);
+    const formattedCity = toTitleCase(studentData.city);
 
     // Reference to the "students" node in the Firebase Realtime Database
     const studentsRef = ref(database, "students");
 
     // Push new student data to Firebase with an auto-generated ID
     push(studentsRef, {
-      name: studentData.name,
+      name: formattedName,           // Use title-cased name
       mobile: studentData.mobile,
       email: studentData.email,
       passoutYear: studentData.passoutYear,
       qualification: studentData.qualification,
-      city: studentData.city,
+      city: formattedCity,           // Use title-cased city
     })
       .then(() => {
         alert("Student data added successfully!");
@@ -62,15 +75,12 @@ const AdminCreateStudentForm = () => {
 
   return (
     <div className="page-content">
-      {/* Top bar START */}
-      {/* Top bar END */}
-      {/* Page main content START */}
       <div className="page-content-wrapper border">
-        <div>
+        <div className="d-flex justify-content-between align-items-center">
           <Link to="/adminstudentlist" className="btn  btn-dark ">
             Back
           </Link>
-          <h4 className="text-center">Create Student</h4>
+          <h4 className="mx-auto">Create Student</h4>
         </div>
         <form className="mt-3" onSubmit={handleSubmit}>
           <div className="row">
@@ -150,7 +160,6 @@ const AdminCreateStudentForm = () => {
           </div>
         </form>
       </div>
-      {/* Page main content END */}
     </div>
   );
 };

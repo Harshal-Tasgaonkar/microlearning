@@ -1,18 +1,20 @@
 import React from 'react'
 import AdminSidebar from './AdminSidebar'
-import AdminStudentView from './AdminStudentView'
+import CreateSkillForm from './CreateSkillForm'
 import AdminFooter from './AdminFooter'
 
-const StudentView = () => {
+
+
+const AdminSkill = () => {
   return (
-    
+   
   <>
   <AdminSidebar/>
-  <AdminStudentView/>
+  <CreateSkillForm/>
   <AdminFooter/>
   </>
 
   )
 }
 
-export default StudentView
+export default AdminSkill

@@ -33,13 +33,15 @@ const AdminTeacherView = () => {
       {/* Title */}
       <div className="row mb-3">
         <div className="col-12 mb-3 d-sm-flex justify-content-between align-items-center">
-          <h1 className="h3 mb-2 mb-sm-0">Teacher detail</h1>
-          <Link
+          
+        <Link
             to="/adminteacherlist"
             className="btn btn-sm btn-primary mb-0"
           >
             Back
           </Link>
+          <h1 className="h3 mb-2 mb-sm-0  mx-auto text-center">Teacher detail</h1>
+          
         </div>
       </div>
       <div className="row g-4">
@@ -58,12 +60,21 @@ const AdminTeacherView = () => {
               <div className="col-md-6">
                 <ul className="list-group list-group-borderless">
                   <li className="list-group-item">
-                    <span>Name:</span>
+                    <div className="d-flex flex-column">
                     <span className="h6 mb-0">{teacherData.name}</span>
+                    <span>Name</span>
+                    </div>
+                    
+                    
+
                   </li>
                   <li className="list-group-item">
-                    <span>Mobile Number:</span>
-                    <span className="h6 mb-0">{teacherData.mobile}</span>
+                  <div className="d-flex flex-column">
+                  <span className="h6 mb-0">{teacherData.mobile}</span>
+                  <span>Mobile Number</span>
+                  </div>
+                   
+                    
                   </li>
                 </ul>
               </div>
@@ -71,12 +82,20 @@ const AdminTeacherView = () => {
               <div className="col-md-6">
                 <ul className="list-group list-group-borderless">
                   <li className="list-group-item">
-                    <span>Email ID:</span>
+                    <div className="d-flex flex-column">
                     <span className="h6 mb-0">{teacherData.email}</span>
+                    <span>Email ID</span>
+                    </div>
+                    
+                   
                   </li>
                   <li className="list-group-item">
-                    <span>Technology:</span>
+                    <div className="d-flex flex-column">
                     <span className="h6 mb-0">{teacherData.technology}</span>
+                    <span>Technology</span>
+                   
+                    </div>
+                   
                   </li>
                 </ul>
               </div>

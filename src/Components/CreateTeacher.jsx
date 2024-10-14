@@ -2,6 +2,7 @@ import React from 'react'
 import AdminSidebar from './AdminSidebar'
 import AdminNavbar from './AdminNavbar'
 import AdminCreateTeacher from './AdminCreateTeacher'
+import AdminFooter from './AdminFooter'
 
 const CreateTeacher = () => {
   return (
@@ -10,6 +11,7 @@ const CreateTeacher = () => {
   <AdminSidebar/>
   
   <AdminCreateTeacher/>
+  <AdminFooter/>
   </>
 
   )

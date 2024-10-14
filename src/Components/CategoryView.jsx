@@ -1,20 +1,16 @@
 import React from 'react'
 import AdminSidebar from './AdminSidebar'
-
-import EditCourseForm from './EditCourseForm'
+import AdminCategoryView from './AdminCategoryView'
 import AdminFooter from './AdminFooter'
 
-const EditCourse = () => {
+const CategoryView = () => {
   return (
-   
     <>
     <AdminSidebar/>
-    
-    <EditCourseForm/>
+    <AdminCategoryView/>
     <AdminFooter/>
     </>
-
   )
 }
 
-export default EditCourse
+export default CategoryView

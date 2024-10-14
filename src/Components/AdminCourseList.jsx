@@ -2,6 +2,7 @@ import React from 'react'
 import AdminSidebar from './AdminSidebar'
 import AdminNavbar from './AdminNavbar'
 import AdminCourseListBody from './AdminCourseListBody'
+import AdminFooter from './AdminFooter'
 
 const AdminCourseList = () => {
   return (
@@ -10,6 +11,7 @@ const AdminCourseList = () => {
     <AdminSidebar/>
     
     <AdminCourseListBody/>
+    <AdminFooter/>
     </>
   )
 }

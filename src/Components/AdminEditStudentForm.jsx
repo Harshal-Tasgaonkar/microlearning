@@ -19,6 +19,15 @@ const AdminEditStudentForm = () => {
     city: "",
   });
 
+  // Function to convert a string to title case
+  const toTitleCase = (str) => {
+    return str
+      .toLowerCase() // Convert to lowercase
+      .split(' ') // Split into words
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+      .join(' '); // Join words back together
+  };
+
   // Fetch the student data when the component mounts
   useEffect(() => {
     const studentRef = ref(database, `students/${studentID}`);
@@ -40,8 +49,15 @@ const AdminEditStudentForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Create a copy of student data with title case for name and city
+    const updatedStudentData = {
+      ...student,
+      name: toTitleCase(student.name), // Convert name to title case
+      city: toTitleCase(student.city), // Convert city to title case
+    };
+
     const studentRef = ref(database, `students/${studentID}`);
-    update(studentRef, student)
+    update(studentRef, updatedStudentData)
       .then(() => {
         console.log("Student data updated successfully");
         // Navigate to the student list after successful update
@@ -58,11 +74,11 @@ const AdminEditStudentForm = () => {
       {/* Top bar END */}
       {/* Page main content START */}
       <div className="page-content-wrapper border">
-        <div>
+        <div className="d-flex justify-content-between align-items-center">
           <Link to="/adminstudentlist" className="btn btn-dark">
             Back
           </Link>
-          <h4 className="text-center">Edit Student</h4>
+          <h4 className="mx-auto">Edit Student</h4>
         </div>
         <form className="mt-3" onSubmit={handleSubmit}>
           <div className="row">

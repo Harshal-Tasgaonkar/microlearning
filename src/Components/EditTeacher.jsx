@@ -1,7 +1,8 @@
 import React from 'react'
 import AdminSidebar from './AdminSidebar'
-import AdminNavbar from './AdminNavbar'
+
 import AdminEditTeacher from './AdminEditTeacher'
+import AdminFooter from './AdminFooter'
 
 const EditTeacher = () => {
   return (
@@ -9,6 +10,7 @@ const EditTeacher = () => {
     <AdminSidebar/>
     
     <AdminEditTeacher/>
+    <AdminFooter/>
     </>
    
    

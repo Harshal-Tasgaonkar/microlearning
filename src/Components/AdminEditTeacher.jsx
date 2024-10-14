@@ -14,6 +14,15 @@ const AdminEditTeacher = () => {
     technology: "",
   });
 
+  // Function to convert a string to title case
+  const toTitleCase = (str) => {
+    return str
+      .toLowerCase() // Convert to lowercase
+      .split(' ') // Split into words
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+      .join(' '); // Join words back together
+  };
+
   // Fetch existing teacher data when component loads
   useEffect(() => {
     const teacherRef = ref(database, `teachers/${teacherID}`); // Reference to teacher by ID
@@ -35,10 +44,17 @@ const AdminEditTeacher = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent default form behavior
 
+    // Create a copy of teacherData with title case for name and technology
+    const updatedTeacherData = {
+      ...teacherData,
+      name: toTitleCase(teacherData.name), // Convert name to title case
+      technology: toTitleCase(teacherData.technology), // Convert technology to title case
+    };
+
     const teacherRef = ref(database, `teachers/${teacherID}`); // Reference to specific teacher
 
     // Update teacher data in Firebase
-    update(teacherRef, teacherData)
+    update(teacherRef, updatedTeacherData)
       .then(() => {
         alert("Teacher updated successfully.");
         navigate("/adminteacherlist"); // Redirect to admin teacher list
@@ -55,11 +71,11 @@ const AdminEditTeacher = () => {
       {/* Top bar END */}
       {/* Page main content START */}
       <div className="page-content-wrapper border">
-        <div>
+        <div className="d-flex justify-content-between align-items-center">
           <Link to="/adminteacherlist" className="btn btn-dark">
             Back
           </Link>
-          <h4 className="text-center">Edit Teacher</h4>
+          <h4 className="mx-auto">Edit Teacher</h4>
         </div>
         <form className="mt-3" onSubmit={handleSubmit}>
           <div className="row">
