@@ -141,7 +141,7 @@ function App() {
     <HashRouter>
       <Routes>
         {/* Define your routes here */}
-        <Route path="/" element={<Home />} />
+        <Route path="/microlearning" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/coursecategories" element={<CourseCategories />} />
