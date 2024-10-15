@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/microlearning/static/css/main.9d228991.css",
-    "main.js": "/microlearning/static/js/main.b0098173.js",
+    "main.js": "/microlearning/static/js/main.b92357be.js",
     "static/js/453.7dd23826.chunk.js": "/microlearning/static/js/453.7dd23826.chunk.js",
     "static/media/fa-solid-900.svg": "/microlearning/static/media/fa-solid-900.45690f4345fd0e303e35.svg",
     "static/media/fa-brands-400.svg": "/microlearning/static/media/fa-brands-400.675f6734fc707ee98601.svg",
@@ -76,11 +76,11 @@
     "static/media/figma.svg": "/microlearning/static/media/figma.80a6e8d20b162372f2ac0d9afe100b6a.svg",
     "static/media/angular.svg": "/microlearning/static/media/angular.319a77e382e2d6797b2d99aac305cd78.svg",
     "main.9d228991.css.map": "/microlearning/static/css/main.9d228991.css.map",
-    "main.b0098173.js.map": "/microlearning/static/js/main.b0098173.js.map",
+    "main.b92357be.js.map": "/microlearning/static/js/main.b92357be.js.map",
     "453.7dd23826.chunk.js.map": "/microlearning/static/js/453.7dd23826.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9d228991.css",
-    "static/js/main.b0098173.js"
+    "static/js/main.b92357be.js"
   ]
 }
