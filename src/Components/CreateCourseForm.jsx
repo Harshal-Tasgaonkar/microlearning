@@ -52,10 +52,19 @@ const CreateCourseForm = () => {
             .join(" ");
     };
 
+    const toTitleCaseDescription = (str) => {
+        const words = str.split(" ");
+        if (words.length > 0) {
+            words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1).toLowerCase();
+        }
+        return words.join(" ");
+    };
+
     const formatDate = (date) => {
         const d = new Date(date);
         const day = String(d.getDate()).padStart(2, '0');
-        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        const month = monthNames[d.getMonth()];
         const year = d.getFullYear();
         return `${day} ${month} ${year}`;
     };
@@ -84,7 +93,7 @@ const CreateCourseForm = () => {
 
         const courseData = {
             courseName: toTitleCase(courseName),
-            courseDescription,
+            courseDescription: toTitleCaseDescription(courseDescription), // Format first word in title case
             courseDuration,
             courseFee,
             startDate: formattedStartDate,  // Format before sending to Firebase
@@ -133,7 +142,7 @@ const CreateCourseForm = () => {
                             >
                                 {[1, 2, 3, 4, 5, 6].map((duration) => (
                                     <option key={duration} value={duration}>
-                                        {duration} month
+                                        {duration} Month
                                     </option>
                                 ))}
                             </select>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ref, onValue, database } from "../firebase"; // Import Firebase reference and onValue function
 import { useNavigate } from 'react-router-dom';
 import jpg01 from "../Assets/images/avatar/01.jpg";
@@ -14,6 +14,7 @@ const Login = () => {
   const [teachers, setTeachers] = useState([]);
   const [students, setStudents] = useState([]);
   const navigate = useNavigate();
+  const otpInputRef = useRef(null); // Reference to OTP input
 
   // Fetch teacher data from Firebase on component mount
   useEffect(() => {
@@ -56,6 +57,13 @@ const Login = () => {
       alert('Please enter a valid mobile number');
     }
   };
+
+  // Effect to focus on OTP input when it becomes visible
+  useEffect(() => {
+    if (showOtpField && otpInputRef.current) {
+      otpInputRef.current.focus(); // Focus on OTP input
+    }
+  }, [showOtpField]); // Only run when showOtpField changes
 
   // Handle the OTP submission and navigation
   const handleOtpSubmit = () => {
@@ -129,13 +137,20 @@ const Login = () => {
                           <i className="fas fa-mobile" />
                         </span>
                         <input
-                          type="number"
+                          type="text" // Change to text to prevent numeric keyboard
                           className="form-control border-0 bg-light rounded-end ps-1"
                           placeholder="Enter Mobile Number"
                           id="mobileNumber"
                           value={mobileNumber}
-                          onChange={(e) => setMobileNumber(e.target.value)}
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            if (/^\d{0,10}$/.test(value)) { // Only allow digits and max 10
+                              setMobileNumber(value);
+                            }
+                          }}
                           maxLength="10"
+                          autoFocus // Automatically focus on this input on load
+                          disabled={showOtpField} // Disable when OTP field is shown
                         />
                       </div>
                     </div>
@@ -149,13 +164,19 @@ const Login = () => {
                             <i className="fas fa-lock" />
                           </span>
                           <input
-                            type="number"
+                            type="text" // Change to text to prevent numeric keyboard
                             className="form-control border-0 bg-light rounded-end ps-1"
                             placeholder="Enter OTP"
                             id="otp"
                             value={otp}
-                            onChange={(e) => setOtp(e.target.value)}
+                            onChange={(e) => {
+                              const value = e.target.value;
+                              if (/^\d{0,4}$/.test(value)) { // Only allow digits and max 4
+                                setOtp(value);
+                              }
+                            }}
                             maxLength="4"
+                            ref={otpInputRef} // Reference to focus
                           />
                         </div>
                       </div>
@@ -168,6 +189,7 @@ const Login = () => {
                           className="btn btn-primary mb-0"
                           type="button"
                           onClick={handleLoginClick}
+                          disabled={mobileNumber.length !== 10} // Disable button if not 10 digits
                         >
                           Login
                         </button>
@@ -176,8 +198,9 @@ const Login = () => {
                           className="btn btn-primary mb-0"
                           type="button"
                           onClick={handleOtpSubmit}
+                          disabled={otp.length !== 4} // Disable button if not 4 digits
                         >
-                          Submit OTP
+                          Login
                         </button>
                       )}
                     </div>

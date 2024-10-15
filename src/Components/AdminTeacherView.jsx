@@ -50,7 +50,7 @@ const AdminTeacherView = () => {
         <div className="card bg-transparent border rounded-3 h-100">
           {/* Card header */}
           <div className="card-header bg-light border-bottom">
-            <h4>Teacher Information</h4>
+            
           </div>
           {/* Card body START */}
           <div className="card-body">

@@ -58,39 +58,6 @@ const AdminSkillListBody = () => {
     <div className="page-content">
       <div className="page-content-wrapper border">
 
-         {/* Course boxes START */}
-<div className="row g-4 mb-4">
-  {/* Course item */}
-  <div className="col-sm-6 col-lg-3">
-    <div className="text-center p-4 bg-primary bg-opacity-10 border border-primary rounded-3">
-      <h6>Total Courses</h6>
-      <h2 className="mb-0 fs-1 text-primary">1200</h2>
-    </div>
-  </div>
-  {/* Course item */}
-  <div className="col-sm-6 col-lg-3">
-    <div className="text-center p-4 bg-success bg-opacity-10 border border-success rounded-3">
-      <h6>Activated Courses</h6>
-      <h2 className="mb-0 fs-1 text-success">996</h2>
-    </div>
-  </div>
-  {/* Course item */}
-  <div className="col-sm-6 col-lg-3">
-    <div className="text-center p-4 bg-warning bg-opacity-15 border border-warning rounded-3">
-      <h6>Pending Courses</h6>
-      <h2 className="mb-0 fs-1 text-warning">200</h2>
-    </div>
-  </div>
-  {/* Course item */}
-  <div className="col-sm-6 col-lg-3">
-    <div className="text-center p-4 bg-warning bg-opacity-15 border border-warning rounded-3">
-      <h6>Pending Courses</h6>
-      <h2 className="mb-0 fs-1 text-warning">200</h2>
-    </div>
-  </div>
-</div>
-{/* Course boxes END */}
-
         {/* Title */}
         <div className="row mb-3">
           <div className="col-12 d-sm-flex justify-content-between align-items-center">
@@ -106,31 +73,7 @@ const AdminSkillListBody = () => {
           <div className="card-header bg-light border-bottom">
             {/* Search and filter options */}
             <div className="row g-3 align-items-center justify-content-between">
-              <div className="col-md-8">
-                <form className="rounded position-relative" onSubmit={(e) => e.preventDefault()}>
-                  <input 
-                    className="form-control bg-body" 
-                    type="search" 
-                    placeholder="Search" 
-                    aria-label="Search" 
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)} // Update search term on input change
-                  />
-                  <button 
-                    className="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" 
-                    type="submit"
-                  >
-                    <i className="fas fa-search fs-6"></i>
-                  </button>
-                </form>
-              </div>
-              <div className="col-md-3">
-                <select className="form-select js-choice border-0 z-index-9" aria-label="Sort by">
-                  <option value="">Sort by</option>
-                  <option value="newest">Newest</option>
-                  <option value="oldest">Oldest</option>
-                </select>
-              </div>
+              {/* Add search input or other filter options here if needed */}
             </div>
           </div>
 
@@ -141,8 +84,8 @@ const AdminSkillListBody = () => {
                 {/* Table head */}
                 <thead>
                   <tr>
-                    <th scope="col" className="border-0">Name</th>
-                    <th scope="col" className="border-0 rounded-end">Action</th>
+                    <th scope="col" className="border-0 text-start">Name</th> {/* Align Name header to the left */}
+                    <th scope="col" className="border-0 text-end rounded-end">Action</th> {/* Align Action header to the right */}
                   </tr>
                 </thead>
                 <tbody>
@@ -150,30 +93,26 @@ const AdminSkillListBody = () => {
                     filteredSkills.map((skill) => (
                       <tr key={skill.id}>
                         <td>{skill.skillName}</td>
-                        <td>
-                        <Link 
+                        <td className="text-end"> {/* Right-align icons */}
+                          <Link 
                             to={`/skillview/${skill.id}`} 
                             className="btn btn-sm btn-primary me-1 mb-1 mb-md-0"
                           >
                             <i className="fas fa-eye" />
                           </Link>
-                        <Link
-                         to={`/editskill/${skill.id}`} // Ensure the correct ID is passed in the URL
-                         className="btn btn-sm btn-warning me-1 mb-1 mb-md-0"
-                        >
-                        <i className="fas fa-edit" />
-                         {/* Log the ID being passed */}
-                         {console.log('Editing skill ID:', skill.id)}
-                         </Link>
-
-
+                          <Link
+                            to={`/editskill/${skill.id}`} // Ensure the correct ID is passed in the URL
+                            className="btn btn-sm btn-warning me-1 mb-1 mb-md-0"
+                          >
+                            <i className="fas fa-edit" />
+                            {console.log('Editing skill ID:', skill.id)}
+                          </Link>
                           <button
                             className="btn btn-sm btn-danger mb-0 me-1"
                             onClick={() => handleDelete(skill.id)}
                           >
                             <i className="fas fa-trash-alt" />
                           </button>
-                          
                         </td>
                       </tr>
                     ))

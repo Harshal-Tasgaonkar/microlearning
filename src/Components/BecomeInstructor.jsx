@@ -1,13 +1,14 @@
 import React from 'react'
-import Header from './Header'
+
 import Footer from './Footer'
 import BecomeInstructorBody from './BecomeInstructorBody'
+import Navbar from './Navbar'
 
 const BecomeInstructor = () => {
   return (
     <>
     
-    <Header/>
+    <Navbar/>
     <BecomeInstructorBody/>
     <Footer/>
     

@@ -132,7 +132,7 @@ const AdminSidebar = () => {
                 </li>
                 {/* Links */}
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#/admindashboard">
                     <i className="fas fa-th-large fa-fw me-2" />
                     Dashboard
                   </a>
@@ -228,8 +228,10 @@ const AdminSidebar = () => {
       <nav className="navbar sidebar navbar-expand-xl navbar-dark bg-dark">
         {/* Navbar brand for xl START */}
         <div className="d-flex align-items-center">
-          <a className="navbar-brand" href="index-2.html">
-            <img className="navbar-brand-item" src={logolight} alt="" />
+        <a className="navbar-brand" href="/">
+            <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#fff' }}>
+              MICROLEARNING
+            </span> 
           </a>
         </div>
         {/* Navbar brand for xl END */}
@@ -259,7 +261,7 @@ const AdminSidebar = () => {
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
         >
           <i className="fas fa-shopping-basket fa-fw me-2" />
-          Manage Course
+          Course
         </NavLink>
       </li>
       {/* Menu item 3 */}
@@ -310,6 +312,16 @@ const AdminSidebar = () => {
         >
           <i className="fas fa-question-circle  fa-fw me-2" />
           Inquiry
+        </NavLink>
+      </li>
+       {/* Menu item 8 */}
+       <li className="nav-item">
+        <NavLink 
+          to="/admincontactlist" 
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+        >
+          <i className="fas  fa-map-marker-alt  fa-fw me-2" />
+          Contact
         </NavLink>
       </li>
     </ul>

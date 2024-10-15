@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getDatabase, ref, onValue } from "firebase/database";
 
 import science from "../Assets/images/client/science.svg"
@@ -32,19 +33,47 @@ import course17jpg from "../Assets/images/courses/4by3/17.jpg"
 
 const IndexBody = () => {
 
+  const [categories, setCategories] = useState([]);
   const [courses, setCourses] = useState([]);
+  const [selectedCategoryID, setSelectedCategoryID] = useState(categories.length ? categories[0].categoryID : null);
 
   useEffect(() => {
     const db = getDatabase();
-    const courseRef = ref(db, 'courses'); // Assuming 'courses' is the path to your course data
 
-    onValue(courseRef, (snapshot) => {
-      const data = snapshot.val();
-      const coursesArray = Object.values(data); // Converts the object to an array of courses
-      setCourses(coursesArray);
+    // Fetch categories
+    const categoriesRef = ref(db, 'categories'); // Adjust the path as necessary
+    onValue(categoriesRef, (snapshot) => {
+      const categoriesData = snapshot.val() || {};
+      const categoriesList = Object.keys(categoriesData).map(key => ({
+        categoryID: categoriesData[key].categoryID,
+        categoryName: categoriesData[key].categoryName
+      }));
+      setCategories(categoriesList);
+      if (categoriesList.length > 0) {
+        setSelectedCategoryID(categoriesList[0].categoryID); // Set the first category as default
+      }
+    });
+
+    // Fetch courses
+    const coursesRef = ref(db, 'courses'); // Adjust the path as necessary
+    onValue(coursesRef, (snapshot) => {
+      const coursesData = snapshot.val() || {};
+      const coursesList = Object.keys(coursesData).map(key => ({
+        ...coursesData[key],
+        courseID: key // Include the key as courseID
+      }));
+      setCourses(coursesList);
     });
   }, []);
 
+  // Filter courses based on the selected category
+  const filteredCourses = courses.filter(course => course.selectedCategory === selectedCategoryID);
+
+  // Handle tab click
+  const handleTabClick = (categoryID) => {
+    setSelectedCategoryID(categoryID);
+  };
+ 
   return (
     
     <main>
@@ -479,9 +508,9 @@ Counter START */}
                   data-purecounter-end={10}
                   data-purecounter-delay={200}
                 >
-                  0
+                  
                 </h5>
-                <span className="mb-0 h5">K</span>
+                <span className="mb-0 h5">16</span>
               </div>
               <p className="mb-0">Online Courses</p>
             </div>
@@ -501,9 +530,9 @@ Counter START */}
                   data-purecounter-end={200}
                   data-purecounter-delay={200}
                 >
-                  0
+                  
                 </h5>
-                <span className="mb-0 h5">+</span>
+                <span className="mb-0 h5">11</span>
               </div>
               <p className="mb-0">Expert Tutors</p>
             </div>
@@ -523,9 +552,9 @@ Counter START */}
                   data-purecounter-end={60}
                   data-purecounter-delay={200}
                 >
-                  0
+                  
                 </h5>
-                <span className="mb-0 h5">K+</span>
+                <span className="mb-0 h5">300</span>
               </div>
               <p className="mb-0">Online Students</p>
             </div>
@@ -545,9 +574,9 @@ Counter START */}
                   data-purecounter-end={6}
                   data-purecounter-delay={300}
                 >
-                  0
+                  
                 </h5>
-                <span className="mb-0 h5">K+</span>
+                <span className="mb-0 h5">12</span>
               </div>
               <p className="mb-0">Certified Courses</p>
             </div>
@@ -560,215 +589,124 @@ Counter START */}
 Counter END */}
   {/* =======================
 Popular course START */}
-  <section>
-    <div className="container">
-      {/* Title */}
-      <div className="row mb-4">
-        <div className="col-lg-8 mx-auto text-center">
-          <h2 className="fs-1">Most Popular Courses</h2>
-          <p className="mb-0">
-            Choose from hundreds of courses from specialist organizations
-          </p>
+ 
+ <section>
+      <div className="container">
+        {/* Title */}
+        <div className="row mb-4">
+          <div className="col-lg-8 mx-auto text-center">
+            <h2 className="fs-1">Most Popular Courses</h2>
+            <p className="mb-0">Choose from hundreds of courses from specialist organizations</p>
+          </div>
         </div>
-      </div>
-      {/* Tabs START */}
-      <ul
-        className="nav nav-pills nav-pills-bg-soft justify-content-sm-center mb-4 px-3"
-        id="course-pills-tab"
-        role="tablist"
-      >
-        {/* Tab item */}
-        <li className="nav-item me-2 me-sm-5" role="presentation">
-          <button
-            className="nav-link mb-2 mb-md-0 active"
-            id="course-pills-tab-1"
-            data-bs-toggle="pill"
-            data-bs-target="#course-pills-tabs-1"
-            type="button"
-            role="tab"
-            aria-controls="course-pills-tabs-1"
-            aria-selected="true"
-          >
-            Web Design
-          </button>
-        </li>
-        {/* Tab item */}
-        <li className="nav-item me-2 me-sm-5" role="presentation">
-          <button
-            className="nav-link mb-2 mb-md-0"
-            id="course-pills-tab-2"
-            data-bs-toggle="pill"
-            data-bs-target="#course-pills-tabs-2"
-            type="button"
-            role="tab"
-            aria-controls="course-pills-tabs-2"
-            aria-selected="false"
-            tabIndex={-1}
-          >
-            Development
-          </button>
-        </li>
-        {/* Tab item */}
-        <li className="nav-item me-2 me-sm-5" role="presentation">
-          <button
-            className="nav-link mb-2 mb-md-0"
-            id="course-pills-tab-3"
-            data-bs-toggle="pill"
-            data-bs-target="#course-pills-tabs-3"
-            type="button"
-            role="tab"
-            aria-controls="course-pills-tabs-3"
-            aria-selected="false"
-            tabIndex={-1}
-          >
-            Graphic Design
-          </button>
-        </li>
-        {/* Tab item */}
-        <li className="nav-item me-2 me-sm-5" role="presentation">
-          <button
-            className="nav-link mb-2 mb-md-0"
-            id="course-pills-tab-4"
-            data-bs-toggle="pill"
-            data-bs-target="#course-pills-tabs-4"
-            type="button"
-            role="tab"
-            aria-controls="course-pills-tabs-4"
-            aria-selected="false"
-            tabIndex={-1}
-          >
-            Marketing
-          </button>
-        </li>
-        {/* Tab item */}
-        <li className="nav-item me-2 me-sm-5" role="presentation">
-          <button
-            className="nav-link mb-2 mb-md-0"
-            id="course-pills-tab-5"
-            data-bs-toggle="pill"
-            data-bs-target="#course-pills-tabs-5"
-            type="button"
-            role="tab"
-            aria-controls="course-pills-tabs-5"
-            aria-selected="false"
-            tabIndex={-1}
-          >
-            Finance
-          </button>
-        </li>
-      </ul>
-      {/* Tabs END */}
-      {/* Tabs content START */}
-      <div className="tab-content" id="course-pills-tabContent">
-        {/* Content START */}
-        <div
-          className="tab-pane fade show active"
-          id="course-pills-tabs-1"
-          role="tabpanel"
-          aria-labelledby="course-pills-tab-1"
-        >
-          <div className="row g-4">
-            {/* Card item START */}
 
-            {courses.map((course, index) => (
-            <div className="col-sm-6 col-lg-4 col-xl-3" key={index}>
-              <div className="card shadow h-100">
-                {/* Image */}
-                <img
-                  src={course08jpg}
-                  className="card-img-top"
-                  width={298}
-                  height={224}
-                  loading="lazy"
-                  alt="course image"
-                />
-                {/* Card body */}
-                <div className="card-body pb-0">
-                  {/* Badge and favorite */}
-                  <div className="d-flex justify-content-between mb-2">
-                    <a
-                      href="#"
-                      className="badge bg-purple bg-opacity-10 text-purple"
-                    >
-                      All level
-                    </a>
-                    <a href="#" className="h6 mb-0">
-                      <i className="far fa-heart" />
-                    </a>
-                  </div>
-                  {/* Title */}
-                  <h5 className="card-title fw-normal">
-                    <a href="#">{course.courseName}</a>
-                  </h5>
+        {/* Tabs START */}
+        <ul className="nav nav-pills nav-pills-bg-soft justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist">
+          {/* Dynamically generate category tabs */}
+          {categories.map((category, index) => (
+            <li className="nav-item me-2 me-sm-5" role="presentation" key={index}>
+              <button
+                className={`nav-link mb-2 mb-md-0 ${category.categoryID === selectedCategoryID ? "active" : ""}`} // Set active class for the selected category
+                id={`course-pills-tab-${category.categoryID}`}
+                data-bs-toggle="pill"
+                data-bs-target={`#course-pills-tabs-${category.categoryID}`}
+                type="button"
+                role="tab"
+                aria-controls={`course-pills-tabs-${category.categoryID}`}
+                aria-selected={category.categoryID === selectedCategoryID} // Update the selected status
+                onClick={() => handleTabClick(category.categoryID)} // Handle tab click to filter courses
+              >
+                {category.categoryName} {/* Show category name dynamically */}
+              </button>
+            </li>
+          ))}
+        </ul>
+        {/* Tabs END */}
 
-                  <h6> {course.courseMode} </h6>
-
-                  <div>
-                  <p> {`Start Date: ${course.startDate}`}</p>
-                  <p>  {`End Date: ${course.endDate}`}</p>
-                  </div>
-                  
-                  {/* Rating star */}
-                  <ul className="list-inline mb-0">
-                    <li className="list-inline-item me-0 small">
-                      <i className="fas fa-star text-warning" />
-                    </li>
-                    <li className="list-inline-item me-0 small">
-                      <i className="fas fa-star text-warning" />
-                    </li>
-                    <li className="list-inline-item me-0 small">
-                      <i className="fas fa-star text-warning" />
-                    </li>
-                    <li className="list-inline-item me-0 small">
-                      <i className="fas fa-star text-warning" />
-                    </li>
-                    <li className="list-inline-item me-0 small">
-                      <i className="far fa-star text-warning" />
-                    </li>
-                    <li className="list-inline-item ms-2 h6 fw-light mb-0">
-                      4.0/5.0
-                    </li>
-                  </ul>
-                </div>
-                {/* Card footer */}
-                <div className="card-footer pt-0 pb-3">
-                  <hr />
-                  <div className="d-flex justify-content-between">
-                    <span className="h6 fw-light mb-0">
-                      <i className="far fa-clock text-danger me-2" />
-                      {course.courseDuration}
-                    </span>
-                    <span className="h6 fw-light mb-0">
-                      <i className="fas fa-table text-orange me-2" />
-                      15 lectures
-                    </span>
-                  </div>
-                </div>
+        {/* Courses filtered by selected category */}
+        <div className="tab-content" id="course-pills-tabContent">
+          {categories.map((category, index) => (
+            <div
+              key={index}
+              className={`tab-pane fade ${category.categoryID === selectedCategoryID ? "show active" : ""}`} // Show active tab content
+              id={`course-pills-tabs-${category.categoryID}`}
+              role="tabpanel"
+              aria-labelledby={`course-pills-tab-${category.categoryID}`}
+            >
+              {/* Render course list for the selected category */}
+              <p>Showing courses for {category.categoryName}</p>
+              <div className="row g-4">
+                {/* Card item START */}
+                {filteredCourses.map((course, index) => (
+                  course.selectedCategory === category.categoryID && (
+                    <div className="col-sm-6 col-lg-4 col-xl-3" key={index}>
+                      <div className="card shadow h-100">
+                        {/* Image */}
+                        <img
+                          src={course08jpg} // Adjust to your course image URL
+                          className="card-img-top"
+                          width={298}
+                          height={224}
+                          loading="lazy"
+                          alt="course image"
+                        />
+                        {/* Card body */}
+                        <div className="card-body pb-0">
+                          {/* Badge and favorite */}
+                          <div className="d-flex justify-content-between mb-2">
+                            <a href="#" className="badge bg-purple bg-opacity-10 text-purple">All level</a>
+                            <a href="#" className="h6 mb-0"><i className="far fa-heart" /></a>
+                          </div>
+                          {/* Title */}
+                          <h5 className="card-title fw-normal">
+                            <Link to={`/coursedetail/${course.courseID}`}>
+                              {course.courseName}
+                            </Link>
+                          </h5>
+                          <h6>{course.courseMode}</h6>
+                          <div>
+                            <p>{`Start Date: ${course.startDate}`}</p>
+                            <p>{`End Date: ${course.endDate}`}</p>
+                          </div>
+                          {/* Rating star */}
+                          <ul className="list-inline mb-0">
+                            {/* Assuming you have a rating value */}
+                            {Array.from({ length: 5 }, (_, i) => (
+                              <li className="list-inline-item me-0 small" key={i}>
+                                <i className={`fas fa-star ${i < course.rating ? 'text-warning' : 'far text-warning'}`} />
+                              </li>
+                            ))}
+                            <li className="list-inline-item ms-2 h6 fw-light mb-0">{`${course.rating}/5.0`}</li>
+                          </ul>
+                        </div>
+                        {/* Card footer */}
+                        <div className="card-footer pt-0 pb-3">
+                          <hr />
+                          <div className="d-flex justify-content-between">
+                            <span className="h6 fw-light mb-0">
+                              <i className="far fa-clock text-danger me-2" />
+                              {course.courseDuration}
+                            </span>
+                            <span className="h6 fw-light mb-0">
+                              <i className="fas fa-table text-orange me-2" />
+                              {course.totalLectures} lectures
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                ))}
+                {/* Card item END */}
               </div>
+              {/* Row END */}
             </div>
-              ))}
-            {/* Card item END */}
-           
-           
-            
-           
-           
-           
-           
-           
-           
-          </div>{" "}
-          {/* Row END */}
+          ))}
         </div>
-        {/* Content END */}
-        
-       
-       
-        
+        {/* Tabs content END */}
       </div>
-      {/* Tabs content END */}
-    </div>
-  </section>
+    </section>
+
   {/* =======================
 Popular course END */}
   {/* =======================
@@ -848,1976 +786,339 @@ Trending courses START */}
           <p className="mb-0">Check out most 🔥 courses in the market</p>
         </div>
       </div>
-      <div className="row">
-        {/* Slider START */}
-        <div className="tiny-slider arrow-round arrow-blur arrow-hover">
-          <div className="tns-outer" id="tns1-ow">
-            <div
-              className="tns-liveregion tns-visually-hidden"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              slide <span className="current">10 to 14</span> of 4
-            </div>
-            <div id="tns1-mw" className="tns-ovh">
-              <div className="tns-inner" id="tns1-iw">
-                <div
-                  className="tiny-slider-inner pb-1  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
-                  data-autoplay="true"
-                  data-arrow="true"
-                  data-edge={2}
-                  data-dots="false"
-                  data-items={3}
-                  data-items-lg={2}
-                  data-items-sm={1}
-                  id="tns1"
-                  style={{
-                    transform: "translate3d(-55.5556%, 0px, 0px)",
-                    transitionDuration: "0s"
-                  }}
-                >
-                  <div
-                    className="tns-item tns-slide-cloned"
-                    aria-hidden="true"
-                    tabIndex={-1}
-                  >
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course15jpg}
-                        className="card-img-top"
-                        loading="lazy"
-                        width={400}
-                        height={300}
-                        alt="course image"
-                      />
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Development
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              All level
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            Angular – The Complete Guide (2021 Edition)
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.0
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(3500)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">4500</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            12h 45m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            65 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg04}
-                                width={40}
-                                height={40}
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Billy Vasquez
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              $255
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+      
+      <div className="row g-4">
+            {/* Card item START */}
+
+            
+            <div className="col-sm-6 col-lg-4 col-xl-3">
+              <div className="card shadow h-100">
+                {/* Image */}
+                <img
+                  src={course08jpg}
+                  className="card-img-top"
+                  width={298}
+                  height={224}
+                  loading="lazy"
+                  alt="course image"
+                />
+                {/* Card body */}
+                <div className="card-body pb-0">
+                  {/* Badge and favorite */}
+                  <div className="d-flex justify-content-between mb-2">
+                    <a
+                      href="#"
+                      className="badge bg-purple bg-opacity-10 text-purple"
+                    >
+                      All level
+                    </a>
+                    <a href="#" className="h6 mb-0">
+                      <i className="far fa-heart" />
+                    </a>
                   </div>
-                  <div
-                    className="tns-item tns-slide-cloned"
-                    aria-hidden="true"
-                    tabIndex={-1}
-                  >
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course17jpg}
-                        className="card-img-top"
-                        loading="lazy"
-                        width={400}
-                        height={300}
-                        alt="course image"
-                      />
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Design
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              Beginner
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            Time Management Mastery: Do More, Stress Less
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.5
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(2000)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">8000</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            24h 56m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            55 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg09}
-                                width={40}
-                                height={40}
-                                loading="lazy"
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Lori Stevens
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              $500
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  {/* Title */}
+                  <h5 className="card-title fw-normal">
+                    <a href="#">Angular</a>
+                  </h5>
+
+                  <h6> Offline </h6>
+
+                  <div>
+                  <p> {`Start Date: 15 Oct 2024 `}</p>
+                  <p>  {`End Date: 15 Nov 2024 `}</p>
                   </div>
-                  <div
-                    className="tns-item tns-slide-cloned"
-                    aria-hidden="true"
-                    tabIndex={-1}
-                  >
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course16jpg}
-                        className="card-img-top"
-                        loading="lazy"
-                        width={400}
-                        height={300}
-                        alt="course image"
-                      />
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Design
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              Beginner
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            Time Management Mastery: Do More, Stress Less
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.0
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(2000)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">1200</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            09h 56m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            21 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg01}
-                                width={40}
-                                height={40}
-                                loading="lazy"
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Frances Guerrero
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              $200
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="tns-item tns-slide-cloned"
-                    aria-hidden="true"
-                    tabIndex={-1}
-                  >
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course14jpg}
-                        className="card-img-top"
-                        width={400}
-                        height={300}
-                        loading="lazy"
-                        alt="course image"
-                      />
-                      {/* Ribbon */}
-                      <div className="ribbon mt-3">
-                        <span>Free</span>
-                      </div>
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Design
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              Beginner
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            The complete Digital Marketing Course - 8 Course in
-                            1
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.5
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(6500)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">6500</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            6h 56m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            82 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg10}
-                                width={40}
-                                height={40}
-                                loading="lazy"
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Larry Lawson
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              Free
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="tns-item tns-slide-cloned"
-                    aria-hidden="true"
-                    tabIndex={-1}
-                  >
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course15jpg}
-                        className="card-img-top"
-                        loading="lazy"
-                        width={400}
-                        height={300}
-                        alt="course image"
-                      />
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Development
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              All level
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            Angular – The Complete Guide (2021 Edition)
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.0
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(3500)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">4500</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            12h 45m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            65 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg04}
-                                width={40}
-                                height={40}
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Billy Vasquez
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              $255
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="tns-item tns-slide-cloned"
-                    aria-hidden="true"
-                    tabIndex={-1}
-                  >
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course17jpg}
-                        className="card-img-top"
-                        loading="lazy"
-                        width={400}
-                        height={300}
-                        alt="course image"
-                      />
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Design
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              Beginner
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            Time Management Mastery: Do More, Stress Less
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.5
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(2000)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">8000</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            24h 56m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            55 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg09}
-                                width={40}
-                                height={40}
-                                loading="lazy"
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Lori Stevens
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              $500
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="tns-item tns-slide-cloned"
-                    aria-hidden="true"
-                    tabIndex={-1}
-                  >
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course16jpg}
-                        className="card-img-top"
-                        loading="lazy"
-                        width={400}
-                        height={300}
-                        alt="course image"
-                      />
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Design
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              Beginner
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            Time Management Mastery: Do More, Stress Less
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.0
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(2000)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">1200</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            09h 56m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            21 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg01}
-                                width={40}
-                                height={40}
-                                loading="lazy"
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Frances Guerrero
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              $200
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Card item START */}
-                  <div
-                    className="tns-item"
-                    id="tns1-item0"
-                    aria-hidden="true"
-                    tabIndex={-1}
-                  >
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course14jpg}
-                        className="card-img-top"
-                        width={400}
-                        height={300}
-                        loading="lazy"
-                        alt="course image"
-                      />
-                      {/* Ribbon */}
-                      <div className="ribbon mt-3">
-                        <span>Free</span>
-                      </div>
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Design
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              Beginner
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            The complete Digital Marketing Course - 8 Course in
-                            1
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.5
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(6500)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">6500</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            6h 56m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            82 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg10}
-                                width={40}
-                                height={40}
-                                loading="lazy"
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Larry Lawson
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              Free
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Card item END */}
-                  {/* Card item START */}
-                  <div
-                    className="tns-item"
-                    id="tns1-item1"
-                    aria-hidden="true"
-                    tabIndex={-1}
-                  >
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course15jpg}
-                        className="card-img-top"
-                        loading="lazy"
-                        width={400}
-                        height={300}
-                        alt="course image"
-                      />
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Development
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              All level
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            Angular – The Complete Guide (2021 Edition)
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.0
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(3500)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">4500</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            12h 45m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            65 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg04}
-                                width={40}
-                                height={40}
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Billy Vasquez
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              $255
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Card item END */}
-                  {/* Card item START */}
-                  <div className="tns-item tns-slide-active" id="tns1-item2">
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course17jpg}
-                        className="card-img-top"
-                        loading="lazy"
-                        width={400}
-                        height={300}
-                        alt="course image"
-                      />
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Design
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              Beginner
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            Time Management Mastery: Do More, Stress Less
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.5
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(2000)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">8000</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            24h 56m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            55 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg09}
-                                width={40}
-                                height={40}
-                                loading="lazy"
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Lori Stevens
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              $500
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Card item END */}
-                  {/* Card item START */}
-                  <div className="tns-item tns-slide-active" id="tns1-item3">
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course16jpg}
-                        className="card-img-top"
-                        loading="lazy"
-                        width={400}
-                        height={300}
-                        alt="course image"
-                      />
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Design
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              Beginner
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            Time Management Mastery: Do More, Stress Less
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.0
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(2000)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">1200</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            09h 56m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            21 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg01}
-                                width={40}
-                                height={40}
-                                loading="lazy"
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Frances Guerrero
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              $200
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Card item END */}
-                  <div className="tns-item tns-slide-cloned tns-slide-active">
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course14jpg}
-                        className="card-img-top"
-                        width={400}
-                        height={300}
-                        loading="lazy"
-                        alt="course image"
-                      />
-                      {/* Ribbon */}
-                      <div className="ribbon mt-3">
-                        <span>Free</span>
-                      </div>
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Design
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              Beginner
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            The complete Digital Marketing Course - 8 Course in
-                            1
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.5
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(6500)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">6500</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            6h 56m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            82 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg10}
-                                width={40}
-                                height={40}
-                                loading="lazy"
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Larry Lawson
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              Free
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="tns-item tns-slide-cloned tns-slide-active">
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course15jpg}
-                        className="card-img-top"
-                        loading="lazy"
-                        width={400}
-                        height={300}
-                        alt="course image"
-                      />
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Development
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              All level
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            Angular – The Complete Guide (2021 Edition)
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.0
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(3500)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">4500</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            12h 45m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            65 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg04}
-                                width={40}
-                                height={40}
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Billy Vasquez
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              $255
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="tns-item tns-slide-cloned tns-slide-active">
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course17jpg}
-                        className="card-img-top"
-                        loading="lazy"
-                        width={400}
-                        height={300}
-                        alt="course image"
-                      />
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Design
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              Beginner
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            Time Management Mastery: Do More, Stress Less
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.5
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(2000)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">8000</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            24h 56m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            55 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg10}
-                                width={40}
-                                height={40}
-                                loading="lazy"
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Lori Stevens
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              $500
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="tns-item tns-slide-cloned"
-                    aria-hidden="true"
-                    tabIndex={-1}
-                  >
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course16jpg}
-                        className="card-img-top"
-                        loading="lazy"
-                        width={400}
-                        height={300}
-                        alt="course image"
-                      />
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Design
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              Beginner
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            Time Management Mastery: Do More, Stress Less
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.0
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(2000)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">1200</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            09h 56m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            21 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg01}
-                                width={40}
-                                height={40}
-                                loading="lazy"
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Frances Guerrero
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              $200
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="tns-item tns-slide-cloned"
-                    aria-hidden="true"
-                    tabIndex={-1}
-                  >
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course14jpg}
-                        className="card-img-top"
-                        width={400}
-                        height={300}
-                        loading="lazy"
-                        alt="course image"
-                      />
-                      {/* Ribbon */}
-                      <div className="ribbon mt-3">
-                        <span>Free</span>
-                      </div>
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Design
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              Beginner
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            The complete Digital Marketing Course - 8 Course in
-                            1
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.5
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(6500)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">6500</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            6h 56m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            82 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg10}
-                                width={40}
-                                height={40}
-                                loading="lazy"
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Larry Lawson
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              Free
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="tns-item tns-slide-cloned"
-                    aria-hidden="true"
-                    tabIndex={-1}
-                  >
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course15jpg}
-                        className="card-img-top"
-                        loading="lazy"
-                        width={400}
-                        height={300}
-                        alt="course image"
-                      />
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Development
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              All level
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            Angular – The Complete Guide (2021 Edition)
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.0
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(3500)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">4500</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            12h 45m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            65 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg04}
-                                width={40}
-                                height={40}
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Billy Vasquez
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              $255
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="tns-item tns-slide-cloned"
-                    aria-hidden="true"
-                    tabIndex={-1}
-                  >
-                    <div className="card action-trigger-hover border bg-transparent">
-                      {/* Image */}
-                      <img
-                        src={course17jpg}
-                        className="card-img-top"
-                        loading="lazy"
-                        width={400}
-                        height={300}
-                        alt="course image"
-                      />
-                      {/* Card body */}
-                      <div className="card-body pb-0">
-                        {/* Badge and favorite */}
-                        <div className="d-flex justify-content-between mb-3">
-                          <span className="hstack gap-2">
-                            <a
-                              href="#"
-                              className="badge bg-primary bg-opacity-10 text-primary"
-                            >
-                              Design
-                            </a>
-                            <a href="#" className="badge text-bg-dark">
-                              Beginner
-                            </a>
-                          </span>
-                          <a href="#" className="h6 fw-light mb-0">
-                            <i className="far fa-bookmark" />
-                          </a>
-                        </div>
-                        {/* Title */}
-                        <h5 className="card-title">
-                          <a href="#">
-                            Time Management Mastery: Do More, Stress Less
-                          </a>
-                        </h5>
-                        {/* Rating */}
-                        <div className="d-flex justify-content-between mb-2">
-                          <div className="hstack gap-2">
-                            <p className="text-warning m-0">
-                              4.5
-                              <i className="fas fa-star text-warning ms-1" />
-                            </p>
-                            <span className="small">(2000)</span>
-                          </div>
-                          <div className="hstack gap-2">
-                            <p className="h6 fw-light mb-0 m-0">8000</p>
-                            <span className="small">(Student)</span>
-                          </div>
-                        </div>
-                        {/* Time */}
-                        <div className="hstack gap-3">
-                          <span className="h6 fw-light mb-0">
-                            <i className="far fa-clock text-danger me-2" />
-                            24h 56m
-                          </span>
-                          <span className="h6 fw-light mb-0">
-                            <i className="fas fa-table text-orange me-2" />
-                            55 lectures
-                          </span>
-                        </div>
-                      </div>
-                      {/* Card footer */}
-                      <div className="card-footer pt-0 bg-transparent">
-                        <hr />
-                        {/* Avatar and Price */}
-                        <div className="d-flex justify-content-between align-items-center">
-                          {/* Avatar */}
-                          <div className="d-flex align-items-center">
-                            <div className="avatar avatar-sm">
-                              <img
-                                className="avatar-img rounded-1"
-                                src={jpg09}
-                                width={40}
-                                height={40}
-                                loading="lazy"
-                                alt="avatar"
-                              />
-                            </div>
-                            <p className="mb-0 ms-2">
-                              <a href="#" className="h6 fw-light mb-0">
-                                Lori Stevens
-                              </a>
-                            </p>
-                          </div>
-                          {/* Price */}
-                          <div>
-                            <h4 className="text-success mb-0 item-show">
-                              $500
-                            </h4>
-                            <a
-                              href="#"
-                              className="btn btn-sm btn-success-soft item-show-hover"
-                            >
-                              <i className="fas fa-shopping-cart me-2" />
-                              Add to cart
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  
+                  {/* Rating star */}
+                  <ul className="list-inline mb-0">
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="far fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item ms-2 h6 fw-light mb-0">
+                      4.0/5.0
+                    </li>
+                  </ul>
+                </div>
+                {/* Card footer */}
+                <div className="card-footer pt-0 pb-3">
+                  <hr />
+                  <div className="d-flex justify-content-between">
+                    <span className="h6 fw-light mb-0">
+                      <i className="far fa-clock text-danger me-2" />
+                      1
+                    </span>
+                    <span className="h6 fw-light mb-0">
+                      <i className="fas fa-table text-orange me-2" />
+                      15 lectures
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
-            <div
-              className="tns-controls"
-              aria-label="Carousel Navigation"
-              tabIndex={0}
-            >
-              <button
-                type="button"
-                data-controls="prev"
-                tabIndex={-1}
-                aria-controls="tns1"
-              >
-                <i className="fas fa-chevron-left" />
-              </button>
-              <button
-                type="button"
-                data-controls="next"
-                tabIndex={-1}
-                aria-controls="tns1"
-              >
-                <i className="fas fa-chevron-right" />
-              </button>
+            
+            {/* Card item END */}
+           
+            {/* Card item START */}
+
+            
+            <div className="col-sm-6 col-lg-4 col-xl-3">
+              <div className="card shadow h-100">
+                {/* Image */}
+                <img
+                  src={course08jpg}
+                  className="card-img-top"
+                  width={298}
+                  height={224}
+                  loading="lazy"
+                  alt="course image"
+                />
+                {/* Card body */}
+                <div className="card-body pb-0">
+                  {/* Badge and favorite */}
+                  <div className="d-flex justify-content-between mb-2">
+                    <a
+                      href="#"
+                      className="badge bg-purple bg-opacity-10 text-purple"
+                    >
+                      All level
+                    </a>
+                    <a href="#" className="h6 mb-0">
+                      <i className="far fa-heart" />
+                    </a>
+                  </div>
+                  {/* Title */}
+                  <h5 className="card-title fw-normal">
+                    <a href="#">Angular</a>
+                  </h5>
+
+                  <h6> Offline </h6>
+
+                  <div>
+                  <p> {`Start Date: 15 Oct 2024 `}</p>
+                  <p>  {`End Date: 15 Nov 2024 `}</p>
+                  </div>
+                  
+                  {/* Rating star */}
+                  <ul className="list-inline mb-0">
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="far fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item ms-2 h6 fw-light mb-0">
+                      4.0/5.0
+                    </li>
+                  </ul>
+                </div>
+                {/* Card footer */}
+                <div className="card-footer pt-0 pb-3">
+                  <hr />
+                  <div className="d-flex justify-content-between">
+                    <span className="h6 fw-light mb-0">
+                      <i className="far fa-clock text-danger me-2" />
+                      1
+                    </span>
+                    <span className="h6 fw-light mb-0">
+                      <i className="fas fa-table text-orange me-2" />
+                      15 lectures
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        {/* Slider END */}
-      </div>
+            
+            {/* Card item END */}
+           
+             {/* Card item START */}
+
+            
+             <div className="col-sm-6 col-lg-4 col-xl-3">
+              <div className="card shadow h-100">
+                {/* Image */}
+                <img
+                  src={course08jpg}
+                  className="card-img-top"
+                  width={298}
+                  height={224}
+                  loading="lazy"
+                  alt="course image"
+                />
+                {/* Card body */}
+                <div className="card-body pb-0">
+                  {/* Badge and favorite */}
+                  <div className="d-flex justify-content-between mb-2">
+                    <a
+                      href="#"
+                      className="badge bg-purple bg-opacity-10 text-purple"
+                    >
+                      All level
+                    </a>
+                    <a href="#" className="h6 mb-0">
+                      <i className="far fa-heart" />
+                    </a>
+                  </div>
+                  {/* Title */}
+                  <h5 className="card-title fw-normal">
+                    <a href="#">Angular</a>
+                  </h5>
+
+                  <h6> Offline </h6>
+
+                  <div>
+                  <p> {`Start Date: 15 Oct 2024 `}</p>
+                  <p>  {`End Date: 15 Nov 2024 `}</p>
+                  </div>
+                  
+                  {/* Rating star */}
+                  <ul className="list-inline mb-0">
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="far fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item ms-2 h6 fw-light mb-0">
+                      4.0/5.0
+                    </li>
+                  </ul>
+                </div>
+                {/* Card footer */}
+                <div className="card-footer pt-0 pb-3">
+                  <hr />
+                  <div className="d-flex justify-content-between">
+                    <span className="h6 fw-light mb-0">
+                      <i className="far fa-clock text-danger me-2" />
+                      1
+                    </span>
+                    <span className="h6 fw-light mb-0">
+                      <i className="fas fa-table text-orange me-2" />
+                      15 lectures
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Card item END */}
+           
+           
+            {/* Card item START */}
+
+            
+            <div className="col-sm-6 col-lg-4 col-xl-3">
+              <div className="card shadow h-100">
+                {/* Image */}
+                <img
+                  src={course08jpg}
+                  className="card-img-top"
+                  width={298}
+                  height={224}
+                  loading="lazy"
+                  alt="course image"
+                />
+                {/* Card body */}
+                <div className="card-body pb-0">
+                  {/* Badge and favorite */}
+                  <div className="d-flex justify-content-between mb-2">
+                    <a
+                      href="#"
+                      className="badge bg-purple bg-opacity-10 text-purple"
+                    >
+                      All level
+                    </a>
+                    <a href="#" className="h6 mb-0">
+                      <i className="far fa-heart" />
+                    </a>
+                  </div>
+                  {/* Title */}
+                  <h5 className="card-title fw-normal">
+                    <a href="#">Angular</a>
+                  </h5>
+
+                  <h6> Offline </h6>
+
+                  <div>
+                  <p> {`Start Date: 15 Oct 2024 `}</p>
+                  <p>  {`End Date: 15 Nov 2024 `}</p>
+                  </div>
+                  
+                  {/* Rating star */}
+                  <ul className="list-inline mb-0">
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="fas fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item me-0 small">
+                      <i className="far fa-star text-warning" />
+                    </li>
+                    <li className="list-inline-item ms-2 h6 fw-light mb-0">
+                      4.0/5.0
+                    </li>
+                  </ul>
+                </div>
+                {/* Card footer */}
+                <div className="card-footer pt-0 pb-3">
+                  <hr />
+                  <div className="d-flex justify-content-between">
+                    <span className="h6 fw-light mb-0">
+                      <i className="far fa-clock text-danger me-2" />
+                      1
+                    </span>
+                    <span className="h6 fw-light mb-0">
+                      <i className="fas fa-table text-orange me-2" />
+                      15 lectures
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Card item END */}
+           
+           
+           
+           
+           
+          </div>{" "}
+
     </div>
   </section>
   {/* =======================

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { getDatabase, ref, onValue } from "firebase/database";
+import { ref, onValue } from "firebase/database";
+import { Link } from 'react-router-dom';
+import { database } from '../firebase'; // Import the initialized database instance
 import course01 from "../Assets/images/courses/4by3/01.jpg";
 import png04 from "../Assets/images/pattern/04.png";
 
@@ -7,16 +9,34 @@ const CourseListBody = () => {
   const [courses, setCourses] = useState([]);
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
+  // Fetch courses
   useEffect(() => {
-    const db = getDatabase();
-    const courseRef = ref(db, 'courses'); // Assuming 'courses' is the path to your course data
+    const courseRef = ref(database, 'courses'); // Use the imported database instance
 
     onValue(courseRef, (snapshot) => {
       const data = snapshot.val();
-      const coursesArray = Object.values(data); // Converts the object to an array of courses
+      const coursesArray = Object.values(data).map(course => ({
+        ...course,
+        courseID: course.courseID // Ensure you have the courseID in the course object
+      })); 
       setCourses(coursesArray);
       setFilteredCourses(coursesArray); // Initially set filtered courses to all courses
+    });
+  }, []);
+
+  // Fetch categories
+  useEffect(() => {
+    const categoryRef = ref(database, 'categories'); // Use the imported database instance
+
+    onValue(categoryRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const categoriesArray = Object.values(data);
+        setCategories(categoriesArray);
+      }
     });
   }, []);
 
@@ -26,11 +46,24 @@ const CourseListBody = () => {
     setSearchTerm(value);
 
     const filtered = courses.filter(course => 
-      course.courseName.toLowerCase().includes(value) ||
-      course.courseDescription.toLowerCase().includes(value)
+      course.courseName.toLowerCase().includes(value) // Only filter by courseName
     );
 
     setFilteredCourses(filtered);
+  };
+
+  // Handle category change
+  const handleCategoryChange = (e) => {
+    const categoryID = e.target.value;
+    setSelectedCategory(categoryID);
+
+    // Filter courses by selected category
+    if (categoryID === "") {
+      setFilteredCourses(courses); // Reset to all courses if no category selected
+    } else {
+      const filtered = courses.filter(course => course.selectedCategory === categoryID); // Ensure this matches the key used in your course data
+      setFilteredCourses(filtered);
+    }
   };
 
   return (
@@ -46,18 +79,17 @@ const CourseListBody = () => {
           backgroundSize: "cover"
         }}
       >
-        {/* Main banner background image */}
         <div className="container">
           <div className="row">
             <div className="col-12">
               {/* Title */}
-              <h1 className="text-white">Courses List Minimal</h1>
+              <h1 className="text-white">Courses</h1>
               {/* Breadcrumb */}
               <div className="d-flex">
                 <nav aria-label="breadcrumb">
                   <ol className="breadcrumb breadcrumb-dark breadcrumb-dots mb-0">
                     <li className="breadcrumb-item">
-                      <a href="#"><i className="fas fa-home fa-fw me-2" />Home</a>
+                      <a href="/"><i className="fas fa-home fa-fw me-2" />Home</a>
                     </li>
                     <li className="breadcrumb-item active" aria-current="page">
                       Courses
@@ -95,6 +127,26 @@ const CourseListBody = () => {
                 </div>
               </form>
             </div>
+            
+            {/* Category dropdown */}
+            <div className="col-sm-6 col-xl-4">
+              <form className="border rounded p-2">
+                <div className="input-group">
+                  <select
+                    className="form-select"
+                    value={selectedCategory}
+                    onChange={handleCategoryChange} // Capture category selection
+                  >
+                    <option value="">All Categories</option>
+                    {categories.map((category, index) => (
+                      <option key={index} value={category.categoryID}>
+                        {category.categoryName}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </form>
+            </div>
           </div>
           {/* Search option END */}
 
@@ -102,13 +154,13 @@ const CourseListBody = () => {
           <div className="row g-4">
             {filteredCourses.length > 0 ? (
               filteredCourses.map((course, index) => (
-                <div className="col-md-6" key={index}> {/* Keep col-md-6 for two columns */}
-                  <div className={`card rounded overflow-hidden shadow`}> {/* Removed margin classes */}
+                <div className="col-md-6" key={index}>
+                  <div className={`card rounded overflow-hidden shadow`}>
                     <div className="row g-0">
                       {/* Image */}
                       <div className="col-md-4">
                         <img
-                          src={course01}
+                          src={course01} // Adjust to use actual course image if available
                           className="img-fluid"
                           width={207}
                           height={156}
@@ -121,7 +173,10 @@ const CourseListBody = () => {
                           {/* Title */}
                           <div className="d-flex justify-content-between mb-2">
                             <h5 className="card-title mb-0">
-                              <a href="#">{course.courseName}</a>
+                              {/* Link to course detail page with courseID */}
+                              <Link to={`/coursedetail/${course.courseID}`}>
+                                {course.courseName}
+                              </Link>
                             </h5>
                           </div>
                           {/* Description */}
@@ -148,7 +203,7 @@ const CourseListBody = () => {
                 </div>
               ))
             ) : (
-              <p>No courses found</p> // Display message if no courses match the search
+              <p>No courses found</p>
             )}
           </div>
           {/* Course listing END */}
@@ -158,6 +213,6 @@ const CourseListBody = () => {
       Page content END */}
     </main>
   );
-}
+};
 
 export default CourseListBody;

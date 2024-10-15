@@ -29,28 +29,17 @@ const Navbar = () => {
     };
 
     fetchCourses(); // Call the function to fetch data
-  }, []);
+  }, []); // Empty dependency array means this effect runs once after initial render
 
   return (
     <header className="navbar-light navbar-sticky header-static">
       <nav className="navbar navbar-expand-xl">
         <div className="container-fluid px-3 px-xl-5">
           {/* Logo START */}
-          <a className="navbar-brand" href="#">
-            <img
-              className="light-mode-item navbar-brand-item"
-              src={logo}
-              width="142.43"
-              height={36}
-              alt="logo"
-            />
-            <img
-              className="dark-mode-item navbar-brand-item"
-              src={logolight}
-              width="142.43"
-              height={36}
-              alt="logo"
-            />
+          <a className="navbar-brand" href="/">
+            <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#000' }}>
+              MICROLEARNING
+            </span> 
           </a>
           {/* Logo end */}
           {/* Responsive navbar toggler */}
@@ -87,8 +76,8 @@ const Navbar = () => {
                 <ul className="dropdown-menu" aria-labelledby="categoryMenu">
                   {/* Loop through courses and display them */}
                   {courses.map((course) => (
-                    <li key={course.courseid}>
-                      <Link to={`/coursedetail/${course.courseid}`} className="dropdown-item">
+                    <li key={course.courseID}>
+                      <Link to={`/coursedetail/${course.courseID}`} className="dropdown-item">
                         {course.courseName}
                       </Link>
                     </li>
@@ -113,7 +102,7 @@ const Navbar = () => {
               <Link className="nav-link active" to="/" id="demoMenu">
                 Home
               </Link>
-              <Link className="nav-link" to="/coursecategories" id="pagesMenu">
+              <Link className="nav-link" to="/courselist" id="pagesMenu">
                 Courses
               </Link>
               <Link className="nav-link" to="" id="accountMenu">

@@ -14,9 +14,9 @@ const AdminFooter = () => {
 
             {/* Right-Aligned Links */}
             <ul className="nav list-inline mb-0">
-              <li className="list-inline-item"><a className="nav-link" href="#">  Copyrights ©2024 Eduport. Built by Webestica</a> </li>
-              <li className="list-inline-item"><a className="nav-link" href="#/about">About Us</a></li>
-              <li className="list-inline-item"><a className="nav-link" href="#/contact">Contact Us</a></li>
+              <li className="list-inline-item"><a className="nav-link" href="#">  Copyrights ©2024 Microlearning</a> </li>
+              <li className="list-inline-item"><a className="nav-link" href="#/about">About </a></li>
+              <li className="list-inline-item"><a className="nav-link" href="#/contact">Contact </a></li>
             </ul>
           </div>
         </div>

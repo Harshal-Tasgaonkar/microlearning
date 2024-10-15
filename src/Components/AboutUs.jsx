@@ -1,13 +1,14 @@
 import React from 'react'
-import Header from './Header'
+
 import Footer from './Footer'
 import AboutUsBody from './AboutUsBody'
+import Navbar from './Navbar'
 
 const AboutUs = () => {
   return (
     <>
     
-    <Header/>
+    <Navbar/>
     <AboutUsBody/>
     <Footer/>
     

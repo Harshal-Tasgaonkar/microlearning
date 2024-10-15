@@ -1,41 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { database, ref, onValue, remove } from '../firebase'; // Import Firebase functions
+import { database, ref, onValue, remove } from '../firebase'; // Import necessary Firebase functions
 
-const AdminInquiryListBody = () => {
-  const [inquiries, setInquiries] = useState([]);
+const AdminContactListBody = () => {
+  const [contacts, setContacts] = useState([]);
 
+  // Fetch contact data from Firebase
   useEffect(() => {
-    // Reference to the 'inquiries' node in Firebase Realtime Database
-    const inquiriesRef = ref(database, 'inquiries');
-
-    // Listen for real-time updates
-    onValue(inquiriesRef, (snapshot) => {
+    const contactRef = ref(database, 'contacts'); // Assuming 'contacts' is the path in your database
+    onValue(contactRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        // Convert data object to an array of inquiry objects
-        const inquiryList = Object.keys(data).map((inquiryId) => ({
-          inquiryId,
-          ...data[inquiryId],
+        const contactList = Object.keys(data).map((key) => ({
+          id: key,
+          ...data[key],
         }));
-        setInquiries(inquiryList);
+        setContacts(contactList);
       }
     });
   }, []);
 
-  // Function to handle deleting an inquiry
-  const handleDelete = (inquiryId) => {
-    if (window.confirm('Are you sure you want to delete this inquiry?')) {
-      // Reference to the specific inquiry in Firebase
-      const inquiryRef = ref(database, `inquiries/${inquiryId}`);
-      // Remove the inquiry from Firebase
-      remove(inquiryRef)
-        .then(() => {
-          alert('Inquiry deleted successfully.');
-        })
-        .catch((error) => {
-          console.error('Error deleting inquiry:', error);
-        });
-    }
+  // Function to handle deletion of a contact
+  const handleDelete = (contactId) => {
+    const contactRef = ref(database, `contacts/${contactId}`);
+    remove(contactRef)
+      .then(() => {
+        console.log('Contact deleted successfully');
+      })
+      .catch((error) => {
+        console.error('Error deleting contact:', error);
+      });
   };
 
   return (
@@ -45,7 +38,7 @@ const AdminInquiryListBody = () => {
           {/* Title */}
           <div className="row mb-3">
             <div className="col-12 d-sm-flex justify-content-between align-items-center">
-              <h1 className="h3 mb-2 mb-sm-0">Inquiries</h1>
+              <h1 className="h3 mb-2 mb-sm-0">Contacts</h1>
             </div>
           </div>
 
@@ -55,9 +48,9 @@ const AdminInquiryListBody = () => {
             <div className="card-header bg-light border-bottom">
               {/* Search and select START */}
               <div className="row g-3 align-items-center justify-content-between">
+                
                
-
-               
+                
               </div>
               {/* Search and select END */}
             </div>
@@ -73,24 +66,22 @@ const AdminInquiryListBody = () => {
                   <thead>
                     <tr>
                       <th scope="col" className="border-0">Name</th>
-                      <th scope="col" className="border-0">Email</th>
-                      <th scope="col" className="border-0">Mobile Number</th>
-                      <th scope="col" className="border-0">Selected Class</th>
+                      <th scope="col" className="border-0">Mobile</th>
+                      <th scope="col" className="border-0">Message</th>
                       <th scope="col" className="border-0 rounded-end">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {inquiries.length > 0 ? (
-                      inquiries.map((inquiry) => (
-                        <tr key={inquiry.inquiryId}>
-                          <td>{inquiry.name}</td>
-                          <td>{inquiry.email}</td>
-                          <td>{inquiry.mobileNumber}</td>
-                          <td>{inquiry.selectedClass}</td>
+                    {contacts.length > 0 ? (
+                      contacts.map((contact) => (
+                        <tr key={contact.id}>
+                          <td>{contact.name}</td>
+                          <td>{contact.mobile}</td>
+                          <td>{contact.message}</td>
                           <td>
                             <button
                               className="btn btn-sm btn-danger mb-0 me-1"
-                              onClick={() => handleDelete(inquiry.inquiryId)}
+                              onClick={() => handleDelete(contact.id)}
                             >
                               <i className="fas fa-trash-alt" />
                             </button>
@@ -99,7 +90,9 @@ const AdminInquiryListBody = () => {
                       ))
                     ) : (
                       <tr>
-                        <td colSpan="5" className="text-center">No inquiries found.</td>
+                        <td colSpan="4" className="text-center">
+                          No contacts found
+                        </td>
                       </tr>
                     )}
                   </tbody>
@@ -116,4 +109,4 @@ const AdminInquiryListBody = () => {
   );
 };
 
-export default AdminInquiryListBody;
+export default AdminContactListBody;

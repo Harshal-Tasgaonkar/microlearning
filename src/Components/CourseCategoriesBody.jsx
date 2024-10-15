@@ -28,7 +28,8 @@ const CourseCategoriesBody = () => {
 
           coursesSnapshot.forEach((courseChildSnapshot) => {
             const course = courseChildSnapshot.val();
-            if (course.categoryid === categoryId) {
+            if (course.selectedCategory
+              === categoryId) {
               courseCount += 1;
             }
           });

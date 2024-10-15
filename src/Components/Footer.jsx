@@ -8,27 +8,19 @@ import appstore from "../Assets/images/client/app-store.svg"
 const Footer = () => {
   return (
     
-    <footer className="pt-5 bg-light">
+    <footer className="pt-5 bg-light border-top border-primary">
   <div className="container">
     {/* Row START */}
     <div className="row g-4">
       {/* Widget 1 START */}
       <div className="col-lg-3">
         {/* logo */}
-        <a className="me-0" href="index-2.html">
-          <img
-            className="light-mode-item h-40px"
-            src={logo}
-            loading="lazy"
-            alt="logo"
-          />
-          <img
-            className="dark-mode-item h-40px"
-            src={logolight}
-            loading="lazy"
-            alt="logo"
-          />
-        </a>
+        <a className="navbar-brand" href="/">
+            <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#000' }}>
+              MICROLEARNING
+            </span> 
+          </a>
+          
         <p className="my-3">
           Eduport education theme, built specifically for the education centers
           which is dedicated to teaching and involve learners.{" "}
@@ -83,12 +75,12 @@ const Footer = () => {
             <ul className="nav flex-column">
             <li className="nav-item">
                 <Link className="nav-link" to="/about">
-                  About us
+                  About 
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/contact">
-                  Contact us
+                  Contact 
                 </Link>
               </li>
               <li className="nav-item">
@@ -128,25 +120,7 @@ const Footer = () => {
         <p className="mb-0">
           Email:<span className="h6 fw-light ms-2">example@gmail.com</span>
         </p>
-        <div className="row g-2 mt-2">
-          {/* Google play store button */}
-          <div className="col-6 col-sm-4 col-md-3 col-lg-6">
-            <a href="#">
-              {" "}
-              <img src={googleplay} alt="" />{" "}
-            </a>
-          </div>
-          {/* App store button */}
-          <div className="col-6 col-sm-4 col-md-3 col-lg-6">
-            <a href="#">
-              {" "}
-              <img
-                src={appstore}
-                alt="app-store"
-              />{" "}
-            </a>
-          </div>
-        </div>{" "}
+        
         {/* Row END */}
       </div>
       {/* Widget 3 END */}
@@ -161,13 +135,13 @@ const Footer = () => {
           {/* copyright text */}
           <div className="text-body text-primary-hover">
             {" "}
-            Copyrights ©2024 Eduport. Build by{" "}
+            Copyrights ©2024 {" "}
             <a
               href="https://www.webestica.com/"
               target="_blank"
               className="text-body"
             >
-              Webestica
+              Microlearning
             </a>
           </div>
           {/* copyright links*/}

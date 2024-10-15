@@ -1,15 +1,17 @@
 import React from 'react'
-import InquiryHeader from './InquiryHeader'
+ 
 import InquiryBody from './InquiryBody'
-import InquiryFooter from './InquiryFooter'
+
+import Navbar from './Navbar'
+import Footer from './Footer'
 
 const Inquiry = () => {
   return (
     <>
     
-    <InquiryHeader/>
+    <Navbar/>
     <InquiryBody/>
-    <InquiryFooter/>    
+    <Footer/>    
     </>
   )
 }

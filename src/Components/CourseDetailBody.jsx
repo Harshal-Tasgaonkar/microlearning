@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { ref, onValue,database } from "../firebase"; // Import Firebase ref and onValue
+import { useParams } from 'react-router-dom';
+
 import course01 from "../Assets/images/courses/4by3/01.jpg"
 import course18 from "../Assets/images/courses/4by3/18.jpg"
 import course21 from "../Assets/images/courses/4by3/21.jpg"
@@ -13,26 +16,48 @@ import int01 from "../Assets/images/instructor/01.jpg"
 
 
 const CourseDetailBody = () => {
+
+  const { courseID } = useParams();
+  const [course, setCourse] = useState(null); // State for storing course data
+
+  useEffect(() => {
+    const courseRef = ref(database, `courses/${courseID}`); // Reference to the specific course
+    const unsubscribe = onValue(courseRef, (snapshot) => {
+      if (snapshot.exists()) {
+        const courseData = snapshot.val();
+        setCourse(courseData); // Set course data to state
+      } else {
+        console.error("No data available for this courseId.");
+        setCourse(null); // Reset course state if no data found
+      }
+    }, (error) => {
+      console.error("Error fetching course data:", error);
+    });
+
+    // Clean up listener on component unmount
+    return () => unsubscribe();
+  }, [courseID]); // Fetch course data when courseId changes
+
+  if (!course) {
+    return <div>Loading...</div>; // Display loading state while fetching data
+  }
   return (
    
     <main>
     {/* =======================
   Page intro START */}
-    <section className="bg-light py-0 py-sm-5">
+     <section className="bg-light py-0 py-sm-5">
       <div className="container">
         <div className="row py-5">
           <div className="col-lg-8">
             {/* Badge */}
             <h6 className="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block">
-              Digital Marketing
+              {course.courseName} {/* Dynamic course name */}
             </h6>
             {/* Title */}
-            <h1>The Complete Digital Marketing Course - 12 Courses in 1</h1>
+            <h1>{course.courseName}</h1> {/* Dynamic course name */}
             <p>
-              Satisfied conveying a dependent contented he gentleman agreeable do
-              be. Warrant private blushes removed an in equally totally if.
-              Delivered dejection necessary objection do Mr prevailed. Mr feeling
-              does chiefly cordial in do.
+              {course.courseDescription} {/* Dynamic course description */}
             </p>
             {/* Content */}
             <ul className="list-inline mb-0">

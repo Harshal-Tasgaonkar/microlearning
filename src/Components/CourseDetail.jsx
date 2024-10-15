@@ -1,13 +1,14 @@
 import React from 'react'
 import Footer from './Footer'
-import Header from './Header'
+
 import CourseDetailBody from './CourseDetailBody'
+import Navbar from './Navbar'
 
 const CourseDetail = () => {
   return (
     <>
     
-    <Header/>
+    <Navbar/>
     <CourseDetailBody/>
     <Footer/>
     

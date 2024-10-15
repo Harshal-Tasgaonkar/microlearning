@@ -16,24 +16,11 @@ const IndexFooter = () => {
       {/* Widget 1 START */}
       <div className="col-lg-3">
         {/* logo */}
-        <a className="me-0" href="index-2.html">
-          <img
-            className="light-mode-item h-40px"
-            src={logo}
-            width="189.05"
-            height={40}
-            loading="lazy"
-            alt="logo"
-          />
-          <img
-            className="dark-mode-item h-40px"
-            src={logolight}
-            loading="lazy"
-            width="189.05"
-            height={40}
-            alt="logo"
-          />
-        </a>
+        <a className="navbar-brand" href="/">
+            <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#000' }}>
+              MICROLEARNING
+            </span> 
+          </a>
         <p className="my-3">
           Eduport education theme, built specifically for the education centers
           which is dedicated to teaching and involve learners.
@@ -88,12 +75,12 @@ const IndexFooter = () => {
             <ul className="nav flex-column">
               <li className="nav-item">
                 <Link className="nav-link" to="/about">
-                  About us
+                  About 
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/contact">
-                  Contact us
+                  Contact 
                 </Link>
               </li>
               <li className="nav-item">
@@ -173,13 +160,13 @@ const IndexFooter = () => {
           {/* copyright text */}
           <div className="text-body text-primary-hover">
             {" "}
-            Copyrights ©2024 Eduport. Build by{" "}
+            Copyrights ©2024 {" "}
             <a
               href="https://www.webestica.com/"
               target="_blank"
               className="text-body"
             >
-              Webestica
+              Microlearning
             </a>
           </div>
           {/* copyright links*/}

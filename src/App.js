@@ -134,6 +134,7 @@ import EditSkill from './Components/EditSkill';
 import SkillView from './Components/SkillView';
 import CategoryView from './Components/CategoryView';
 import AdminInquiryList from './Components/AdminInquiryList';
+import AdminContactList from './Components/AdminContactList';
 
 function App() {
   return (
@@ -147,7 +148,7 @@ function App() {
         <Route path="/becomeinstructor" element={<BecomeInstructor />} />
         <Route path="/inquiry" element={<Inquiry />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/coursedetail/:id" element={<CourseDetail />} />
+        <Route path="/coursedetail/:courseID" element={<CourseDetail />} />
         <Route path="/courselist" element={<CourseList />} />
         <Route path="/admindashboard" element={<AdminDashboard />} />
         <Route path="/admincourselist" element={<AdminCourseList />} />
@@ -173,6 +174,7 @@ function App() {
         <Route path="/skillview/:id" element={<SkillView />} />
         <Route path="/categoryview/:categoryId" element={<CategoryView />} />
         <Route path="/admininquirylist" element={<AdminInquiryList/>} />
+        <Route path="/admincontactlist" element={<AdminContactList/>} />
 
       </Routes>
     </HashRouter>

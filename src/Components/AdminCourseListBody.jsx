@@ -42,39 +42,7 @@ const AdminCourseListBody = () => {
     <div className="page-content">
       <div className="page-content-wrapper border">
 
-       {/* Course boxes START */}
-<div className="row g-4 mb-4">
-  {/* Course item */}
-  <div className="col-sm-6 col-lg-3">
-    <div className="text-center p-4 bg-primary bg-opacity-10 border border-primary rounded-3">
-      <h6>Total Courses</h6>
-      <h2 className="mb-0 fs-1 text-primary">1200</h2>
-    </div>
-  </div>
-  {/* Course item */}
-  <div className="col-sm-6 col-lg-3">
-    <div className="text-center p-4 bg-success bg-opacity-10 border border-success rounded-3">
-      <h6>Activated Courses</h6>
-      <h2 className="mb-0 fs-1 text-success">996</h2>
-    </div>
-  </div>
-  {/* Course item */}
-  <div className="col-sm-6 col-lg-3">
-    <div className="text-center p-4 bg-warning bg-opacity-15 border border-warning rounded-3">
-      <h6>Pending Courses</h6>
-      <h2 className="mb-0 fs-1 text-warning">200</h2>
-    </div>
-  </div>
-  {/* Course item */}
-  <div className="col-sm-6 col-lg-3">
-    <div className="text-center p-4 bg-warning bg-opacity-15 border border-warning rounded-3">
-      <h6>Pending Courses</h6>
-      <h2 className="mb-0 fs-1 text-warning">200</h2>
-    </div>
-  </div>
-</div>
-{/* Course boxes END */}
- 
+       
        
         {/* Title */}
         <div className="row mb-3">
@@ -92,29 +60,9 @@ const AdminCourseListBody = () => {
           <div className="card-header bg-light border-bottom">
             {/* Search and select START */}
             <div className="row g-3 align-items-center justify-content-between">
-              {/* Search bar */}
-              <div className="col-md-8">
-                <form className="rounded position-relative">
-                  <input className="form-control bg-body" type="search" placeholder="Search" aria-label="Search" />
-                  <button className="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
-                    <i className="fas fa-search fs-6"></i>
-                  </button>
-                </form>
-              </div>
+              
 
-              {/* Select option */}
-              <div className="col-md-3">
-                {/* Sort by filter */}
-                <form>
-                  <select className="form-select js-choice border-0 z-index-9" aria-label="Sort by">
-                    <option value="">Sort by</option>
-                    <option>Newest</option>
-                    <option>Oldest</option>
-                    <option>Accepted</option>
-                    <option>Rejected</option>
-                  </select>
-                </form>
-              </div>
+              
             </div>
             {/* Search and select END */}
           </div>
@@ -142,7 +90,7 @@ const AdminCourseListBody = () => {
                     courses.map((course) => (
                       <tr key={course.courseID}>
                         <td>{course.courseName}</td>
-                        <td>{course.courseDuration}</td>
+                        <td>{course.courseDuration} Month</td>
                         <td>{course.courseMode}</td>
                         <td>{course.startDate}</td>
                         <td>{course.endDate}</td>

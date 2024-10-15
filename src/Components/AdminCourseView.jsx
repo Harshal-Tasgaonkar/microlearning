@@ -98,7 +98,7 @@ const AdminCourseView = () => {
                         </li>
                         <li className="list-group-item">
                           <div className="d-flex flex-column">
-                          <span className="h6 mb-0">{course.courseDuration}</span>
+                          <span className="h6 mb-0">{course.courseDuration} Month</span>
                           <span>Duration</span>
                           </div>
                           
