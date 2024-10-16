@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'; // Use NavLink instead of Link
+import { Link, NavLink } from 'react-router-dom'; // Use NavLink instead of Link
 import logo from "../Assets/01.jpg";
 import logolight from "../Assets/logo-light.svg";
 import useThemeSwitcher from './useThemeSwitcher';
@@ -155,10 +155,10 @@ const AdminSidebar = () => {
                 </li>
                 {/* Links */}
                 <li>
-                  <a className="dropdown-item" href="#/admindashboard">
+                  <Link className="dropdown-item" to="/admindashboard">
                     <i className="fas fa-th-large fa-fw me-2" />
                     Dashboard
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
@@ -167,9 +167,9 @@ const AdminSidebar = () => {
                   </a>
                 </li>
                 <li>
-                <a 
+                <Link 
                  className="dropdown-item bg-danger-soft-hover" 
-                   href="/" 
+                   to="/" 
                    onClick={(e) => {
                     e.preventDefault();
                      handleSignOut();
@@ -177,7 +177,7 @@ const AdminSidebar = () => {
                     >
                    <i className="fas fa-power-off fa-fw me-2" />
                    Sign Out
-                    </a>
+                    </Link>
 
                 </li>
                 <li>
