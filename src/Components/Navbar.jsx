@@ -49,12 +49,12 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-xl">
         <div className="container-fluid px-3 px-xl-5">
           {/* Logo START */}
-          <a className="navbar-brand" href="/">
-            <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#000' }}>
-              MICROLEARNING
-            </span>
-          </a>
-          {/* Logo end */}
+          <Link to="/" className="navbar-brand">
+          <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#000' }}>
+           MICROLEARNING
+          </span>
+          </Link>
+      {/* Logo END */}
           {/* Responsive navbar toggler */}
           <button
             className="navbar-toggler ms-auto"
