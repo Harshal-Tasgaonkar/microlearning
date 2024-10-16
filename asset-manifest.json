@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/microlearning/static/css/main.9d228991.css",
-    "main.js": "/microlearning/static/js/main.e11d7092.js",
+    "main.js": "/microlearning/static/js/main.0565b336.js",
     "static/js/453.7dd23826.chunk.js": "/microlearning/static/js/453.7dd23826.chunk.js",
     "static/media/fa-solid-900.svg": "/microlearning/static/media/fa-solid-900.45690f4345fd0e303e35.svg",
     "static/media/fa-brands-400.svg": "/microlearning/static/media/fa-brands-400.675f6734fc707ee98601.svg",
@@ -30,10 +30,8 @@
     "static/media/06.jpg": "/microlearning/static/media/06.d252718ad05ee709f9fb.jpg",
     "static/media/earn-money.svg": "/microlearning/static/media/earn-money.018a042595ecc0962ea5e8b7964a8709.svg",
     "static/media/14.jpg": "/microlearning/static/media/14.bc2be2bf3bb91e890bde.jpg",
-    "static/media/category-1.svg": "/microlearning/static/media/category-1.6487f4e8091cb3b4587734cace3ec219.svg",
     "static/media/18.jpg": "/microlearning/static/media/18.5bbec3444750084cd8ed.jpg",
     "static/media/contact.svg": "/microlearning/static/media/contact.31a570b57d515593f6dcc84c0a5bc119.svg",
-    "static/media/category-2.svg": "/microlearning/static/media/category-2.6461406429a4add3050d224c91ed853b.svg",
     "static/media/16.jpg": "/microlearning/static/media/16.9e9000e80e367f46754f.jpg",
     "static/media/fa-regular-400.eot": "/microlearning/static/media/fa-regular-400.77206a6bb316fa0aded5.eot",
     "static/media/fa-regular-400d41d.eot": "/microlearning/static/media/fa-regular-400d41d.77206a6bb316fa0aded5.eot",
@@ -52,9 +50,7 @@
     "static/media/11.jpg": "/microlearning/static/media/11.e0c32d4a2f31ba9cf5a9.jpg",
     "static/media/08.jpg": "/microlearning/static/media/08.6f86c74dcaba25037622.jpg",
     "static/media/13.jpg": "/microlearning/static/media/13.ca58de00e41d5e9c11b9.jpg",
-    "static/media/15.svg": "/microlearning/static/media/15.5fc9d86272f364b136e65c2f1ea102eb.svg",
     "static/media/fa-regular-400.woff": "/microlearning/static/media/fa-regular-400.bb58e57c48a3e911f15f.woff",
-    "static/media/08.svg": "/microlearning/static/media/08.9b36ac7c7933eccb5e6b479c5fe0f789.svg",
     "static/media/fa-regular-400.woff2": "/microlearning/static/media/fa-regular-400.7a3337626410ca2f4071.woff2",
     "static/media/google-play.svg": "/microlearning/static/media/google-play.66a492037c70de48cbb58b2e285b5fc8.svg",
     "static/media/logo.svg": "/microlearning/static/media/logo.e5fa882fb9951a457f5b4ebcc98fbbe5.svg",
@@ -76,11 +72,11 @@
     "static/media/figma.svg": "/microlearning/static/media/figma.80a6e8d20b162372f2ac0d9afe100b6a.svg",
     "static/media/angular.svg": "/microlearning/static/media/angular.319a77e382e2d6797b2d99aac305cd78.svg",
     "main.9d228991.css.map": "/microlearning/static/css/main.9d228991.css.map",
-    "main.e11d7092.js.map": "/microlearning/static/js/main.e11d7092.js.map",
+    "main.0565b336.js.map": "/microlearning/static/js/main.0565b336.js.map",
     "453.7dd23826.chunk.js.map": "/microlearning/static/js/453.7dd23826.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9d228991.css",
-    "static/js/main.e11d7092.js"
+    "static/js/main.0565b336.js"
   ]
 }
