@@ -89,7 +89,10 @@ const CourseListBody = () => {
                 <nav aria-label="breadcrumb">
                   <ol className="breadcrumb breadcrumb-dark breadcrumb-dots mb-0">
                     <li className="breadcrumb-item">
-                      <a href="/"><i className="fas fa-home fa-fw me-2" />Home</a>
+                    <Link to="/">
+                     <i className="fas fa-home fa-fw me-2" />
+                      Home
+                     </Link>
                     </li>
                     <li className="breadcrumb-item active" aria-current="page">
                       Courses
