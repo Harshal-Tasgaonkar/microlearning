@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ref, onValue } from "firebase/database";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { database } from '../firebase'; // Import the initialized database instance
 import course01 from "../Assets/images/courses/4by3/01.jpg";
 import png04 from "../Assets/images/pattern/04.png";
@@ -11,6 +11,12 @@ const CourseListBody = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
+
+  // Use the useLocation hook to access the URL
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const categoryFromURL = decodeURIComponent(queryParams.get('category') || "");
+  
 
   // Fetch courses
   useEffect(() => {
@@ -40,6 +46,20 @@ const CourseListBody = () => {
     });
   }, []);
 
+  // Set the selected category from URL when the component mounts
+  useEffect(() => {
+    if (categoryFromURL) {
+      setSelectedCategory(categoryFromURL);
+      
+      
+      // Filter courses by selected category
+      const filtered = courses.filter(course => 
+        course.selectedCategory && course.selectedCategory === categoryFromURL // Removed toLowerCase
+      );
+      setFilteredCourses(filtered);
+    }
+  }, [categoryFromURL, courses]); // Run when categoryFromURL or courses change
+
   // Handle search term change
   const handleSearchChange = (e) => {
     const value = e.target.value.toLowerCase();
@@ -61,7 +81,9 @@ const CourseListBody = () => {
     if (categoryID === "") {
       setFilteredCourses(courses); // Reset to all courses if no category selected
     } else {
-      const filtered = courses.filter(course => course.selectedCategory === categoryID); // Ensure this matches the key used in your course data
+      const filtered = courses.filter(course => 
+        course.selectedCategory && course.selectedCategory === categoryID // Removed toLowerCase
+      );
       setFilteredCourses(filtered);
     }
   };
@@ -89,10 +111,10 @@ const CourseListBody = () => {
                 <nav aria-label="breadcrumb">
                   <ol className="breadcrumb breadcrumb-dark breadcrumb-dots mb-0">
                     <li className="breadcrumb-item">
-                    <Link to="/">
-                     <i className="fas fa-home fa-fw me-2" />
-                      Home
-                     </Link>
+                      <Link to="/">
+                        <i className="fas fa-home fa-fw me-2" />
+                        Home
+                      </Link>
                     </li>
                     <li className="breadcrumb-item active" aria-current="page">
                       Courses

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+
 import { Link,NavLink } from 'react-router-dom';
 import { database, ref, get } from '../firebase'; // Import Firebase
 
 const Navbar = () => {
   const [courses, setCourses] = useState([]); // State to store all courses
   const [filteredCourses, setFilteredCourses] = useState([]); // State to store filtered courses
-  const [searchTerm, setSearchTerm] = useState(''); // State for the search input
+ 
 
   useEffect(() => {
     // Fetch courses from Firebase
@@ -33,16 +34,7 @@ const Navbar = () => {
   }, []); // Empty dependency array means this effect runs once after initial render
 
   // Handle search input changes
-  const handleSearchChange = (e) => {
-    const searchTerm = e.target.value.toLowerCase();
-    setSearchTerm(searchTerm);
-
-    // Filter courses based on search input
-    const filtered = courses.filter((course) =>
-      course.courseName.toLowerCase().includes(searchTerm)
-    );
-    setFilteredCourses(filtered);
-  };
+  
 
   return (
     <header className="navbar-light navbar-sticky header-static">
@@ -129,28 +121,7 @@ const Navbar = () => {
               </NavLink>
             </ul>
             {/* Nav Main menu END */}
-            {/* Nav Search START */}
-            <div className="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
-              <div className="nav-item w-100">
-                <form className="position-relative">
-                  <input
-                    className="form-control pe-5 bg-transparent"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                    value={searchTerm}
-                    onChange={handleSearchChange} // Call the handler when input changes
-                  />
-                  <button
-                    className="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset"
-                    type="submit"
-                  >
-                    <i className="fas fa-search fs-6 " />
-                  </button>
-                </form>
-              </div>
-            </div>
-            {/* Nav Search END */}
+            
           </div>
           {/* Main navbar END */}
           {/* Login button START */}

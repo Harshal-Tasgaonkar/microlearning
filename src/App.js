@@ -91,6 +91,7 @@
 
 import { HashRouter, Routes, Route } from 'react-router-dom'; // Change BrowserRouter to HashRouter
 
+
 import './Assets/css/style.css';
 import './Assets/css/all.min.css';
 import './Assets/css/tiny-slider.css';
@@ -138,6 +139,8 @@ import AdminContactList from './Components/AdminContactList';
 
 function App() {
   return (
+
+    
     <HashRouter>
       <Routes>
         {/* Define your routes here */}
@@ -178,6 +181,7 @@ function App() {
 
       </Routes>
     </HashRouter>
+    
   );
 }
 
