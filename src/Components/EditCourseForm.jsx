@@ -21,6 +21,14 @@ const EditCourseForm = () => {
   const [skills, setSkills] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
 
+  // Function to convert "DD MMM YYYY" to "YYYY-MM-DD"
+  const convertToDateInputFormat = (dateString) => {
+    const [day, month, year] = dateString.split(" ");
+    const monthNumber = new Date(Date.parse(month + " 1, 2021")).getMonth() + 1; // Convert month name to number
+    return `${year}-${String(monthNumber).padStart(2, '0')}-${String(day).padStart(2, '0')}`; // Return in "YYYY-MM-DD" format
+  };
+
+
   // Fetch course data on component mount
   useEffect(() => {
     const courseRef = ref(database, `courses/${courseID}`);
@@ -35,8 +43,8 @@ const EditCourseForm = () => {
           setTotalLectures(courseData.totalLectures); // Fetch total lectures
           setCourseFee(courseData.courseFee); // Fetch course fee
           setCourseMode(courseData.courseMode);
-          setStartDate(courseData.startDate);
-          setEndDate(courseData.endDate);
+          setStartDate(convertToDateInputFormat(courseData.startDate)); // Convert date format
+          setEndDate(convertToDateInputFormat(courseData.endDate)); // Convert date format
           setRating(courseData.rating); // Fetch rating
           setSelectedCategory(courseData.selectedCategory); // Fetch selected category
           setSelectedSkills(courseData.selectedSkills || []); // Fetch selected skills
@@ -92,14 +100,7 @@ const EditCourseForm = () => {
       .join(" ");
   };
 
-  // Function to format date to "dd mm yyyy"
-  const formatDate = (dateString) => {
-      const date = new Date(dateString);
-      const dd = String(date.getDate()).padStart(2, '0'); // Get day and pad with 0 if needed
-      const mm = String(date.getMonth() + 1).padStart(2, '0'); // Get month (0-indexed, so add 1) and pad
-      const yyyy = date.getFullYear(); // Get full year
-      return `${dd} ${mm} ${yyyy}`; // Return in "dd mm yyyy" format
-  };
+  
 
   // Handle form submission to update the course in Firebase
   const handleSubmit = (e) => {
@@ -113,8 +114,8 @@ const EditCourseForm = () => {
       totalLectures,
       courseFee,
       courseMode,
-      startDate: formatDate(startDate), // Format start date
-      endDate: formatDate(endDate), // Format end date
+      startDate,
+      endDate,
       rating,
       selectedCategory,
       selectedSkills,
@@ -196,7 +197,7 @@ const EditCourseForm = () => {
           </div>
 
           <div className="row">
-            <div className="col-md-3 mb-3">
+          <div className="col-md-3 mb-3">
               <label className="form-label fw-bold">Start Date</label>
               <input
                 type="date"

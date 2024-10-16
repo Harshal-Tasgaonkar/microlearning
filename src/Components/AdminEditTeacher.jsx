@@ -44,6 +44,19 @@ const AdminEditTeacher = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent default form behavior
 
+    // Check if any field is empty
+    if (!teacherData.name || !teacherData.mobile || !teacherData.email || !teacherData.technology) {
+      alert("Please fill in all fields."); // Alert for empty fields
+      return; // Stop form submission
+    }
+
+    // Validate mobile number to be exactly 10 digits
+    const mobilePattern = /^[0-9]{10}$/; // Regular expression for 10-digit mobile number
+    if (!mobilePattern.test(teacherData.mobile)) {
+      alert("Mobile number must be exactly 10 digits."); // Alert for invalid mobile number
+      return; // Stop form submission
+    }
+
     // Create a copy of teacherData with title case for name and technology
     const updatedTeacherData = {
       ...teacherData,
@@ -67,7 +80,6 @@ const AdminEditTeacher = () => {
   return (
     <div className="page-content">
       {/* Top bar START */}
-
       {/* Top bar END */}
       {/* Page main content START */}
       <div className="page-content-wrapper border">
@@ -88,17 +100,20 @@ const AdminEditTeacher = () => {
                 value={teacherData.name}
                 onChange={handleChange}
                 placeholder="Enter Teacher Name"
+                required // Make field mandatory
               />
             </div>
             <div className="col-md-3 mb-3">
               <label className="form-label fw-bold">Mobile</label>
               <input
                 className="form-control"
-                type="number"
+                type="tel" // Changed type to 'tel'
                 name="mobile"
                 value={teacherData.mobile}
                 onChange={handleChange}
                 placeholder="Enter Mobile"
+                pattern="[0-9]{10}" // HTML pattern attribute for 10 digits
+                required // Make field mandatory
               />
             </div>
             <div className="col-md-3 mb-3">
@@ -110,6 +125,7 @@ const AdminEditTeacher = () => {
                 value={teacherData.email}
                 onChange={handleChange}
                 placeholder="Enter Email"
+                required // Make field mandatory
               />
             </div>
             <div className="col-md-3 mb-3">
@@ -121,6 +137,7 @@ const AdminEditTeacher = () => {
                 value={teacherData.technology}
                 onChange={handleChange}
                 placeholder="Enter Technology"
+                required // Make field mandatory
               />
             </div>
           </div>

@@ -155,51 +155,54 @@ const CourseListBody = () => {
             {filteredCourses.length > 0 ? (
               filteredCourses.map((course, index) => (
                 <div className="col-md-6" key={index}>
-                  <div className={`card rounded overflow-hidden shadow`}>
-                    <div className="row g-0">
-                      {/* Image */}
-                      <div className="col-md-4">
-                        <img
-                          src={course01} // Adjust to use actual course image if available
-                          className="img-fluid"
-                          width={207}
-                          height={156}
-                          alt="course"
-                        />
-                      </div>
-                      {/* Card body */}
-                      <div className="col-md-8">
-                        <div className="card-body">
-                          {/* Title */}
-                          <div className="d-flex justify-content-between mb-2">
-                            <h5 className="card-title mb-0">
-                              {/* Link to course detail page with courseID */}
-                              <Link to={`/coursedetail/${course.courseID}`}>
+                  {/* Make the entire card clickable */}
+                  <Link
+                    to={`/coursedetail/${course.courseID}`}
+                    style={{ textDecoration: 'none', color: 'inherit' }}
+                  >
+                    <div className={`card rounded overflow-hidden shadow`}>
+                      <div className="row g-0">
+                        {/* Image */}
+                        <div className="col-md-4">
+                          <img
+                            src={course01} // Adjust to use actual course image if available
+                            className="img-fluid"
+                            width={207}
+                            height={156}
+                            alt="course"
+                          />
+                        </div>
+                        {/* Card body */}
+                        <div className="col-md-8">
+                          <div className="card-body">
+                            {/* Title */}
+                            <div className="d-flex justify-content-between mb-2">
+                              <h5 className="card-title mb-0">
                                 {course.courseName}
-                              </Link>
-                            </h5>
+                              </h5>
+                            </div>
+                            {/* Description */}
+                            <p className="mb-1">{course.courseDescription}</p>
+                            {/* Info */}
+                            <ul className="list-inline mb-1">
+                              <li className="list-inline-item h6 fw-light mb-1 mb-sm-0">
+                                <i className="far fa-clock text-danger me-2" />
+                                {course.courseDuration}
+                              </li>
+                              <li className="list-inline-item h6 fw-light mb-1 mb-sm-0">
+                                <i className="fas fa-book-open text-orange me-2" />
+                                {course.courseMode}
+                              </li>
+                              <li className="list-inline-item h6 fw-light">
+                                <i className="fas fa-calendar-alt text-success me-2" />
+                                {` ${course.startDate} - ${course.endDate}`}
+                              </li>
+                            </ul>
                           </div>
-                          {/* Description */}
-                          <p className="mb-1">{course.courseDescription}</p>
-                          {/* Info */}
-                          <ul className="list-inline mb-1">
-                            <li className="list-inline-item h6 fw-light mb-1 mb-sm-0">
-                              <i className="far fa-clock text-danger me-2" />
-                              {course.courseDuration}
-                            </li>
-                            <li className="list-inline-item h6 fw-light mb-1 mb-sm-0">
-                              <i className="fas fa-book-open text-orange me-2" />
-                              {course.courseMode}
-                            </li>
-                            <li className="list-inline-item h6 fw-light">
-                              <i className="fas fa-calendar-alt text-success me-2" />
-                              {` ${course.startDate} - ${course.endDate}`}
-                            </li>
-                          </ul>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               ))
             ) : (

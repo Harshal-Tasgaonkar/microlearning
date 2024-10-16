@@ -3,7 +3,7 @@ import { ref, push, database } from "../firebase";
 import { Link, useNavigate } from 'react-router-dom';
 
 const AdminCreateStudentForm = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   // State for student data
   const [studentData, setStudentData] = useState({
@@ -36,6 +36,21 @@ const AdminCreateStudentForm = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Check if any field is empty
+    for (const field in studentData) {
+      if (!studentData[field]) {
+        alert("Please fill in all fields."); // Alert for empty fields
+        return; // Stop form submission
+      }
+    }
+
+    // Validate mobile number to be exactly 10 digits
+    const mobilePattern = /^[0-9]{10}$/; // Regular expression for 10-digit mobile number
+    if (!mobilePattern.test(studentData.mobile)) {
+      alert("Mobile number must be exactly 10 digits."); // Alert for invalid mobile number
+      return; // Stop form submission
+    }
 
     // Convert name and city to title case before sending to Firebase
     const formattedName = toTitleCase(studentData.name);
@@ -77,7 +92,7 @@ const AdminCreateStudentForm = () => {
     <div className="page-content">
       <div className="page-content-wrapper border">
         <div className="d-flex justify-content-between align-items-center">
-          <Link to="/adminstudentlist" className="btn  btn-dark ">
+          <Link to="/adminstudentlist" className="btn btn-dark">
             Back
           </Link>
           <h4 className="mx-auto">Create Student</h4>
@@ -93,18 +108,22 @@ const AdminCreateStudentForm = () => {
                 placeholder="Enter Student Name"
                 value={studentData.name}
                 onChange={handleInputChange}
+                required
               />
             </div>
             <div className="col-md-3 mb-3">
               <label className="form-label fw-bold">Mobile</label>
               <input
                 className="form-control"
-                type="number"
+                type="tel" // Changed type to 'tel' for mobile input
                 name="mobile"
                 placeholder="Enter Mobile"
                 value={studentData.mobile}
                 onChange={handleInputChange}
+                required
+                pattern="[0-9]{10}" // HTML pattern for 10-digit number
               />
+              <small className="form-text text-muted">Must be exactly 10 digits.</small>
             </div>
             <div className="col-md-3 mb-3">
               <label className="form-label fw-bold">Email</label>
@@ -115,6 +134,7 @@ const AdminCreateStudentForm = () => {
                 placeholder="Enter Email"
                 value={studentData.email}
                 onChange={handleInputChange}
+                required
               />
             </div>
             <div className="col-md-3 mb-3">
@@ -126,6 +146,7 @@ const AdminCreateStudentForm = () => {
                 placeholder="Enter Passout Year"
                 value={studentData.passoutYear}
                 onChange={handleInputChange}
+                required
               />
             </div>
           </div>
@@ -139,6 +160,7 @@ const AdminCreateStudentForm = () => {
                 placeholder="Enter Latest Qualification"
                 value={studentData.qualification}
                 onChange={handleInputChange}
+                required
               />
             </div>
             <div className="col-md-3 mb-3">
@@ -150,6 +172,7 @@ const AdminCreateStudentForm = () => {
                 placeholder="Enter City"
                 value={studentData.city}
                 onChange={handleInputChange}
+                required
               />
             </div>
           </div>

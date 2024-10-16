@@ -19,6 +19,12 @@ const CategoryForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent default form behavior
 
+    // Check if the category name field is empty
+    if (!categoryName.trim()) {
+      alert('Please enter a category name.'); // Alert for empty category name
+      return; // Stop form submission
+    }
+
     // Convert category name to title case
     const formattedCategoryName = toTitleCase(categoryName);
 
@@ -47,7 +53,7 @@ const CategoryForm = () => {
       <div className="page-content">
         <div className="page-content-wrapper border">
           <div className="d-flex justify-content-between align-items-center">
-            <Link to="/admincategorylist" className="btn  btn-dark">
+            <Link to="/admincategorylist" className="btn btn-dark">
               Back
             </Link>
             <h4 className="mx-auto">Create Category</h4>
@@ -63,6 +69,7 @@ const CategoryForm = () => {
                   value={categoryName}
                   onChange={(e) => setCategoryName(e.target.value)}
                   placeholder="Enter Category Name"
+                  required // Make this field mandatory
                 />
               </div>
             </div>

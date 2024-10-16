@@ -19,15 +19,33 @@ const CourseDetailBody = () => {
 
   const { courseID } = useParams();
   const [course, setCourse] = useState(null); // State for storing course data
+  const [categoryName, setCategoryName] = useState(''); // State for storing category name
 
   useEffect(() => {
     const courseRef = ref(database, `courses/${courseID}`); // Reference to the specific course
-    const unsubscribe = onValue(courseRef, (snapshot) => {
+    const unsubscribeCourse = onValue(courseRef, (snapshot) => {
       if (snapshot.exists()) {
         const courseData = snapshot.val();
         setCourse(courseData); // Set course data to state
+
+        // Fetch the category name based on selectedCategory
+        if (courseData.selectedCategory) {
+          const categoryRef = ref(database, `categories/${courseData.selectedCategory}`); // Reference to the specific category
+          const unsubscribeCategory = onValue(categoryRef, (catSnapshot) => {
+            if (catSnapshot.exists()) {
+              const categoryData = catSnapshot.val();
+              setCategoryName(categoryData.categoryName); // Set category name to state
+            } else {
+              console.error("No data available for this category.");
+              setCategoryName(''); // Reset category name if no data found
+            }
+          });
+
+          // Clean up listener on component unmount
+          return () => unsubscribeCategory();
+        }
       } else {
-        console.error("No data available for this courseId.");
+        console.error("No data available for this courseID.");
         setCourse(null); // Reset course state if no data found
       }
     }, (error) => {
@@ -35,24 +53,25 @@ const CourseDetailBody = () => {
     });
 
     // Clean up listener on component unmount
-    return () => unsubscribe();
-  }, [courseID]); // Fetch course data when courseId changes
+    return () => unsubscribeCourse();
+  }, [courseID]); // Fetch course data when courseID changes
 
   if (!course) {
     return <div>Loading...</div>; // Display loading state while fetching data
   }
+
   return (
    
     <main>
     {/* =======================
   Page intro START */}
-     <section className="bg-light py-0 py-sm-5">
+      <section className="bg-light py-0 py-sm-5">
       <div className="container">
         <div className="row py-5">
           <div className="col-lg-8">
             {/* Badge */}
             <h6 className="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block">
-              {course.courseName} {/* Dynamic course name */}
+              {categoryName} {/* Display dynamic category name */}
             </h6>
             {/* Title */}
             <h1>{course.courseName}</h1> {/* Dynamic course name */}

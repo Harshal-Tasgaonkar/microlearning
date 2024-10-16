@@ -37,6 +37,12 @@ const EditSKillForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Check if the skill name is empty
+    if (!skillName.trim()) {
+      alert('Please enter a skill name.'); // Alert for empty skill name
+      return; // Stop form submission
+    }
+
     const skillRef = ref(database, `skills/${id}`); // Reference to the specific skill
 
     // Convert skillName to title case before updating
@@ -76,7 +82,7 @@ const EditSKillForm = () => {
                 value={skillName} // Input value bound to state
                 onChange={(e) => setSkillName(e.target.value)} // Update state on input change
                 placeholder="Enter Skill Name"
-                required
+                required // Make this field mandatory
               />
             </div>
           </div>

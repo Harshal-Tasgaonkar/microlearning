@@ -31,6 +31,13 @@ const EditCategoryForm = () => {
   // Handle form submission and update category in Firebase
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Check if the category name field is empty
+    if (!categoryName.trim()) {
+      alert('Please enter a category name.'); // Alert for empty category name
+      return; // Stop form submission
+    }
+
     const categoryRef = ref(database, `categories/${categoryId}`);
 
     // Convert categoryName to title case before updating
@@ -65,6 +72,7 @@ const EditCategoryForm = () => {
                 placeholder="Enter Category Name"
                 value={categoryName}
                 onChange={(e) => setCategoryName(e.target.value)}
+                required // Make this field mandatory
               />
             </div>
           </div>

@@ -28,17 +28,18 @@ const CourseCategoriesBody = () => {
 
           coursesSnapshot.forEach((courseChildSnapshot) => {
             const course = courseChildSnapshot.val();
-            if (course.selectedCategory
-              === categoryId) {
+            if (course.selectedCategory === categoryId) {
               courseCount += 1;
             }
           });
 
-          // Add category name and course count to categoriesData
-          categoriesData.push({
-            categoryName: category.categoryName,
-            courseCount: courseCount,
-          });
+          // Only add categories with more than 0 courses
+          if (courseCount > 0) {
+            categoriesData.push({
+              categoryName: category.categoryName,
+              courseCount: courseCount,
+            });
+          }
 
           // Update state after all data is processed
           setCategories(categoriesData);

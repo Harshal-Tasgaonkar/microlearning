@@ -49,6 +49,21 @@ const AdminEditStudentForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Check if any field is empty
+    for (const field in student) {
+      if (!student[field]) {
+        alert("Please fill in all fields."); // Alert for empty fields
+        return; // Stop form submission
+      }
+    }
+
+    // Validate mobile number to be exactly 10 digits
+    const mobilePattern = /^[0-9]{10}$/; // Regular expression for 10-digit mobile number
+    if (!mobilePattern.test(student.mobile)) {
+      alert("Mobile number must be exactly 10 digits."); // Alert for invalid mobile number
+      return; // Stop form submission
+    }
+
     // Create a copy of student data with title case for name and city
     const updatedStudentData = {
       ...student,
@@ -91,18 +106,22 @@ const AdminEditStudentForm = () => {
                 onChange={handleChange}
                 className="form-control"
                 placeholder="Enter Student Name"
+                required // Make this field mandatory
               />
             </div>
             <div className="col-md-3 mb-3">
               <label className="form-label fw-bold">Mobile</label>
               <input
-                type="number"
+                type="tel" // Use 'tel' for mobile input
                 name="mobile"
                 value={student.mobile}
                 onChange={handleChange}
                 className="form-control"
                 placeholder="Enter Mobile"
+                required // Make this field mandatory
+                pattern="[0-9]{10}" // Ensure mobile number is 10 digits
               />
+              <small className="form-text text-muted">Must be exactly 10 digits.</small>
             </div>
             <div className="col-md-3 mb-3">
               <label className="form-label fw-bold">Email</label>
@@ -113,6 +132,7 @@ const AdminEditStudentForm = () => {
                 onChange={handleChange}
                 className="form-control"
                 placeholder="Enter Email"
+                required // Make this field mandatory
               />
             </div>
             <div className="col-md-3 mb-3">
@@ -124,6 +144,7 @@ const AdminEditStudentForm = () => {
                 onChange={handleChange}
                 className="form-control"
                 placeholder="Enter Passout Year"
+                required // Make this field mandatory
               />
             </div>
           </div>
@@ -137,6 +158,7 @@ const AdminEditStudentForm = () => {
                 onChange={handleChange}
                 className="form-control"
                 placeholder="Enter Latest Qualification"
+                required // Make this field mandatory
               />
             </div>
             <div className="col-md-3 mb-3">
@@ -148,6 +170,7 @@ const AdminEditStudentForm = () => {
                 onChange={handleChange}
                 className="form-control"
                 placeholder="Enter City"
+                required // Make this field mandatory
               />
             </div>
           </div>

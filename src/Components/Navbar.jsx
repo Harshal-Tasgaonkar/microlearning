@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 import { database, ref, get } from '../firebase'; // Import Firebase
-import logo from '../Assets/images/logo.svg';
-import logolight from '../Assets/images/logo-light.svg';
 
 const Navbar = () => {
-  const [courses, setCourses] = useState([]); // State to store courses
+  const [courses, setCourses] = useState([]); // State to store all courses
+  const [filteredCourses, setFilteredCourses] = useState([]); // State to store filtered courses
+  const [searchTerm, setSearchTerm] = useState(''); // State for the search input
 
   useEffect(() => {
     // Fetch courses from Firebase
@@ -20,6 +20,7 @@ const Navbar = () => {
           // Limit to only 10 courses
           const limitedCourses = coursesArray.slice(0, 10);
           setCourses(limitedCourses); // Set the state with limited courses
+          setFilteredCourses(limitedCourses); // Initially, show all courses in filteredCourses
         } else {
           console.log('No courses available');
         }
@@ -31,6 +32,18 @@ const Navbar = () => {
     fetchCourses(); // Call the function to fetch data
   }, []); // Empty dependency array means this effect runs once after initial render
 
+  // Handle search input changes
+  const handleSearchChange = (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    setSearchTerm(searchTerm);
+
+    // Filter courses based on search input
+    const filtered = courses.filter((course) =>
+      course.courseName.toLowerCase().includes(searchTerm)
+    );
+    setFilteredCourses(filtered);
+  };
+
   return (
     <header className="navbar-light navbar-sticky header-static">
       <nav className="navbar navbar-expand-xl">
@@ -39,7 +52,7 @@ const Navbar = () => {
           <a className="navbar-brand" href="/">
             <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#000' }}>
               MICROLEARNING
-            </span> 
+            </span>
           </a>
           {/* Logo end */}
           {/* Responsive navbar toggler */}
@@ -74,8 +87,8 @@ const Navbar = () => {
                   <span>Courses</span>
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="categoryMenu">
-                  {/* Loop through courses and display them */}
-                  {courses.map((course) => (
+                  {/* Loop through filtered courses and display them */}
+                  {filteredCourses.map((course) => (
                     <li key={course.courseID}>
                       <Link to={`/coursedetail/${course.courseID}`} className="dropdown-item">
                         {course.courseName}
@@ -99,18 +112,21 @@ const Navbar = () => {
             {/* Nav category menu END */}
             {/* Nav Main menu START */}
             <ul className="navbar-nav navbar-nav-scroll me-auto">
-              <Link className="nav-link active" to="/" id="demoMenu">
+              <NavLink  className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to="/" id="demoMenu">
                 Home
-              </Link>
-              <Link className="nav-link" to="/courselist" id="pagesMenu">
+              </NavLink>
+              <NavLink  className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to="/coursecategories" id="">
+                Category
+              </NavLink>
+              <NavLink  className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to="/courselist" id="pagesMenu">
                 Courses
-              </Link>
-              <Link className="nav-link" to="" id="accountMenu">
+              </NavLink>
+              <Link  className="nav-link"  id="accountMenu">
                 Batches
               </Link>
-              <Link className="nav-link" to="/inquiry" id="advanceMenu">
+              <NavLink  className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to="/inquiry" id="advanceMenu">
                 Inquiry
-              </Link>
+              </NavLink>
             </ul>
             {/* Nav Main menu END */}
             {/* Nav Search START */}
@@ -122,6 +138,8 @@ const Navbar = () => {
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
+                    value={searchTerm}
+                    onChange={handleSearchChange} // Call the handler when input changes
                   />
                   <button
                     className="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset"

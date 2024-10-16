@@ -3,11 +3,34 @@ import { NavLink } from 'react-router-dom'; // Use NavLink instead of Link
 import logo from "../Assets/01.jpg";
 import logolight from "../Assets/logo-light.svg";
 import useThemeSwitcher from './useThemeSwitcher';
+import { auth, database } from '../firebase'; // Adjust the path accordingly
+import { signOut } from 'firebase/auth'; // Import the signOut function
+import { ref, onValue } from '../firebase'; 
 // import logomobilelight from "../Assets/logo-mobile-light.svg";
 // import logomobile from "../Assets/logo-mobile.svg";
 // import logosvg from "../Assets/logo.svg";
 
 const AdminSidebar = () => {
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        window.location.replace("/");
+      })
+      .catch((error) => {
+        console.error("Error signing out: ", error);
+      });
+  };
+
+  // Example function to fetch data from the database
+  const fetchData = () => {
+    const dbRef = ref(database, 'your/database/path'); // Adjust to your database path
+    onValue(dbRef, (snapshot) => {
+      const data = snapshot.val();
+      console.log(data); // Handle your data
+    });
+  };
+  
 
   useThemeSwitcher();
 
@@ -144,10 +167,18 @@ const AdminSidebar = () => {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item bg-danger-soft-hover" href="#">
-                    <i className="fas fa-power-off fa-fw me-2" />
-                    Sign Out
-                  </a>
+                <a 
+                 className="dropdown-item bg-danger-soft-hover" 
+                   href="/" 
+                   onClick={(e) => {
+                    e.preventDefault();
+                     handleSignOut();
+                      }}
+                    >
+                   <i className="fas fa-power-off fa-fw me-2" />
+                   Sign Out
+                    </a>
+
                 </li>
                 <li>
                   {" "}

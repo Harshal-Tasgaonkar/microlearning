@@ -3,7 +3,6 @@ import { ref, push, set, database } from "../firebase";
 import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const AdminCreateTeacher = () => {
-
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
@@ -13,15 +12,28 @@ const AdminCreateTeacher = () => {
 
   // Function to convert strings to title case
   const toTitleCase = (str) => {
-      return str
-          .toLowerCase()
-          .split(" ")
-          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(" ");
+    return str
+      .toLowerCase()
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
+
+    // Check if any field is empty
+    if (!name || !mobile || !email || !technology) {
+      alert("Please fill in all fields."); // Alert for empty fields
+      return; // Stop form submission
+    }
+
+    // Validate mobile number to be exactly 10 digits
+    const mobilePattern = /^[0-9]{10}$/; // Regular expression for 10-digit mobile number
+    if (!mobilePattern.test(mobile)) {
+      alert("Mobile number must be exactly 10 digits."); // Alert for invalid mobile number
+      return; // Stop form submission
+    }
 
     // Convert name and technology to title case before sending to Firebase
     const formattedName = toTitleCase(name);
@@ -37,7 +49,7 @@ const AdminCreateTeacher = () => {
       mobile,
       email,
       technology: formattedTechnology, // Title-cased technology
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
     };
 
     set(newTeacherRef, teacherData)
@@ -84,12 +96,14 @@ const AdminCreateTeacher = () => {
               <label className="form-label fw-bold">Mobile</label>
               <input
                 className="form-control"
-                type="number"
+                type="tel" // Changed type to 'tel'
                 placeholder="Enter Mobile"
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
                 required
+                pattern="[0-9]{10}" // HTML pattern for 10-digit number
               />
+              <small className="form-text text-muted">Must be exactly 10 digits.</small>
             </div>
             <div className="col-md-3 mb-3">
               <label className="form-label fw-bold">Email</label>

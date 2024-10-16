@@ -60,6 +60,7 @@ const CreateCourseForm = () => {
         return words.join(" ");
     };
 
+    // Updated date formatting function
     const formatDate = (date) => {
         const d = new Date(date);
         const day = String(d.getDate()).padStart(2, '0');

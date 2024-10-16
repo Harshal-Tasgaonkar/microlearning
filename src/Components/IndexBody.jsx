@@ -35,13 +35,14 @@ const IndexBody = () => {
 
   const [categories, setCategories] = useState([]);
   const [courses, setCourses] = useState([]);
-  const [selectedCategoryID, setSelectedCategoryID] = useState(categories.length ? categories[0].categoryID : null);
+  const [selectedCategoryID, setSelectedCategoryID] = useState(null);
 
+ 
   useEffect(() => {
     const db = getDatabase();
 
     // Fetch categories
-    const categoriesRef = ref(db, 'categories'); // Adjust the path as necessary
+    const categoriesRef = ref(db, 'categories');
     onValue(categoriesRef, (snapshot) => {
       const categoriesData = snapshot.val() || {};
       const categoriesList = Object.keys(categoriesData).map(key => ({
@@ -55,12 +56,12 @@ const IndexBody = () => {
     });
 
     // Fetch courses
-    const coursesRef = ref(db, 'courses'); // Adjust the path as necessary
+    const coursesRef = ref(db, 'courses');
     onValue(coursesRef, (snapshot) => {
       const coursesData = snapshot.val() || {};
       const coursesList = Object.keys(coursesData).map(key => ({
         ...coursesData[key],
-        courseID: key // Include the key as courseID
+        courseID: key, // Include the key as courseID
       }));
       setCourses(coursesList);
     });
@@ -73,6 +74,12 @@ const IndexBody = () => {
   const handleTabClick = (categoryID) => {
     setSelectedCategoryID(categoryID);
   };
+
+  // Get categories that have at least one course
+  const categoriesWithCourses = categories.filter(category => 
+    courses.some(course => course.selectedCategory === category.categoryID)
+  );
+
  
   return (
     
@@ -601,12 +608,18 @@ Popular course START */}
         </div>
 
         {/* Tabs START */}
-        <ul className="nav nav-pills nav-pills-bg-soft justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist">
-          {/* Dynamically generate category tabs */}
-          {categories.map((category, index) => (
+        <ul
+          className="nav nav-pills nav-pills-bg-soft justify-content-sm-center mb-4 px-3"
+          id="course-pills-tab"
+          role="tablist"
+        >
+          {/* Dynamically generate category tabs for categories with at least one course */}
+          {categoriesWithCourses.map((category, index) => (
             <li className="nav-item me-2 me-sm-5" role="presentation" key={index}>
               <button
-                className={`nav-link mb-2 mb-md-0 ${category.categoryID === selectedCategoryID ? "active" : ""}`} // Set active class for the selected category
+                className={`nav-link mb-2 mb-md-0 ${
+                  category.categoryID === selectedCategoryID ? 'active' : ''
+                }`} // Set active class for the selected category
                 id={`course-pills-tab-${category.categoryID}`}
                 data-bs-toggle="pill"
                 data-bs-target={`#course-pills-tabs-${category.categoryID}`}
@@ -625,10 +638,12 @@ Popular course START */}
 
         {/* Courses filtered by selected category */}
         <div className="tab-content" id="course-pills-tabContent">
-          {categories.map((category, index) => (
+          {categoriesWithCourses.map((category, index) => (
             <div
               key={index}
-              className={`tab-pane fade ${category.categoryID === selectedCategoryID ? "show active" : ""}`} // Show active tab content
+              className={`tab-pane fade ${
+                category.categoryID === selectedCategoryID ? 'show active' : ''
+              }`} // Show active tab content
               id={`course-pills-tabs-${category.categoryID}`}
               role="tabpanel"
               aria-labelledby={`course-pills-tab-${category.categoryID}`}
@@ -637,13 +652,14 @@ Popular course START */}
               <p>Showing courses for {category.categoryName}</p>
               <div className="row g-4">
                 {/* Card item START */}
-                {filteredCourses.map((course, index) => (
-                  course.selectedCategory === category.categoryID && (
+                {courses
+                  .filter((course) => course.selectedCategory === category.categoryID) // Filter courses by selected category
+                  .map((course, index) => (
                     <div className="col-sm-6 col-lg-4 col-xl-3" key={index}>
-                      <div className="card shadow h-100">
+                      <Link to={`/coursedetail/${course.courseID}`} className="card shadow h-100">
                         {/* Image */}
                         <img
-                          src={course08jpg} // Adjust to your course image URL
+                          src={course08jpg} // Replace with the actual image URL from the course data
                           className="card-img-top"
                           width={298}
                           height={224}
@@ -652,17 +668,9 @@ Popular course START */}
                         />
                         {/* Card body */}
                         <div className="card-body pb-0">
-                          {/* Badge and favorite */}
-                          <div className="d-flex justify-content-between mb-2">
-                            <a href="#" className="badge bg-purple bg-opacity-10 text-purple">All level</a>
-                            <a href="#" className="h6 mb-0"><i className="far fa-heart" /></a>
-                          </div>
+                          
                           {/* Title */}
-                          <h5 className="card-title fw-normal">
-                            <Link to={`/coursedetail/${course.courseID}`}>
-                              {course.courseName}
-                            </Link>
-                          </h5>
+                          <h5 className="card-title fw-normal">{course.courseName}</h5>
                           <h6>{course.courseMode}</h6>
                           <div>
                             <p>{`Start Date: ${course.startDate}`}</p>
@@ -673,10 +681,16 @@ Popular course START */}
                             {/* Assuming you have a rating value */}
                             {Array.from({ length: 5 }, (_, i) => (
                               <li className="list-inline-item me-0 small" key={i}>
-                                <i className={`fas fa-star ${i < course.rating ? 'text-warning' : 'far text-warning'}`} />
+                                <i
+                                  className={`fas fa-star ${
+                                    i < course.rating ? 'text-warning' : 'far text-warning'
+                                  }`}
+                                />
                               </li>
                             ))}
-                            <li className="list-inline-item ms-2 h6 fw-light mb-0">{`${course.rating}/5.0`}</li>
+                            <li className="list-inline-item ms-2 h6 fw-light mb-0">
+                              {`${course.rating}/5.0`}
+                            </li>
                           </ul>
                         </div>
                         {/* Card footer */}
@@ -693,10 +707,9 @@ Popular course START */}
                             </span>
                           </div>
                         </div>
-                      </div>
+                      </Link>
                     </div>
-                  )
-                ))}
+                  ))}
                 {/* Card item END */}
               </div>
               {/* Row END */}
@@ -804,18 +817,7 @@ Trending courses START */}
                 />
                 {/* Card body */}
                 <div className="card-body pb-0">
-                  {/* Badge and favorite */}
-                  <div className="d-flex justify-content-between mb-2">
-                    <a
-                      href="#"
-                      className="badge bg-purple bg-opacity-10 text-purple"
-                    >
-                      All level
-                    </a>
-                    <a href="#" className="h6 mb-0">
-                      <i className="far fa-heart" />
-                    </a>
-                  </div>
+                  
                   {/* Title */}
                   <h5 className="card-title fw-normal">
                     <a href="#">Angular</a>
@@ -885,21 +887,10 @@ Trending courses START */}
                 />
                 {/* Card body */}
                 <div className="card-body pb-0">
-                  {/* Badge and favorite */}
-                  <div className="d-flex justify-content-between mb-2">
-                    <a
-                      href="#"
-                      className="badge bg-purple bg-opacity-10 text-purple"
-                    >
-                      All level
-                    </a>
-                    <a href="#" className="h6 mb-0">
-                      <i className="far fa-heart" />
-                    </a>
-                  </div>
+                 
                   {/* Title */}
                   <h5 className="card-title fw-normal">
-                    <a href="#">Angular</a>
+                    <a href="#">React</a>
                   </h5>
 
                   <h6> Offline </h6>
@@ -966,21 +957,10 @@ Trending courses START */}
                 />
                 {/* Card body */}
                 <div className="card-body pb-0">
-                  {/* Badge and favorite */}
-                  <div className="d-flex justify-content-between mb-2">
-                    <a
-                      href="#"
-                      className="badge bg-purple bg-opacity-10 text-purple"
-                    >
-                      All level
-                    </a>
-                    <a href="#" className="h6 mb-0">
-                      <i className="far fa-heart" />
-                    </a>
-                  </div>
+                  
                   {/* Title */}
                   <h5 className="card-title fw-normal">
-                    <a href="#">Angular</a>
+                    <a href="#">Design</a>
                   </h5>
 
                   <h6> Offline </h6>
@@ -1048,21 +1028,10 @@ Trending courses START */}
                 />
                 {/* Card body */}
                 <div className="card-body pb-0">
-                  {/* Badge and favorite */}
-                  <div className="d-flex justify-content-between mb-2">
-                    <a
-                      href="#"
-                      className="badge bg-purple bg-opacity-10 text-purple"
-                    >
-                      All level
-                    </a>
-                    <a href="#" className="h6 mb-0">
-                      <i className="far fa-heart" />
-                    </a>
-                  </div>
+                 
                   {/* Title */}
                   <h5 className="card-title fw-normal">
-                    <a href="#">Angular</a>
+                    <a href="#">Python</a>
                   </h5>
 
                   <h6> Offline </h6>

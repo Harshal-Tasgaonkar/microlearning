@@ -19,6 +19,12 @@ const CreateSkillForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Check if the skill name is empty
+    if (!skillName.trim()) {
+      alert('Please enter a skill name.'); // Alert for empty skill name
+      return; // Stop form submission
+    }
+
     // Convert skill name to title case
     const formattedSkillName = toTitleCase(skillName);
 
@@ -62,7 +68,7 @@ const CreateSkillForm = () => {
                   placeholder="Enter Skill Name"
                   value={skillName}
                   onChange={(e) => setSkillName(e.target.value)} // Update skill name on input change
-                  required
+                  required // Make this field mandatory
                 />
               </div>
             </div>
