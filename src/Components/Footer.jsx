@@ -29,39 +29,57 @@ const Footer = () => {
         <ul className="list-inline mb-0 mt-3">
           <li className="list-inline-item">
             {" "}
-            <a
+            <Link
               className="btn btn-white btn-sm shadow px-2 text-facebook"
-              href="https://www.facebook.com/MicrolearningCorporateTraining/"
+              to="https://www.facebook.com/MicrolearningCorporateTraining/"
             >
               <i className="fab fa-fw fa-facebook-f" />
-            </a>{" "}
+            </Link>{" "}
           </li>
           <li className="list-inline-item">
             {" "}
-            <a
+            <Link
               className="btn btn-white btn-sm shadow px-2 text-instagram"
-              href="https://www.instagram.com/micro_learning_/"
+              to="https://www.instagram.com/micro_learning_/"
             >
               <i className="fab fa-fw fa-instagram" />
-            </a>{" "}
+            </Link>{" "}
           </li>
           <li className="list-inline-item">
             {" "}
-            <a
+            <Link
               className="btn btn-white btn-sm shadow px-2 text-twitter"
-              href="https://x.com/microlearning0"
+              to="https://x.com/microlearning0"
             >
-              <i className="fab fa-fw fa-twitter" />
-            </a>{" "}
+              <i className="fa-brands fa-x-twitter fa-fw " />
+            </Link>{" "}
           </li>
           <li className="list-inline-item">
             {" "}
-            <a
+            <Link
               className="btn btn-white btn-sm shadow px-2 text-linkedin"
-              href="https://www.linkedin.com/company/104394261/admin/dashboard/"
+              to="https://www.linkedin.com/company/104394261/admin/dashboard/"
             >
               <i className="fab fa-fw fa-linkedin-in" />
-            </a>{" "}
+            </Link>{" "}
+          </li>
+          <li className="list-inline-item">
+            {" "}
+            <Link
+              className="btn btn-white btn-sm shadow px-2 text-linkedin"
+              to="https://www.youtube.com/@microlearningcoachingcente2131"
+            >
+              <i className="fa-brands fa-youtube fa-fw " />
+            </Link>{" "}
+          </li>
+          <li className="list-inline-item">
+            {" "}
+            <Link
+              className="btn btn-white btn-sm shadow px-2 text-linkedin"
+              to="https://t.me/Microlearni"
+            >
+              <i className="fa-brands fa-telegram fa-fw " />
+            </Link>{" "}
           </li>
         </ul>
       </div>
@@ -100,9 +118,9 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/termsandconditions">
                   Terms &amp; Conditions
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -148,14 +166,14 @@ const Footer = () => {
           <div className="justify-content-center mt-3 mt-lg-0">
             <ul className="nav list-inline justify-content-center mb-0">
               <li className="list-inline-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/termsandconditions">
                   Terms &amp; Conditions
-                </a>
+                </Link>
               </li>
               <li className="list-inline-item">
-                <a className="nav-link pe-0" href="#">
+                <Link className="nav-link pe-0" to="/privacypolicy">
                   Privacy policy
-                </a>
+                </Link>
               </li>
               <li className="list-inline-item">
                 <a className="nav-link" href="#">

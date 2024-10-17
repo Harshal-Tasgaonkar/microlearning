@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-
-import { Link,NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { database, ref, get } from '../firebase'; // Import Firebase
 
 const Navbar = () => {
   const [courses, setCourses] = useState([]); // State to store all courses
   const [filteredCourses, setFilteredCourses] = useState([]); // State to store filtered courses
- 
 
   useEffect(() => {
     // Fetch courses from Firebase
@@ -33,20 +31,17 @@ const Navbar = () => {
     fetchCourses(); // Call the function to fetch data
   }, []); // Empty dependency array means this effect runs once after initial render
 
-  // Handle search input changes
-  
-
   return (
     <header className="navbar-light navbar-sticky header-static">
       <nav className="navbar navbar-expand-xl">
         <div className="container-fluid px-3 px-xl-5">
           {/* Logo START */}
           <Link to="/" className="navbar-brand">
-          <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#000' }}>
-           MICROLEARNING
-          </span>
+            <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#000' }}>
+              MICROLEARNING
+            </span>
           </Link>
-      {/* Logo END */}
+          {/* Logo END */}
           {/* Responsive navbar toggler */}
           <button
             className="navbar-toggler ms-auto"
@@ -81,7 +76,7 @@ const Navbar = () => {
                 <ul className="dropdown-menu" aria-labelledby="categoryMenu">
                   {/* Loop through filtered courses and display them */}
                   {filteredCourses.map((course) => (
-                    <li key={course.courseID}>
+                    <li key={course.courseID}> {/* Use courseID as key */}
                       <Link to={`/coursedetail/${course.courseID}`} className="dropdown-item">
                         {course.courseName}
                       </Link>
@@ -104,24 +99,23 @@ const Navbar = () => {
             {/* Nav category menu END */}
             {/* Nav Main menu START */}
             <ul className="navbar-nav navbar-nav-scroll me-auto">
-              <NavLink  className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to="/" id="demoMenu">
+              <NavLink className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to="/" id="demoMenu">
                 Home
               </NavLink>
-              <NavLink  className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to="/coursecategories" id="">
+              <NavLink className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to="/coursecategories" id="">
                 Category
               </NavLink>
-              <NavLink  className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to="/courselist" id="pagesMenu">
+              <NavLink className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to="/courselist" id="pagesMenu">
                 Courses
               </NavLink>
-              <Link  className="nav-link"  id="accountMenu">
+              <Link className="nav-link" id="accountMenu">
                 Batches
               </Link>
-              <NavLink  className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to="/inquiry" id="advanceMenu">
+              <NavLink className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} to="/inquiry" id="advanceMenu">
                 Inquiry
               </NavLink>
             </ul>
             {/* Nav Main menu END */}
-            
           </div>
           {/* Main navbar END */}
           {/* Login button START */}

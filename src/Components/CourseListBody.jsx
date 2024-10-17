@@ -137,7 +137,7 @@ const CourseListBody = () => {
           <div className="row mb-4 align-items-center">
             {/* Search bar */}
             <div className="col-sm-6 col-xl-4">
-              <form className="border rounded p-2">
+              <form className="border rounded  rounded-pill p-2">
                 <div className="input-group input-borderless">
                   <input
                     className="form-control me-1"
@@ -146,9 +146,9 @@ const CourseListBody = () => {
                     value={searchTerm}
                     onChange={handleSearchChange} // Capture input
                   />
-                  <button type="button" className="btn btn-primary mb-0 rounded">
-                    <i className="fas fa-search" />
-                  </button>
+                  
+                    <i className="fas fa-search me-2 my-auto" />
+                  
                 </div>
               </form>
             </div>

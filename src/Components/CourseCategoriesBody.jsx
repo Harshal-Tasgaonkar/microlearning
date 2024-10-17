@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import { database, ref, onValue } from "../firebase"; // Adjust imports
+import category1 from "../Assets/images/element/category-1.svg"
+import category2 from "../Assets/images/element/category-2.svg"
+
 
 const CourseCategoriesBody = () => {
   const [categories, setCategories] = useState([]);
@@ -58,23 +61,25 @@ const CourseCategoriesBody = () => {
             <div className="col-12">
               <div className="row align-items-center">
                 <div className="col-6 col-md-3 text-center order-1">
-                  <img src="/microlearning/static/media/category-1.6487f4e8091cb3b4587734cace3ec219.svg" width="295" height="335" alt="" />
+                  <img src={category1} width="295" height="335" alt="" />
                 </div>
                 <div className="col-md-6 px-md-5 text-center position-relative order-md-2 mb-5 mb-md-0">
                   <h1 className="mb-3">What do you want to learn?</h1>
                   <p className="mb-3">Grow your skill with the most reliable online courses and certifications.</p>
-                  <form className="bg-body rounded p-2">
-                    <input
-                      className="form-control border-0"
-                      type="search"
-                      placeholder="Search Category"
-                      value={searchQuery}
-                      onChange={handleSearch} // Update onChange to handleSearch
-                    />
-                  </form>
+                  <form className="bg-body rounded  rounded-pill p-2">
+  <input
+    className="form-control border-0 "
+    type="search"
+    placeholder="Search Category"
+    value={searchQuery}
+    onChange={handleSearch}
+  />
+</form>
+
+
                 </div>
                 <div className="col-6 col-md-3 text-center order-3">
-                  <img src="/microlearning/static/media/category-2.6461406429a4add3050d224c91ed853b.svg" width="264" height="268" alt="" />
+                  <img src={category2} width="264" height="268" alt="" />
                 </div>
               </div>
             </div>
@@ -97,7 +102,7 @@ const CourseCategoriesBody = () => {
                 <div key={index} className="col-sm-6 col-md-4 col-xl-3">
                   <div className="card card-body bg-success bg-opacity-10 text-center position-relative btn-transition p-4">
                     <div className="icon-xl bg-body mx-auto rounded-circle mb-3">
-                      <img src="/microlearning/static/media/category-2.6461406429a4add3050d224c91ed853b.svg" width="55" height="59" alt="" />
+                    <i class="fa-solid fa-layer-group"></i>
                     </div>
                     <h5 className="mb-2">
                       {/* Link to /courselist with categoryId as a URL parameter */}
