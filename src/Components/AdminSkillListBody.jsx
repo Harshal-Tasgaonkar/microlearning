@@ -34,16 +34,25 @@ const AdminSkillListBody = () => {
 
   // Handle delete skill from Firebase
   const handleDelete = (id) => {
-    const skillRef = ref(database, `skills/${id}`);
-    remove(skillRef)
-      .then(() => {
-        setSkills(skills.filter((skill) => skill.id !== id)); // Update state after deletion
-        alert('Skill deleted successfully');
-      })
-      .catch((error) => {
-        console.error('Error deleting skill:', error);
-      });
+    // Show a confirmation dialog
+    const confirmDelete = window.confirm("Are you sure you want to delete this skill?");
+  
+    if (confirmDelete) {
+      const skillRef = ref(database, `skills/${id}`);
+      remove(skillRef)
+        .then(() => {
+          setSkills((skills) => skills.filter((skill) => skill.id !== id)); // Update state after deletion
+          alert('Skill deleted successfully');
+        })
+        .catch((error) => {
+          console.error('Error deleting skill:', error);
+        });
+    } else {
+      // If the user cancels the deletion
+      console.log("Skill deletion canceled");
+    }
   };
+  
 
   // Filter skills based on search term
   const filteredSkills = skills.filter(skill => 

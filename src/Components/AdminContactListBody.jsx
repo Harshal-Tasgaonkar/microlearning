@@ -3,6 +3,18 @@ import { database, ref, onValue, remove } from '../firebase'; // Import necessar
 
 const AdminContactListBody = () => {
   const [contacts, setContacts] = useState([]);
+  const [categories, setCategories] = useState({}); // State to store category data
+
+  // Fetch category data from Firebase
+  useEffect(() => {
+    const categoryRef = ref(database, 'categories'); // Assuming 'categories' is the path in your database
+    onValue(categoryRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        setCategories(data); // Store categories in an object where categoryID is the key
+      }
+    });
+  }, []);
 
   // Fetch contact data from Firebase
   useEffect(() => {
@@ -19,16 +31,21 @@ const AdminContactListBody = () => {
     });
   }, []);
 
-  // Function to handle deletion of a contact
   const handleDelete = (contactId) => {
-    const contactRef = ref(database, `contacts/${contactId}`);
-    remove(contactRef)
-      .then(() => {
-        console.log('Contact deleted successfully');
-      })
-      .catch((error) => {
-        console.error('Error deleting contact:', error);
-      });
+    const confirmDelete = window.confirm("Are you sure you want to delete this contact?");
+    if (confirmDelete) {
+      const contactRef = ref(database, `contacts/${contactId}`);
+      remove(contactRef)
+        .then(() => {
+          setContacts((prevContacts) =>
+            prevContacts.filter((contact) => contact.id !== contactId)
+          );
+          console.log('Contact deleted successfully');
+        })
+        .catch((error) => {
+          console.error('Error deleting contact:', error);
+        });
+    }
   };
 
   return (
@@ -48,9 +65,7 @@ const AdminContactListBody = () => {
             <div className="card-header bg-light border-bottom">
               {/* Search and select START */}
               <div className="row g-3 align-items-center justify-content-between">
-                
-               
-                
+                {/* Any filters or additional search features can go here */}
               </div>
               {/* Search and select END */}
             </div>
@@ -68,6 +83,7 @@ const AdminContactListBody = () => {
                       <th scope="col" className="border-0">Name</th>
                       <th scope="col" className="border-0">Mobile</th>
                       <th scope="col" className="border-0">Message</th>
+                      <th scope="col" className="border-0">Category</th>
                       <th scope="col" className="border-0 rounded-end">Action</th>
                     </tr>
                   </thead>
@@ -78,6 +94,8 @@ const AdminContactListBody = () => {
                           <td>{contact.name}</td>
                           <td>{contact.mobile}</td>
                           <td>{contact.message}</td>
+                          {/* Display the categoryName based on the categoryID */}
+                          <td>{categories[contact.category] ? categories[contact.category].categoryName : 'Unknown Category'}</td>
                           <td>
                             <button
                               className="btn btn-sm btn-danger mb-0 me-1"
@@ -90,7 +108,7 @@ const AdminContactListBody = () => {
                       ))
                     ) : (
                       <tr>
-                        <td colSpan="4" className="text-center">
+                        <td colSpan="5" className="text-center">
                           No contacts found
                         </td>
                       </tr>

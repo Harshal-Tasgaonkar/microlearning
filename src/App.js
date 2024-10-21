@@ -48,6 +48,10 @@ import AdminInquiryList from './Components/AdminInquiryList';
 import AdminContactList from './Components/AdminContactList';
 import TermsAndConditions from './Components/TermsAndConditions';
 import PrivacyPolicy from './Components/PrivacyPolicy';
+import AdminBatchesList from './Components/AdminBatchesList';
+import CreateBatch from './Components/CreateBatch';
+import EditBatch from './Components/EditBatch';
+import ViewBatch from './Components/ViewBatch';
 
 function App() {
   return (
@@ -92,6 +96,10 @@ function App() {
         <Route path="/admincontactlist" element={<AdminContactList/>} />
         <Route path="/termsandconditions" element={<TermsAndConditions/>} />
         <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
+        <Route path="/adminbatcheslist" element={<AdminBatchesList/>} />
+        <Route path="/createbatch" element={<CreateBatch/>} />
+        <Route path="/editbatch/:batchID" element={<EditBatch/>} />
+        <Route path="/viewbatch/:batchID" element={<ViewBatch/>} />
 
 
       </Routes>

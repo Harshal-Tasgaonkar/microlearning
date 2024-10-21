@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom'; // Use NavLink instead of Link
-import logo from "../Assets/01.jpg";
+import logo from "../Assets/images/avatar/01.jpg";
 
 import useThemeSwitcher from './useThemeSwitcher';
 
@@ -201,24 +201,7 @@ const AdminSidebar = () => {
                       </svg>{" "}
                       Dark
                     </button>
-                    <button
-                      type="button"
-                      className="btn btn-sm mb-0"
-                      data-bs-theme-value="auto"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={16}
-                        height={16}
-                        fill="currentColor"
-                        className="bi bi-circle-half fa-fw mode-switch"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
-                        <use href="#" />
-                      </svg>{" "}
-                      Auto
-                    </button>
+                    
                   </div>
                 </li>
                 {/* Dark mode options END*/}
@@ -314,6 +297,16 @@ const AdminSidebar = () => {
       {/* Menu item 7 */}
       <li className="nav-item">
         <NavLink 
+          to="/adminbatcheslist" 
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+        >
+          <i className="fas fa-users fa-fw me-2" />
+          Batch
+        </NavLink>
+      </li>
+      {/* Menu item 8 */}
+      <li className="nav-item">
+        <NavLink 
           to="/admininquirylist" 
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
         >
@@ -321,7 +314,7 @@ const AdminSidebar = () => {
           Inquiry
         </NavLink>
       </li>
-       {/* Menu item 8 */}
+       {/* Menu item 9 */}
        <li className="nav-item">
         <NavLink 
           to="/admincontactlist" 

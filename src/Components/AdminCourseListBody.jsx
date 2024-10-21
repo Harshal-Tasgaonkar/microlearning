@@ -28,15 +28,28 @@ const AdminCourseListBody = () => {
   }, []);
 
   const handleDelete = (courseID) => {
-    const courseRef = ref(database, `courses/${courseID}`);
-    set(courseRef, null)
-      .then(() => {
-        alert("Course deleted successfully");
-      })
-      .catch((error) => {
-        console.error("Error deleting course: ", error);
-      });
+    // Show a confirmation dialog
+    const confirmDelete = window.confirm("Are you sure you want to delete this course?");
+  
+    if (confirmDelete) {
+      const courseRef = ref(database, `courses/${courseID}`);
+  
+      // Delete the course by setting it to null
+      set(courseRef, null)
+        .then(() => {
+          // Remove the deleted course from the state
+          setCourses((prevCourses) => prevCourses.filter((course) => course.courseID !== courseID));
+          alert("Course deleted successfully");
+        })
+        .catch((error) => {
+          console.error("Error deleting course: ", error);
+        });
+    } else {
+      // If the user cancels the deletion
+      console.log("Course deletion cancelled");
+    }
   };
+  
 
   return (
     <div className="page-content">

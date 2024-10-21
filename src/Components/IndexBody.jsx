@@ -11,25 +11,14 @@ import jpg02 from "../Assets/images/avatar/02.jpg"
 import jpg03 from "../Assets/images/avatar/03.jpg"
 import jpg04 from "../Assets/images/avatar/04.jpg"
 import jpg09 from "../Assets/images/avatar/09.jpg"
-import jpg10 from "../Assets/images/avatar/10.jpg"
+import svg19 from "../Assets/images/element/19.svg"
+import svg18 from "../Assets/images/element/18.svg"
+import svg20 from "../Assets/images/element/20.svg"
+
 import png07 from "../Assets/images/element/07.png"
-import course02jpg from "../Assets/images/courses/4by3/02.jpg"
-import course03jpg from "../Assets/images/courses/4by3/03.jpg"
-import course04jpg from "../Assets/images/courses/4by3/04.jpg"
-import course05jpg from "../Assets/images/courses/4by3/05.jpg"
-import course06jpg from "../Assets/images/courses/4by3/06.jpg"
-import course07jpg from "../Assets/images/courses/4by3/07.jpg"
+
 import course08jpg from "../Assets/images/courses/4by3/08.jpg"
-import course09jpg from "../Assets/images/courses/4by3/09.jpg"
-import course10jpg from "../Assets/images/courses/4by3/10.jpg"
-import course11jpg from "../Assets/images/courses/4by3/11.jpg"
-import course12jpg from "../Assets/images/courses/4by3/12.jpg"
-import course01jpg from "../Assets/images/courses/4by3/01.jpg"
-import course13jpg from "../Assets/images/courses/4by3/13.jpg"
-import course14jpg from "../Assets/images/courses/4by3/14.jpg"
-import course15jpg from "../Assets/images/courses/4by3/15.jpg"
-import course16jpg from "../Assets/images/courses/4by3/16.jpg"
-import course17jpg from "../Assets/images/courses/4by3/17.jpg"
+
 
 const IndexBody = () => {
 
@@ -1377,6 +1366,132 @@ Reviews START */}
         </div>
       </div>{" "}
       {/* Row END */}
+      
+      <section className="pt-4 pt-lg-5">
+  <div className="container">
+    {/* Category START */}
+    <div className="row g-4">
+      {/* Category item */}
+      <div className="col-sm-6 col-lg-12 col-xl-3">
+        <h2>Services that you need to know</h2>
+        <p>
+          The 1-hour demo will provide Happiness prosperous impression had
+          conviction For every delay in their Extremity now, strangers
+        </p>
+      </div>
+      {/* Category item */}
+      <div className="col-sm-6 col-lg-4 col-xl-3">
+        <div className="card card-body shadow h-100">
+          {/* Title and image */}
+          <div className="d-flex align-items-center">
+            <img
+              src={svg19}
+              className="h-60px mb-2"
+              alt=""
+            />
+            <div className="ms-3">
+              <h5 className="mb-0">
+                <a href="#">School tuition</a>
+              </h5>
+              <p className="mb-0 small">Total 268 Students</p>
+            </div>
+          </div>
+          {/* List */}
+          <ul className="list-group list-group-borderless small mt-2">
+            <li className="list-group-item text-body pb-0">
+              {" "}
+              <i className="fa-solid fa-badge-check text-success" />
+              Private and public classes
+            </li>
+            <li className="list-group-item text-body pb-0">
+              {" "}
+              <i className="fa-solid fa-badge-check text-success" />
+              Online and offline classes
+            </li>
+            <li className="list-group-item text-body pb-0">
+              {" "}
+              <i className="fa-solid fa-badge-check text-success" />
+              Mon to Sat classes
+            </li>
+          </ul>
+        </div>
+      </div>
+      {/* Category item */}
+      <div className="col-sm-6 col-lg-4 col-xl-3">
+        <div className="card card-body shadow h-100">
+          {/* Title and image */}
+          <div className="d-flex align-items-center">
+            <img
+              src={svg18}
+              className="h-60px mb-2"
+              alt=""
+            />
+            <div className="ms-3">
+              <h5 className="mb-0">
+                <a href="#">College tuition</a>
+              </h5>
+              <p className="mb-0 small">Total 780 Students</p>
+            </div>
+          </div>
+          {/* List */}
+          <ul className="list-group list-group-borderless small mt-2">
+            <li className="list-group-item text-body pb-0">
+              {" "}
+              <i className="fa-solid fa-badge-check text-success" />
+              Only private classes
+            </li>
+            <li className="list-group-item text-body pb-0">
+              {" "}
+              <i className="fa-solid fa-badge-check text-success" />
+              Online and offline classes
+            </li>
+            <li className="list-group-item text-body pb-0">
+              {" "}
+              <i className="fa-solid fa-badge-check text-success" />
+              Sat and Sun classes
+            </li>
+          </ul>
+        </div>
+      </div>
+      {/* Category item */}
+      <div className="col-sm-6 col-lg-4 col-xl-3">
+        <div className="card card-body shadow h-100">
+          {/* Title and image */}
+          <div className="d-flex align-items-center">
+            <img
+              src={svg20}
+              className="h-60px mb-2"
+              alt=""
+            />
+            <div className="ms-3">
+              <h5 className="mb-0">
+                <a href="#">Language tuition</a>
+              </h5>
+              <p className="mb-0 small">Total 576 Students</p>
+            </div>
+          </div>
+          {/* List */}
+          <ul className="list-group list-group-borderless small mt-2">
+            <li className="list-group-item text-body pb-0">
+              {" "}
+              <i className="fas fa-badge-check text-success" />
+              Private and public classes
+            </li>
+            <li className="list-group-item text-body pb-0">
+              {" "}
+              <i className="fas fa-badge-check " />
+              Online and offline classes
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {/* Category END */}
+  </div>
+</section>
+
+
+
       <div className="container position-relative overflow-hidden">
         {/* SVG decoration */}
         <figure className="position-absolute top-50 start-50 translate-middle ms-3">

@@ -13,9 +13,9 @@ const AdminInquiryListBody = () => {
       const data = snapshot.val();
       if (data) {
         // Convert data object to an array of inquiry objects
-        const inquiryList = Object.keys(data).map((inquiryId) => ({
-          inquiryId,
-          ...data[inquiryId],
+        const inquiryList = Object.keys(data).map((inquiryID) => ({
+          inquiryID,
+          ...data[inquiryID],
         }));
         setInquiries(inquiryList);
       }
@@ -23,10 +23,10 @@ const AdminInquiryListBody = () => {
   }, []);
 
   // Function to handle deleting an inquiry
-  const handleDelete = (inquiryId) => {
+  const handleDelete = (inquiryID) => {
     if (window.confirm('Are you sure you want to delete this inquiry?')) {
       // Reference to the specific inquiry in Firebase
-      const inquiryRef = ref(database, `inquiries/${inquiryId}`);
+      const inquiryRef = ref(database, `inquiries/${inquiryID}`);
       // Remove the inquiry from Firebase
       remove(inquiryRef)
         .then(() => {
@@ -82,7 +82,7 @@ const AdminInquiryListBody = () => {
                   <tbody>
                     {inquiries.length > 0 ? (
                       inquiries.map((inquiry) => (
-                        <tr key={inquiry.inquiryId}>
+                        <tr key={inquiry.inquiryID}>
                           <td>{inquiry.name}</td>
                           <td>{inquiry.email}</td>
                           <td>{inquiry.mobileNumber}</td>
@@ -90,7 +90,7 @@ const AdminInquiryListBody = () => {
                           <td>
                             <button
                               className="btn btn-sm btn-danger mb-0 me-1"
-                              onClick={() => handleDelete(inquiry.inquiryId)}
+                              onClick={() => handleDelete(inquiry.inquiryID)}
                             >
                               <i className="fas fa-trash-alt" />
                             </button>

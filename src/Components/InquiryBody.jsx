@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { database, ref, push } from "../firebase"; // Firebase imports
+import { database, ref, push,set } from "../firebase"; // Firebase imports
 
 import child from "../Assets/images/element/child.svg"
 import help from "../Assets/images/element/help.svg"
@@ -18,51 +18,62 @@ const InquiryBody = () => {
     selectedClass: ''
   });
 
+  // Utility function to convert string to Title Case
+  const toTitleCase = (str) => {
+    return str
+      .toLowerCase()
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
+
   // Function to handle form input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    // If the input name is 'name', convert to title case
+    const newValue = name === "name" ? toTitleCase(value) : value;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Helper function to convert string to title case
-  const toTitleCase = (str) => {
-    return str.replace(/\w\S*/g, (txt) => {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    });
-  };
+  
 
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const inquiryRef = ref(database, 'inquiries');
+      // Generate inquiryID and save data to Firebase
+    const inquiriesRef = ref(database, "inquiries");
+    const newInquiryRef = push(inquiriesRef); // This creates a unique inquiryID
 
-    // Prepare data to send
-    const inquiryData = {
-      inquiryId: `inquiry_${Date.now()}`, // Unique inquiry ID based on timestamp
-      name: toTitleCase(formData.name), // Convert name to title case
+    // Save only inquiryID and form data to Firebase
+    set(newInquiryRef, {
+      inquiryID: newInquiryRef.key, // Auto-generated ID
+      name: formData.name,
       email: formData.email,
       mobileNumber: formData.mobileNumber,
       selectedClass: formData.selectedClass,
-      date: new Date().toISOString() // Store date of submission
-    };
-
-    // Push the inquiry data to Firebase
-    push(inquiryRef, inquiryData)
+    })
       .then(() => {
-        alert('Your class has been successfully booked!');
+        console.log("Inquiry submitted successfully");
+        // Optionally, reset the form or show a success message
         setFormData({
-          name: '',
-          email: '',
-          mobileNumber: '',
-          selectedClass: ''
+          name: "",
+          email: "",
+          mobileNumber: "",
+          selectedClass: ""
         });
       })
       .catch((error) => {
-        console.error("Error booking class: ", error);
+        console.error("Error submitting inquiry: ", error);
       });
-  };
+    
+      
 
+
+    };
+
+    
+    
 
   return (
    
@@ -436,7 +447,6 @@ const InquiryBody = () => {
             </figure>
             
             <div className="bg-primary bg-opacity-10 rounded-3 p-4 p-sm-5">
-      {/* Title */}
       <h2 className="mb-3">Book online class</h2>
 
       {/* Form START */}
@@ -453,7 +463,7 @@ const InquiryBody = () => {
             required
           />
         </div>
-        
+
         {/* Email */}
         <div className="col-12">
           <label className="form-label">Email *</label>
@@ -466,7 +476,7 @@ const InquiryBody = () => {
             required
           />
         </div>
-        
+
         {/* Mobile number */}
         <div className="col-12">
           <label className="form-label">Mobile number *</label>
@@ -479,7 +489,7 @@ const InquiryBody = () => {
             required
           />
         </div>
-        
+
         {/* Select class */}
         <div className="col-12">
           <label className="form-label">Select class *</label>

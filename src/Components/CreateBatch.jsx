@@ -1,18 +1,18 @@
 import React from 'react'
 import AdminSidebar from './AdminSidebar'
-import AdminContactListBody from './AdminContactListBody'
+import CreateBatchForm from './CreateBatchForm'
 import AdminFooter from './AdminFooter'
 
-const AdminContactList = () => {
+const CreateBatch = () => {
   return (
-   
+    
   <>
   <AdminSidebar/>
-  <AdminContactListBody/>
+  <CreateBatchForm/>
   <AdminFooter/>
   </>
 
   )
 }
 
-export default AdminContactList
+export default CreateBatch

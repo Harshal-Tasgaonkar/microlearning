@@ -1,6 +1,7 @@
 import React from 'react'
 import AdminSidebar from './AdminSidebar'
 import AdminInquiryListBody from './AdminInquiryListBody'
+import AdminFooter from './AdminFooter'
 
 const AdminInquiryList = () => {
   return (
@@ -8,6 +9,7 @@ const AdminInquiryList = () => {
   <>
   <AdminSidebar/>
   <AdminInquiryListBody/>
+  <AdminFooter/>
   </>
 
   )
