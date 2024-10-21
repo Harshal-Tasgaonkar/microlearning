@@ -52,6 +52,7 @@ import AdminBatchesList from './Components/AdminBatchesList';
 import CreateBatch from './Components/CreateBatch';
 import EditBatch from './Components/EditBatch';
 import ViewBatch from './Components/ViewBatch';
+import TeacherInquiryList from './Components/TeacherInquiryList';
 
 function App() {
   return (
@@ -100,6 +101,7 @@ function App() {
         <Route path="/createbatch" element={<CreateBatch/>} />
         <Route path="/editbatch/:batchID" element={<EditBatch/>} />
         <Route path="/viewbatch/:batchID" element={<ViewBatch/>} />
+        <Route path="/teacherinquirylist" element={<TeacherInquiryList/>} />
 
 
       </Routes>

@@ -324,6 +324,16 @@ const AdminSidebar = () => {
           Contact
         </NavLink>
       </li>
+      {/* Menu item 10 */}
+      <li className="nav-item">
+        <NavLink 
+          to="/teacherinquirylist" 
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+        >
+          <i className="fas fa-question-circle  fa-fw me-2" />
+          TeacherInquiry
+        </NavLink>
+      </li>
     </ul>
             {/* Sidebar menu end */}
           </div>
